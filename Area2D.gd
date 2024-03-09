@@ -1,7 +1,12 @@
 extends Area2D
 
+var dial = ["Iniciando preparo...", "...", "..."]
+var dialStatus = false
+var FracassoOuSucesso = ["Sucesso!", "Fracasso!"]
 var woo = 0
 var caldeiraoAtivo = false
+var pos = 1
+var fim = false
 
 #func _input(event):
 #	if event is InputEventMouseButton:
@@ -15,8 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("click"):
-		print("ok")
+	pass
 
 
 func _on_mouse_entered():
@@ -32,7 +36,7 @@ func _on_mouse_exited():
 #		$"../PanelContainer".show()
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton && fim == false:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and caldeiraoAtivo == false:
 			StartCauldron()
 			woo+=1
@@ -40,13 +44,28 @@ func _on_input_event(viewport, event, shape_idx):
 			print(woo)
 		elif event.button_index == MOUSE_BUTTON_LEFT and event.pressed and caldeiraoAtivo == true:
 			print("whatsapp")
-			%RichTextLabel.text = dial[1]
+			if pos == (dial.size() -1):
+				%PanelContainer.hide()
+				dialStatus = false
+				ResultsCauldron()
+				#$"../PanelContainer/Panel".hide()
+			else:
+				%RichTextLabel.text = dial[pos]
+				pos += 1
 		
 
 func StartCauldron():
-	
 	%RichTextLabel.text = dial[0]
 	$"../PanelContainer".show()
+	dialStatus = true
 	caldeiraoAtivo = true
-	#if $"../Area2D2".relogio == true:
-	#	
+
+func ResultsCauldron():
+	if $"../Area2D2".relogio == true and dialStatus == false:
+		%RichTextLabel.text = FracassoOuSucesso[0]
+		$"../PanelContainer".show()
+	elif $"../Area2D2".relogio == false and dialStatus == false:
+		%RichTextLabel.text = FracassoOuSucesso[1]
+		$"../PanelContainer".show()
+	caldeiraoAtivo = false
+	fim = true
