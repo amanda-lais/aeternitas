@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxu500v83bghj"]
 
 [ext_resource type="Script" path="res://Area2D.gd" id="1_c441m"]
-[ext_resource type="Texture2D" uid="uid://cmsbwjx3bxq6i" path="res://e3ee8428cf5c15b1301e440452bf0e8b.png" id="2_h0qld"]
+[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://cauldrongg.png" id="2_hgwi2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bom1x"]
-radius = 186.132
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lfk5"]
+radius = 255.0
+height = 512.0
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_c441m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_h0qld")
+texture = ExtResource("2_hgwi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-33, -12)
-shape = SubResource("CircleShape2D_bom1x")
+position = Vector2(-2, 34)
+shape = SubResource("CapsuleShape2D_6lfk5")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
