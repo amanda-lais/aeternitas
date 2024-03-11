@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bea0tra0khccu"]
+
+[ext_resource type="Texture2D" uid="uid://bmre4yl83rat5" path="res://assets/drafts/draft emptyroom.png" id="1_xtom5"]
+[ext_resource type="PackedScene" uid="uid://qqtqtllok2xt" path="res://item.tscn" id="2_tp1ai"]
+[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://assets/item_sprites_pixel/cauldrongg.png" id="3_6uv0i"]
+[ext_resource type="Texture2D" uid="uid://c2nij6o7j37vc" path="res://assets/drafts/clockdraft.png" id="4_ocg8u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eid37"]
+radius = 218.0
+height = 436.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lbsy"]
+radius = 106.921
+
+[node name="Room" type="Node2D"]
+
+[node name="Room" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.125, 0.84375)
+texture = ExtResource("1_xtom5")
+
+[node name="Cauldron" parent="." instance=ExtResource("2_tp1ai")]
+position = Vector2(589, 353)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Cauldron" index="0"]
+position = Vector2(-36, 54)
+texture = ExtResource("3_6uv0i")
+
+[node name="CollisionShape2D" parent="Cauldron" index="1"]
+position = Vector2(-38, 96)
+shape = SubResource("CapsuleShape2D_eid37")
+
+[node name="Clock" parent="." instance=ExtResource("2_tp1ai")]
+position = Vector2(589, 353)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Clock" index="0"]
+position = Vector2(-552, -518)
+scale = Vector2(2.05769, 2.05769)
+texture = ExtResource("4_ocg8u")
+
+[node name="CollisionShape2D" parent="Clock" index="1"]
+position = Vector2(-554, -518)
+shape = SubResource("CircleShape2D_7lbsy")
+
+[editable path="Cauldron"]
+[editable path="Clock"]

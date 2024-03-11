@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxu500v83bghj"]
 
 [ext_resource type="Script" path="res://Area2D.gd" id="1_c441m"]
-[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://cauldrongg.png" id="2_hgwi2"]
+[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://assets/item_sprites_pixel/cauldrongg.png" id="2_d8byc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lfk5"]
 radius = 255.0
@@ -11,7 +11,7 @@ height = 512.0
 script = ExtResource("1_c441m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hgwi2")
+texture = ExtResource("2_d8byc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 34)

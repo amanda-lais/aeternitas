@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ilbux7qlo2p"
-path="res://.godot/imported/chrornos cursor.png-927b01ad18cb72b8d12b9955210f0ed7.ctex"
+uid="uid://cyumjhuu5t14p"
+path="res://.godot/imported/cauldrongg.png-521cafa9c36197ac95f43ebc3a6fae6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chrornos cursor.png"
-dest_files=["res://.godot/imported/chrornos cursor.png-927b01ad18cb72b8d12b9955210f0ed7.ctex"]
+source_file="res://assets/item_sprites_pixel/cauldrongg.png"
+dest_files=["res://.godot/imported/cauldrongg.png-521cafa9c36197ac95f43ebc3a6fae6b.ctex"]
 
 [params]
 
