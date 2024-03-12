@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4kkny4xw4jjn"]
 
 [ext_resource type="PackedScene" uid="uid://cxu500v83bghj" path="res://area_2d.tscn" id="1_7q84c"]
-[ext_resource type="Texture2D" uid="uid://d20q2187l4wio" path="res://oZFusP.png" id="1_t7owt"]
+[ext_resource type="Texture2D" uid="uid://d20q2187l4wio" path="res://assets/drafts/oZFusP.png" id="1_t7owt"]
 [ext_resource type="Script" path="res://Area2D2.gd" id="3_xnyo6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rpkp"]
