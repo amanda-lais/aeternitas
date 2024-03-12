@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dejnvedggbyhv"]
+[gd_scene load_steps=6 format=3 uid="uid://dejnvedggbyhv"]
 
 [ext_resource type="Script" path="res://dialogue.gd" id="1_6r1tk"]
 [ext_resource type="Texture2D" uid="uid://cpcxtifa68ai7" path="res://assets/character_sprites/witch sprite final.png" id="1_q2een"]
 [ext_resource type="Texture2D" uid="uid://crrub1g5s1608" path="res://icon.png" id="2_1divq"]
-[ext_resource type="Script" path="res://Dialogue_Box_Collision2.gd" id="4_p0ybs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ewpx3"]
 
@@ -44,7 +43,6 @@ offset_right = 119.0
 offset_bottom = 38.0
 scale = Vector2(2, 2)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "CHARNAME"
 metadata/_edit_use_anchors_ = true
 
 [node name="Dialogue_Text" type="RichTextLabel" parent="."]
@@ -66,11 +64,10 @@ icon = ExtResource("2_1divq")
 metadata/_edit_use_anchors_ = true
 
 [node name="Dialogue_Box_Collision2" type="Area2D" parent="."]
-script = ExtResource("4_p0ybs")
 
 [node name="Dialogue_Box_Collision_Shape" type="CollisionShape2D" parent="Dialogue_Box_Collision2"]
 position = Vector2(493.5, 104)
 scale = Vector2(1, 1.01)
 shape = SubResource("RectangleShape2D_4q7wp")
 
-[connection signal="input_event" from="Dialogue_Box_Collision2" to="Dialogue_Box_Collision2" method="_on_input_event"]
+[connection signal="input_event" from="Dialogue_Box_Collision2" to="." method="_on_dialogue_box_collision_2_input_event"]
