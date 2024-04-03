@@ -1,0 +1,174 @@
+[gd_scene load_steps=26 format=3 uid="uid://bq28hsnurb2pg"]
+
+[ext_resource type="PackedScene" uid="uid://clpphucndhh2d" path="res://_item.tscn" id="1_16hrq"]
+[ext_resource type="Texture2D" uid="uid://biuclf7ebbr4w" path="res://assets/Temp/539c483ff16585f1014ce8bff226bc56.png" id="2_xdibp"]
+[ext_resource type="Texture2D" uid="uid://cli3mc5f47ajf" path="res://assets/Temp/Forest/fruit-tree.png" id="3_g1vds"]
+[ext_resource type="Texture2D" uid="uid://tev6fp2b5riw" path="res://assets/Temp/Forest/birch-trees.png" id="4_qj22m"]
+[ext_resource type="Texture2D" uid="uid://b4pwig1bk7edi" path="res://assets/Temp/Forest/stone-path.png" id="5_kdrn1"]
+[ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/Temp/Forest/cobweb.png" id="6_dmuax"]
+[ext_resource type="Texture2D" uid="uid://64gttwdm8osh" path="res://assets/Temp/Forest/rock.png" id="7_7ru42"]
+[ext_resource type="Script" path="res://spiderweb.gd" id="7_gvwox"]
+[ext_resource type="Texture2D" uid="uid://dbcjuyxjqisol" path="res://assets/Temp/Forest/moon.png" id="8_le06n"]
+[ext_resource type="Texture2D" uid="uid://bhgl01j1aomjn" path="res://assets/Temp/Forest/ursa-major.png" id="9_ep3yn"]
+[ext_resource type="Texture2D" uid="uid://chv1hstse0qes" path="res://assets/Temp/Forest/target-dummy.png" id="10_n7amv"]
+[ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/Temp/Forest/sugar-cane.png" id="11_m64tc"]
+[ext_resource type="Texture2D" uid="uid://cw1rq0quc8xo" path="res://assets/Temp/Forest/sun-cloud.png" id="12_aljg4"]
+[ext_resource type="Texture2D" uid="uid://d0e6ks8wl3cfy" path="res://assets/Temp/Forest/magic-broom.png" id="13_dg4hp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88pei"]
+radius = 226.696
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vncwg"]
+size = Vector2(384.908, 458.574)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2sxs2"]
+radius = 126.386
+height = 571.343
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c51fc"]
+size = Vector2(474.97, 479.353)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o7pa"]
+radius = 249.512
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqto7"]
+radius = 237.991
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7nep"]
+radius = 107.866
+height = 607.802
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb2po"]
+radius = 256.0
+height = 512.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aie8r"]
+size = Vector2(453.938, 475.428)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hmews"]
+radius = 100.252
+height = 329.143
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62icl"]
+radius = 98.1311
+height = 557.157
+
+[node name="Forest" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(567, 389)
+scale = Vector2(1.67143, 1.3202)
+texture = ExtResource("2_xdibp")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Fruit tree" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(432, 467)
+scale = Vector2(0.375, 0.824219)
+texture = ExtResource("3_g1vds")
+
+[node name="CollisionShape2D" parent="Items/Fruit tree/Area2D" index="0"]
+shape = SubResource("CircleShape2D_88pei")
+
+[node name="Unpaved" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(87, 392)
+scale = Vector2(0.550781, 0.898438)
+texture = ExtResource("4_qj22m")
+
+[node name="CollisionShape2D" parent="Items/Unpaved/Area2D" index="0"]
+position = Vector2(1.8156, 0)
+shape = SubResource("RectangleShape2D_vncwg")
+
+[node name="Paved" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(1038, 616)
+rotation = 1.309
+scale = Vector2(0.420493, 0.558764)
+texture = ExtResource("5_kdrn1")
+
+[node name="CollisionShape2D" parent="Items/Paved/Area2D" index="0"]
+position = Vector2(-42.5795, -4.88025)
+shape = SubResource("CapsuleShape2D_2sxs2")
+
+[node name="Spiderweb" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(675, 360)
+scale = Vector2(0.261719, 0.265625)
+texture = ExtResource("6_dmuax")
+script = ExtResource("7_gvwox")
+
+[node name="CollisionShape2D" parent="Items/Spiderweb/Area2D" index="0"]
+position = Vector2(-0.5896, 1.26477)
+shape = SubResource("RectangleShape2D_c51fc")
+
+[node name="Rock" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(270, 604)
+scale = Vector2(0.25, 0.21875)
+texture = ExtResource("7_7ru42")
+
+[node name="CollisionShape2D" parent="Items/Rock/Area2D" index="0"]
+shape = SubResource("CircleShape2D_2o7pa")
+
+[node name="Moon" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(406, 98)
+scale = Vector2(0.395896, 0.372879)
+texture = ExtResource("8_le06n")
+
+[node name="CollisionShape2D" parent="Items/Moon/Area2D" index="0"]
+shape = SubResource("CircleShape2D_aqto7")
+
+[node name="Starry sky" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(980, 115)
+scale = Vector2(0.65625, 0.597656)
+texture = ExtResource("9_ep3yn")
+
+[node name="CollisionShape2D" parent="Items/Starry sky/Area2D" index="0"]
+position = Vector2(-4.21094, 5.29126)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_n7nep")
+
+[node name="Dummy" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(918, 436)
+scale = Vector2(0.34375, 0.421875)
+texture = ExtResource("10_n7amv")
+
+[node name="CollisionShape2D" parent="Items/Dummy/Area2D" index="0"]
+shape = SubResource("CapsuleShape2D_bb2po")
+
+[node name="Crops" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(709, 560)
+scale = Vector2(0.378906, 0.273438)
+texture = ExtResource("11_m64tc")
+
+[node name="CollisionShape2D" parent="Items/Crops/Area2D" index="0"]
+position = Vector2(21.1133, 14.6287)
+shape = SubResource("RectangleShape2D_aie8r")
+
+[node name="Clouds" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(683, 4)
+scale = Vector2(0.558594, 0.492188)
+texture = ExtResource("12_aljg4")
+
+[node name="CollisionShape2D" parent="Items/Clouds/Area2D" index="0"]
+scale = Vector2(2.48239, 1.02497)
+shape = SubResource("CapsuleShape2D_hmews")
+
+[node name="Broom" parent="Items" instance=ExtResource("1_16hrq")]
+position = Vector2(566, 570)
+scale = Vector2(0.234375, 0.335938)
+texture = ExtResource("13_dg4hp")
+
+[node name="CollisionShape2D" parent="Items/Broom/Area2D" index="0"]
+position = Vector2(19.9064, -13.5305)
+rotation = 0.664714
+shape = SubResource("CapsuleShape2D_62icl")
+
+[editable path="Items/Fruit tree"]
+[editable path="Items/Unpaved"]
+[editable path="Items/Paved"]
+[editable path="Items/Spiderweb"]
+[editable path="Items/Rock"]
+[editable path="Items/Moon"]
+[editable path="Items/Starry sky"]
+[editable path="Items/Dummy"]
+[editable path="Items/Crops"]
+[editable path="Items/Clouds"]
+[editable path="Items/Broom"]

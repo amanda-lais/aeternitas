@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b46t8dl0dvfgs"]
+
+[ext_resource type="Texture2D" uid="uid://d20q2187l4wio" path="res://assets/drafts/oZFusP.png" id="1_vb2b7"]
+
+[node name="_Room" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576.75, 331.75)
+scale = Vector2(0.603795, 0.461648)
+texture = ExtResource("1_vb2b7")
+
+[node name="Items" type="Node2D" parent="."]
+position = Vector2(576.75, 331.75)
+scale = Vector2(0.603795, 0.461648)

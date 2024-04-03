@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqms301mrdxu0"]
+
+[ext_resource type="Texture2D" uid="uid://daevm5g47nt5o" path="res://assets/Temp/icons dA/I_Map.png" id="1_cvdy5"]
+[ext_resource type="Texture2D" uid="uid://c2ltnk3glkpvs" path="res://assets/Temp/icons dA/W_Book07.png" id="2_b5din"]
+[ext_resource type="Texture2D" uid="uid://c8tvyiuqtngpq" path="res://assets/Temp/icons dA/I_Rock03.png" id="3_w0f5a"]
+[ext_resource type="Texture2D" uid="uid://d1yhxeig2xym7" path="res://assets/Temp/icons dA/S_Sword01.png" id="4_5el16"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -317.5
+offset_right = 317.5
+offset_bottom = 126.0
+grow_horizontal = 2
+allow_search = false
+item_count = 4
+max_columns = 4
+same_column_width = true
+fixed_column_width = 150
+icon_mode = 0
+fixed_icon_size = Vector2i(75, 100)
+item_0/text = ""
+item_0/icon = ExtResource("1_cvdy5")
+item_1/text = ""
+item_1/icon = ExtResource("2_b5din")
+item_2/text = ""
+item_2/icon = ExtResource("3_w0f5a")
+item_3/text = ""
+item_3/icon = ExtResource("4_5el16")
