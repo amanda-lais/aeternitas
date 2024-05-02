@@ -1,5 +1,23 @@
 extends Node2D
 
+# Reference to the Sprite2D nodes
+@onready var main_sprite = %MainSprite
+@onready var hover_sprite = $MainSprite/HoverSprite
+
+func _ready():
+	# Initially hide the hover sprite
+	hover_sprite.visible = false
+
+func _on_area_2d_mouse_entered():
+	hover_sprite.visible = true
+
+func _on_area_2d_mouse_exited():
+	hover_sprite.visible = false
+	#pass # Replace with function body.
+
+func _input(event):
+	pass
+
 # `pre_start()` is called when a scene is loaded.
 # Use this function to receive params from `Game.change_scene(params)`.
 #func pre_start(params):
@@ -46,3 +64,6 @@ func _process(delta):
 #
 #func _on_hotbar_to_do_list_status(to_do_list_active):
 	#pass # Replace with function body.
+
+
+

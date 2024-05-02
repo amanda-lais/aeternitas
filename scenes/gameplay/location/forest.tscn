@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=23 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -14,9 +14,20 @@
 [ext_resource type="Script" path="res://scenes/items/spiderweb.gd" id="8_yuti7"]
 [ext_resource type="Texture2D" uid="uid://cyaagcmdcolv1" path="res://assets/placeholder/strategies/placeholder_mess.png" id="9_apywo"]
 [ext_resource type="Texture2D" uid="uid://cw1rq0quc8xo" path="res://assets/placeholder/items/placeholder_sun_cloud.png" id="10_aqfij"]
+[ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="14_bflgn"]
+[ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
+[ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="16_3egox"]
+[ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="16_7p058"]
+[ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_af50b"]
+load_path = "res://.godot/imported/placeholder_spiderweb.png-dc4d54aef8674c4f18145d756ea263ec.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq5dj"]
 radius = 318.839
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prwqk"]
+size = Vector2(205, 199)
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_wsm47")
@@ -42,9 +53,10 @@ scale = Vector2(0.257813, 0.257813)
 texture = ExtResource("4_yn26y")
 
 [node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
-position = Vector2(350, 255)
-scale = Vector2(0.257812, 0.269531)
-texture = ExtResource("5_rlj8j")
+visible = false
+position = Vector2(350.516, 255)
+scale = Vector2(-0.257812, -0.269531)
+texture = SubResource("CompressedTexture2D_af50b")
 script = ExtResource("8_yuti7")
 
 [node name="CollisionShape2D" parent="EnvironmentItems/Spiderweb/Area2D" index="0"]
@@ -66,19 +78,63 @@ position = Vector2(1028, 540)
 scale = Vector2(0.515625, 0.515625)
 texture = ExtResource("8_q8a5a")
 
-[node name="Mess" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
-visible = false
-position = Vector2(218, 472)
-scale = Vector2(0.90625, 0.90625)
-texture = ExtResource("9_apywo")
-
 [node name="Sun" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 visible = false
 position = Vector2(929, 127)
 scale = Vector2(0.652344, 0.652344)
 texture = ExtResource("10_aqfij")
 
+[node name="EnvironmentStrategies" type="CanvasGroup" parent="."]
+
+[node name="ToDoList" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(986, 187)
+scale = Vector2(0.414062, 0.414062)
+texture = ExtResource("14_bflgn")
+
+[node name="Calendar" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(138, 265)
+scale = Vector2(0.414062, 0.414062)
+texture = ExtResource("15_85oih")
+
+[node name="Alarm" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(620, 231.945)
+scale = Vector2(0.261719, 0.261719)
+texture = ExtResource("16_3egox")
+
+[node name="Mess" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(218, 472)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("9_apywo")
+
+[node name="DialogueManager" parent="." instance=ExtResource("16_7p058")]
+unique_name_in_owner = true
+offset_left = 52.0
+offset_top = 381.0
+offset_right = 52.0
+offset_bottom = 381.0
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(387, 199)
+scale = Vector2(0.404297, 0.404297)
+texture = ExtResource("5_rlj8j")
+
+[node name="HoverSprite" type="Sprite2D" parent="MainSprite"]
+unique_name_in_owner = true
+texture = ExtResource("19_ccr32")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(389.5, 198.5)
+shape = SubResource("RectangleShape2D_prwqk")
+
 [connection signal="input_event" from="EnvironmentItems/Spiderweb/Area2D" to="EnvironmentItems/Spiderweb" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="EnvironmentItems/Spiderweb/Area2D" to="EnvironmentItems/Spiderweb" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnvironmentItems/Spiderweb/Area2D" to="EnvironmentItems/Spiderweb" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 
 [editable path="EnvironmentItems/Stone"]
 [editable path="EnvironmentItems/Spiderweb"]

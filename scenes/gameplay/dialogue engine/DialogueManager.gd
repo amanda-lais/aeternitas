@@ -22,7 +22,7 @@ func display_dialogue_line(dialogue_list):
 	var current_line = dialogue_list[0].substr(1)
 	%DialogueText.text = current_line
 	self.show()
-	%Hotbar.hide()
+	#%Hotbar.hide()
 
 func display_next_dialogue_line(dialogue_list):
 	dialogue_list.pop_front()
@@ -30,12 +30,12 @@ func display_next_dialogue_line(dialogue_list):
 		dialogue_list = []
 		Dialogue_Box_Active = false
 		self.hide()
-		%Hotbar.show()
+		#%Hotbar.show()
 	else:
 		display_dialogue_line(dialogue_list)
 
 func _ready():
-	pass
+	self.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

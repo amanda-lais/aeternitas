@@ -44,7 +44,7 @@ offset_right = 1046.0
 offset_bottom = 229.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "(TEXTO)"
+text = " "
 
 [node name="DialogueCharacterName" type="RichTextLabel" parent="DialogueBox"]
 unique_name_in_owner = true
@@ -56,6 +56,6 @@ offset_bottom = 69.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 30
-text = "(NOME)"
+text = " "
 
 [connection signal="gui_input" from="DialogueBox" to="." method="_on_dialog_box_gui_input"]
