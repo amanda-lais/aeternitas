@@ -1,0 +1,84 @@
+[gd_scene load_steps=16 format=3 uid="uid://d0m071cu2ka4o"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
+[ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
+[ext_resource type="Texture2D" uid="uid://chd6thw08dc0o" path="res://assets/placeholder/placeholder_forest_bg.png" id="2_xdibp"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="3_6406e"]
+[ext_resource type="Texture2D" uid="uid://cli3mc5f47ajf" path="res://assets/placeholder/items/placeholder_fruit_tree.png" id="3_hakki"]
+[ext_resource type="Texture2D" uid="uid://64gttwdm8osh" path="res://assets/placeholder/items/placeholder_stone.png" id="4_yn26y"]
+[ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="5_rlj8j"]
+[ext_resource type="Script" path="res://scenes/items/item.gd" id="5_x4oir"]
+[ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/placeholder/items/placeholder_crops.png" id="6_j7nw4"]
+[ext_resource type="Texture2D" uid="uid://dbcjuyxjqisol" path="res://assets/placeholder/items/placeholder_moon.png" id="7_y76vt"]
+[ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
+[ext_resource type="Script" path="res://scenes/items/spiderweb.gd" id="8_yuti7"]
+[ext_resource type="Texture2D" uid="uid://cyaagcmdcolv1" path="res://assets/placeholder/strategies/placeholder_mess.png" id="9_apywo"]
+[ext_resource type="Texture2D" uid="uid://cw1rq0quc8xo" path="res://assets/placeholder/items/placeholder_sun_cloud.png" id="10_aqfij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xq5dj"]
+radius = 318.839
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_wsm47")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.586, 332)
+scale = Vector2(1.65025, 1.65025)
+texture = ExtResource("2_xdibp")
+
+[node name="EnvironmentItems" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_6406e")
+
+[node name="FruitTree" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(707, 489)
+scale = Vector2(0.582031, 0.582031)
+texture = ExtResource("3_hakki")
+script = ExtResource("5_x4oir")
+
+[node name="Stone" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(52, 558)
+scale = Vector2(0.257813, 0.257813)
+texture = ExtResource("4_yn26y")
+
+[node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(350, 255)
+scale = Vector2(0.257812, 0.269531)
+texture = ExtResource("5_rlj8j")
+script = ExtResource("8_yuti7")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Spiderweb/Area2D" index="0"]
+shape = SubResource("CircleShape2D_xq5dj")
+
+[node name="Crops" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(354, 550)
+scale = Vector2(0.398438, 0.398438)
+texture = ExtResource("6_j7nw4")
+
+[node name="Moon" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(963, 119)
+scale = Vector2(0.472656, 0.472656)
+texture = ExtResource("7_y76vt")
+
+[node name="Workbench" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(1028, 540)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("8_q8a5a")
+
+[node name="Mess" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(218, 472)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("9_apywo")
+
+[node name="Sun" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(929, 127)
+scale = Vector2(0.652344, 0.652344)
+texture = ExtResource("10_aqfij")
+
+[connection signal="input_event" from="EnvironmentItems/Spiderweb/Area2D" to="EnvironmentItems/Spiderweb" method="_on_area_2d_input_event"]
+
+[editable path="EnvironmentItems/Stone"]
+[editable path="EnvironmentItems/Spiderweb"]

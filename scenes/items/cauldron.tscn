@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dguvcntooflfm"]
+
+[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://assets/items_pixel/cauldron_sprite_boiling.png" id="1_bkh1i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvpjn"]
+radius = 239.0
+height = 478.0
+
+[node name="Cauldron" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bkh1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 39)
+shape = SubResource("CapsuleShape2D_gvpjn")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpoxswkq446s8"]
+
+[ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="1_2vptj"]
+[ext_resource type="Script" path="res://scenes/gameplay/dialogue engine/DialogueManager.gd" id="1_p5q6p"]
+[ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="2_h8jv2"]
+[ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="3_e701g"]
+[ext_resource type="Texture2D" uid="uid://84djdbaqi636" path="res://assets/placeholder/hotbar.png" id="5_h8j3d"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p5q6p")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="ItemList" type="ItemList" parent="CanvasGroup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 183.0
+offset_top = 522.0
+offset_right = 969.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 0
+allow_search = false
+item_count = 3
+max_columns = 3
+same_column_width = true
+fixed_column_width = 250
+icon_mode = 0
+fixed_icon_size = Vector2i(75, 100)
+item_0/text = ""
+item_0/icon = ExtResource("1_2vptj")
+item_0/selectable = false
+item_1/text = ""
+item_1/icon = ExtResource("2_h8jv2")
+item_1/selectable = false
+item_2/text = ""
+item_2/icon = ExtResource("3_e701g")
+item_2/selectable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(575, 583)
+texture = ExtResource("5_h8j3d")
+
+[connection signal="item_clicked" from="CanvasGroup/ItemList" to="." method="_on_item_list_item_clicked"]

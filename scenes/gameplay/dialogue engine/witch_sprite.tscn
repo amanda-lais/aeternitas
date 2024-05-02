@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://x7wrfnlnfaiw"]
+
+[ext_resource type="Texture2D" uid="uid://cpcxtifa68ai7" path="res://assets/sprites/witch_default.png" id="1_6rvb1"]
+
+[node name="witch_sprite" type="Sprite2D"]
+position = Vector2(806, 169)
+texture = ExtResource("1_6rvb1")
