@@ -15,12 +15,3 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			%DialogueManager.dialogue_list = %EnvironmentItems.all_dialogues_at_location[get_name()]
 			%DialogueManager.start_dialogue()
-
-
-func _on_area_2d_mouse_entered():
-	self.texture = "res://.godot/imported/placeholder_spiderweb.png-dc4d54aef8674c4f18145d756ea263ec.ctex"
-	#pass # Replace with function body.
-
-func _on_area_2d_mouse_exited():
-	self.texture = "res://.godot/imported/placeholder_spiderweb.png-dc4d54aef8674c4f18145d756ea263ec.ctex"
-	pass # Replace with function body.

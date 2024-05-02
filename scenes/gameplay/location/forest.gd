@@ -1,19 +1,18 @@
 extends Node2D
 
+signal score_gained
+
 # Reference to the Sprite2D nodes
-@onready var main_sprite = %MainSprite
-@onready var hover_sprite = $MainSprite/HoverSprite
+#@onready var main_sprite = %SpiderwebMainSprite
+#@onready var hover_sprite = %SpiderwebHover
+
+func what():
+	
+	pass
 
 func _ready():
+	pass
 	# Initially hide the hover sprite
-	hover_sprite.visible = false
-
-func _on_area_2d_mouse_entered():
-	hover_sprite.visible = true
-
-func _on_area_2d_mouse_exited():
-	hover_sprite.visible = false
-	#pass # Replace with function body.
 
 func _input(event):
 	pass
@@ -67,3 +66,11 @@ func _process(delta):
 
 
 
+
+
+
+
+
+func _on_environment_items_test_activity():
+	score_gained.emit()
+	print("begjhsdkjg")

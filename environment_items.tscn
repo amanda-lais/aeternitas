@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnl10rd8oo0rh"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="1_4xenw"]
+[ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_ptd47"]
+[ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="3_3odh4"]
+
+[node name="EnvironmentItems" type="CanvasGroup"]
+script = ExtResource("1_4xenw")
+
+[node name="FruitTree" parent="." instance=ExtResource("2_ptd47")]
+position = Vector2(707, 489)
+scale = Vector2(0.582031, 0.582031)
+
+[node name="Stone" parent="." instance=ExtResource("2_ptd47")]
+position = Vector2(69.7279, 566.694)
+rotation = 3.14159
+scale = Vector2(0.30753, 0.321509)
+
+[node name="Spiderweb" parent="." instance=ExtResource("2_ptd47")]
+unique_name_in_owner = true
+position = Vector2(350.516, 255)
+scale = Vector2(-0.257812, -0.269531)
+
+[node name="SpiderwebHover" type="Sprite2D" parent="Spiderweb"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-141.515, 207.768)
+rotation = 3.14159
+scale = Vector2(1.56819, 1.5)
+texture = ExtResource("3_3odh4")
+
+[node name="Crops" parent="." instance=ExtResource("2_ptd47")]
+position = Vector2(354, 550)
+scale = Vector2(0.398438, 0.398438)
+
+[node name="Moon" parent="." instance=ExtResource("2_ptd47")]
+visible = false
+position = Vector2(963, 119)
+scale = Vector2(0.472656, 0.472656)
+
+[node name="Workbench" parent="." instance=ExtResource("2_ptd47")]
+position = Vector2(1028, 540)
+scale = Vector2(0.515625, 0.515625)
+
+[node name="Sun" parent="." instance=ExtResource("2_ptd47")]
+visible = false
+position = Vector2(929, 127)
+scale = Vector2(0.652344, 0.652344)
+
+[connection signal="item_click" from="FruitTree" to="." method="_on_fruit_tree_item_click"]
+[connection signal="item_click" from="Stone" to="." method="_on_stone_item_click"]
+[connection signal="item_click" from="Spiderweb" to="." method="_on_spiderweb_item_click"]
+[connection signal="item_click" from="Crops" to="." method="_on_crops_item_click"]
+[connection signal="item_click" from="Moon" to="." method="_on_moon_item_click"]
+[connection signal="item_click" from="Workbench" to="." method="_on_workbench_item_click"]
+[connection signal="item_click" from="Sun" to="." method="_on_sun_item_click"]
+
+[editable path="FruitTree"]
+[editable path="Stone"]
+[editable path="Spiderweb"]
+[editable path="Crops"]
+[editable path="Moon"]
+[editable path="Workbench"]
+[editable path="Sun"]
