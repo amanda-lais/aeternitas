@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj4kvvhbkrvi0"]
+
+[ext_resource type="Script" path="res://day_manager.gd" id="1_naijf"]
+[ext_resource type="PackedScene" uid="uid://cqcvekx23x3th" path="res://date.tscn" id="2_7pd2k"]
+
+[node name="DayManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_naijf")
+
+[node name="GameDay" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Day1" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day2" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day3" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day4" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day5" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day6" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day7" parent="GameDay" instance=ExtResource("2_7pd2k")]
+
+[node name="Day8" parent="GameDay" instance=ExtResource("2_7pd2k")]

@@ -75,4 +75,4 @@ func _process(delta):
 
 func _on_environment_items_test_activity():
 	score_gained.emit()
-	print("begjhsdkjg")
+	#print("begjhsdkjg")

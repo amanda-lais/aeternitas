@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=5 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="PackedScene" uid="uid://d0m071cu2ka4o" path="res://scenes/gameplay/location/forest.tscn" id="1_cwlra"]
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="PackedScene" uid="uid://3sy1uvpqm1sm" path="res://tasks.tscn" id="3_yv5hb"]
+[ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="4_al8n2"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
@@ -45,4 +46,8 @@ text = "XXXXXX pts"
 
 [node name="Tasks" parent="." instance=ExtResource("3_yv5hb")]
 
+[node name="DayManager" parent="." instance=ExtResource("4_al8n2")]
+unique_name_in_owner = true
+
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
+[connection signal="new_day" from="DayManager" to="." method="_on_day_manager_new_day"]

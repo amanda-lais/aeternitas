@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=18 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="5_rlj8j"]
 [ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/placeholder/items/placeholder_crops.png" id="6_j7nw4"]
 [ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
+[ext_resource type="Script" path="res://scenes/items/crops.gd" id="10_ixb7w"]
 [ext_resource type="Script" path="res://scenes/items/strategy.gd" id="12_gjkqv"]
 [ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="14_bflgn"]
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
@@ -67,6 +68,7 @@ texture = ExtResource("19_ccr32")
 position = Vector2(354, 550)
 scale = Vector2(0.398438, 0.398438)
 texture = ExtResource("6_j7nw4")
+script = ExtResource("10_ixb7w")
 
 [node name="Moon" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 visible = false

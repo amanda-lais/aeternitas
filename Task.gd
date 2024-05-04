@@ -19,6 +19,13 @@ func _ready():
 	}
 	$"..".to_do_list[task_name] = {task_name: task}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func task_completed():
+	task_done = true
+	pending_check = true
+
+func task_checked_off():
+	pending_check = false
+
+func break_down_task():
+	if is_chunked == false:
+		is_chunked = true
