@@ -3,6 +3,8 @@ extends CanvasGroup
 var all_dialogues_at_location = {}
 signal test_activity
 
+var location_items = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#starts dictionary
@@ -39,6 +41,7 @@ func _on_stone_item_click():
 func _on_spiderweb_item_click():
 	dialogue_on_click("spiderweb")
 	test_activity.emit()
+	print(location_items)
 
 func _on_crops_item_click():
 	dialogue_on_click("crops")
