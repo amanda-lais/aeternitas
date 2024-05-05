@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=25 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -13,8 +13,10 @@
 [ext_resource type="Script" path="res://scenes/items/strategy.gd" id="12_gjkqv"]
 [ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="14_bflgn"]
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
+[ext_resource type="Script" path="res://scenes/items/calendar.gd" id="15_nigy8"]
 [ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="16_3egox"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="16_7p058"]
+[ext_resource type="Script" path="res://scenes/items/alarm.gd" id="16_fmvue"]
 [ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="17_ytbgd"]
 [ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
 
@@ -129,13 +131,13 @@ script = ExtResource("12_gjkqv")
 position = Vector2(138, 265)
 scale = Vector2(0.414062, 0.414062)
 texture = ExtResource("15_85oih")
-script = ExtResource("12_gjkqv")
+script = ExtResource("15_nigy8")
 
 [node name="Alarm" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 position = Vector2(620, 231.945)
 scale = Vector2(0.261719, 0.261719)
 texture = ExtResource("16_3egox")
-script = ExtResource("12_gjkqv")
+script = ExtResource("16_fmvue")
 
 [node name="Mess" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 visible = false

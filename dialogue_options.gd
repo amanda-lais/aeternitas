@@ -13,9 +13,6 @@ func _ready():
 func show_options(option_amount):
 	%Overlay.show()
 	%Option1.show()
-	%Option1.set_option_box_text("hello")
-	%Option2.set_option_box_text("hi")
-	%Option3.set_option_box_text("heya")
 	if option_amount == 2:
 		%Option2.show()
 	elif option_amount == 3:
