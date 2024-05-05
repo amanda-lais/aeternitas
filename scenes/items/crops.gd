@@ -20,3 +20,20 @@ func crops_dict():
 		"is_watered": is_watered
 	}
 
+func look_at_checklist():
+	#checklist.something(crops)
+	#what is needed
+	#how much
+	#lowers crop modifiers
+	#to do list exp
+	pass
+
+func succeeds_step(option):
+	if option == "calendar":
+		#sets goes_bad_date
+		#sets harvestable_date
+		pass
+	elif option == "to do list":
+		#check off the task
+		#to do list exp points
+		pass

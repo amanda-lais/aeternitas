@@ -5,6 +5,26 @@ signal item_click
 var item_name
 var item_info = {}
 var used_up
+var has_alarm_active
+var item_dialogue_dict = {}
+var single_dialogue_dict
+var default_dialogue = []
+var dialogue_x
+var dialogue_y
+#var items_special_days
+
+func dialogue_dict():
+	#y gets repeated ad nauseum
+	single_dialogue_dict = [default_dialogue, dialogue_x, dialogue_y]
+	item_dialogue_dict = {
+		"default_dialogue": [],
+		"branches": [],
+		"success": [],
+		"failure": [],
+		"used_up": [],
+		"special": [],
+		"wait": []
+	}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

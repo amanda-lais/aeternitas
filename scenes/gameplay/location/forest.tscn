@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=27 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cli3mc5f47ajf" path="res://assets/placeholder/items/placeholder_fruit_tree.png" id="3_hakki"]
 [ext_resource type="Texture2D" uid="uid://64gttwdm8osh" path="res://assets/placeholder/items/placeholder_stone.png" id="4_yn26y"]
 [ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="5_rlj8j"]
+[ext_resource type="Script" path="res://scenes/items/FruitTree.gd" id="6_4ocx8"]
 [ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/placeholder/items/placeholder_crops.png" id="6_j7nw4"]
 [ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
 [ext_resource type="Script" path="res://scenes/items/crops.gd" id="10_ixb7w"]
@@ -19,6 +20,7 @@
 [ext_resource type="Script" path="res://scenes/items/alarm.gd" id="16_fmvue"]
 [ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="17_ytbgd"]
 [ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Execution.gd" id="20_cej7w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
 radius = 231.946
@@ -52,6 +54,7 @@ script = ExtResource("3_6406e")
 position = Vector2(707, 489)
 scale = Vector2(0.582031, 0.582031)
 texture = ExtResource("3_hakki")
+script = ExtResource("6_4ocx8")
 
 [node name="CollisionShape2D" parent="EnvironmentItems/FruitTree/Area2D" index="0"]
 shape = SubResource("CapsuleShape2D_jt2cv")
@@ -67,7 +70,6 @@ position = Vector2(-27.7111, -30.8727)
 shape = SubResource("RectangleShape2D_5co3t")
 
 [node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
-unique_name_in_owner = true
 position = Vector2(350.516, 255)
 scale = Vector2(-0.257812, -0.269531)
 texture = ExtResource("5_rlj8j")
@@ -155,6 +157,9 @@ offset_bottom = 381.0
 
 [node name="DialogueOptions" parent="." instance=ExtResource("17_ytbgd")]
 unique_name_in_owner = true
+
+[node name="Execution" type="Node" parent="."]
+script = ExtResource("20_cej7w")
 
 [connection signal="test_activity" from="EnvironmentItems" to="." method="_on_environment_items_test_activity"]
 [connection signal="item_click" from="EnvironmentItems/FruitTree" to="EnvironmentItems" method="_on_fruit_tree_item_click"]

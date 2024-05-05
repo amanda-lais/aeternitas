@@ -2,8 +2,6 @@ extends Node2D
 
 signal score_gained
 
-
-
 # Reference to the Sprite2D nodes
 #@onready var main_sprite = %SpiderwebMainSprite
 #@onready var hover_sprite = %SpiderwebHover
