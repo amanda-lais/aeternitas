@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=31 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
 [ext_resource type="Script" path="res://scenes/items/crops.gd" id="10_ixb7w"]
 [ext_resource type="Script" path="res://scenes/items/strategy.gd" id="12_gjkqv"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentStrategies.gd" id="13_qon51"]
 [ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="14_bflgn"]
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
 [ext_resource type="Script" path="res://scenes/items/calendar.gd" id="15_nigy8"]
@@ -37,6 +38,15 @@ size = Vector2(475.588, 493.156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwych"]
 size = Vector2(508.273, 365.727)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbflp"]
+size = Vector2(306.717, 304.302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rioa8"]
+size = Vector2(371.925, 335.699)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55qxx"]
+radius = 264.566
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_wsm47")
@@ -122,6 +132,7 @@ position = Vector2(929, 127)
 scale = Vector2(0.652344, 0.652344)
 
 [node name="EnvironmentStrategies" type="CanvasGroup" parent="."]
+script = ExtResource("13_qon51")
 
 [node name="ToDoList" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 position = Vector2(986, 187)
@@ -129,17 +140,28 @@ scale = Vector2(0.414062, 0.414062)
 texture = ExtResource("14_bflgn")
 script = ExtResource("12_gjkqv")
 
+[node name="CollisionShape2D" parent="EnvironmentStrategies/ToDoList/Area2D" index="0"]
+position = Vector2(-15.698, -14.4906)
+shape = SubResource("RectangleShape2D_wbflp")
+
 [node name="Calendar" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 position = Vector2(138, 265)
 scale = Vector2(0.414062, 0.414062)
 texture = ExtResource("15_85oih")
 script = ExtResource("15_nigy8")
 
+[node name="CollisionShape2D" parent="EnvironmentStrategies/Calendar/Area2D" index="0"]
+position = Vector2(-9.6604, 6.03772)
+shape = SubResource("RectangleShape2D_rioa8")
+
 [node name="Alarm" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 position = Vector2(620, 231.945)
 scale = Vector2(0.261719, 0.261719)
 texture = ExtResource("16_3egox")
 script = ExtResource("16_fmvue")
+
+[node name="CollisionShape2D" parent="EnvironmentStrategies/Alarm/Area2D" index="0"]
+shape = SubResource("CircleShape2D_55qxx")
 
 [node name="Mess" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
 visible = false
@@ -176,3 +198,7 @@ script = ExtResource("20_cej7w")
 [editable path="EnvironmentItems/Moon"]
 [editable path="EnvironmentItems/Workbench"]
 [editable path="EnvironmentItems/Sun"]
+[editable path="EnvironmentStrategies/ToDoList"]
+[editable path="EnvironmentStrategies/Calendar"]
+[editable path="EnvironmentStrategies/Alarm"]
+[editable path="EnvironmentStrategies/Mess"]

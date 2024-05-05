@@ -9,4 +9,4 @@ func foraging():
 
 func harvest():
 	#SOMETHING.add_to_inventory(todays_fruit)
-	
+	pass
