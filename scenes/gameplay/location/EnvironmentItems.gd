@@ -7,6 +7,7 @@ var location_items = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%Crops.crops_dict()
 	#starts dictionary
 	all_dialogues_at_location['fruit_tree'] = [""]
 	all_dialogues_at_location['stone'] = [""]
@@ -41,7 +42,7 @@ func _on_stone_item_click():
 func _on_spiderweb_item_click():
 	dialogue_on_click("spiderweb")
 	test_activity.emit()
-	print(location_items)
+	#print(location_items)
 
 func _on_crops_item_click():
 	dialogue_on_click("crops")
@@ -55,3 +56,7 @@ func _on_workbench_item_click():
 func dialogue_on_click(item_clicked):
 	%DialogueManager.dialogue_list = all_dialogues_at_location[item_clicked]
 	%DialogueManager.start_dialogue()
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	pass # Replace with function body.

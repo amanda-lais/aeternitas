@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://c536hqb13lx0u"]
+
+[ext_resource type="Script" path="res://dialogue_choice_box.gd" id="1_vqmbv"]
+
+[node name="Option1" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -37.5
+offset_right = 216.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqmbv")
+
+[node name="OptionBox" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -45.0
+offset_right = 223.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.770333, 0.47, 1)
+
+[node name="OptionText" type="RichTextLabel" parent="OptionBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -38.0
+offset_right = 223.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true

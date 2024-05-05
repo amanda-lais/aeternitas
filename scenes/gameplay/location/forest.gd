@@ -67,12 +67,12 @@ func _process(delta):
 	#pass # Replace with function body.
 
 
-
-
-
-
-
-
 func _on_environment_items_test_activity():
 	score_gained.emit()
 	#print("begjhsdkjg")
+
+
+func _on_option_1_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("sdjkhghjih")

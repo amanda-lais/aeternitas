@@ -17,7 +17,7 @@ func _ready():
 		"is_chunked": is_chunked,
 		"can_break_down": can_break_down
 	}
-	$"..".to_do_list[task_name] = {task_name: task}
+	#$"..".to_do_list[task_name] = {task_name: task}
 
 func task_completed():
 	task_done = true

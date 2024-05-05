@@ -9,10 +9,9 @@ var is_watered
 
 #receives signal that date has changed
 func temporari():
-	
+	pass
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func crops_dict():
 	crop_status = {
 		"crop_name": crop_name,
 		"day_planted": day_planted,
@@ -20,3 +19,4 @@ func _ready():
 		"day_needs_water": day_needs_water,
 		"is_watered": is_watered
 	}
+

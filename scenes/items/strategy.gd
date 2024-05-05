@@ -1,17 +1,14 @@
 extends Sprite2D
 
-#signal clicked_item
-#var clicked_item_name
 signal strategy_click
-signal strategy_info (strategy_name, strategy_is_active)
+#signal strategy_info (strategy_name, strategy_is_active)
+
+var strategy_name
+var strategy_info
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Hover.hide()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

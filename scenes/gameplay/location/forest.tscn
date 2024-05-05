@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=23 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
@@ -15,10 +15,24 @@
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
 [ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="16_3egox"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="16_7p058"]
+[ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="17_ytbgd"]
 [ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
+radius = 231.946
+height = 498.255
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5co3t"]
+size = Vector2(544.661, 556.005)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwpoy"]
 size = Vector2(513.758, 523.696)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk1o3"]
+size = Vector2(475.588, 493.156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwych"]
+size = Vector2(508.273, 365.727)
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_wsm47")
@@ -37,11 +51,18 @@ position = Vector2(707, 489)
 scale = Vector2(0.582031, 0.582031)
 texture = ExtResource("3_hakki")
 
+[node name="CollisionShape2D" parent="EnvironmentItems/FruitTree/Area2D" index="0"]
+shape = SubResource("CapsuleShape2D_jt2cv")
+
 [node name="Stone" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 position = Vector2(69.7279, 566.694)
 rotation = 3.14159
 scale = Vector2(0.30753, 0.321509)
 texture = ExtResource("4_yn26y")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Stone/Area2D" index="0"]
+position = Vector2(-27.7111, -30.8727)
+shape = SubResource("RectangleShape2D_5co3t")
 
 [node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 unique_name_in_owner = true
@@ -65,10 +86,16 @@ scale = Vector2(1.56819, 1.5)
 texture = ExtResource("19_ccr32")
 
 [node name="Crops" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(354, 550)
 scale = Vector2(0.398438, 0.398438)
 texture = ExtResource("6_j7nw4")
 script = ExtResource("10_ixb7w")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Crops/Area2D" index="0"]
+position = Vector2(10.6763, 16.9509)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tk1o3")
 
 [node name="Moon" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 visible = false
@@ -79,6 +106,11 @@ scale = Vector2(0.472656, 0.472656)
 position = Vector2(1028, 540)
 scale = Vector2(0.515625, 0.515625)
 texture = ExtResource("8_q8a5a")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Workbench/Area2D" index="0"]
+position = Vector2(-2.01514, 26.5909)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bwych")
 
 [node name="Sun" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
 visible = false
@@ -119,8 +151,16 @@ offset_top = 381.0
 offset_right = 52.0
 offset_bottom = 381.0
 
+[node name="DialogueOptions" parent="." instance=ExtResource("17_ytbgd")]
+unique_name_in_owner = true
+
 [connection signal="test_activity" from="EnvironmentItems" to="." method="_on_environment_items_test_activity"]
+[connection signal="item_click" from="EnvironmentItems/FruitTree" to="EnvironmentItems" method="_on_fruit_tree_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Stone" to="EnvironmentItems" method="_on_stone_item_click"]
 [connection signal="item_click" from="EnvironmentItems/Spiderweb" to="EnvironmentItems" method="_on_spiderweb_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Crops" to="EnvironmentItems" method="_on_crops_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Moon" to="EnvironmentItems" method="_on_moon_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Workbench" to="EnvironmentItems" method="_on_workbench_item_click"]
 
 [editable path="EnvironmentItems/FruitTree"]
 [editable path="EnvironmentItems/Stone"]

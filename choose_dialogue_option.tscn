@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://kl8oxk7aq3m7"]
+
+[ext_resource type="Script" path="res://dialogue_options.gd" id="1_qjugd"]
+[ext_resource type="PackedScene" uid="uid://c536hqb13lx0u" path="res://dialogue_choice_box.tscn" id="2_qwh5e"]
+
+[node name="DialogueOptions" type="CanvasLayer"]
+script = ExtResource("1_qjugd")
+metadata/_edit_group_ = true
+
+[node name="Overlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1158.0
+offset_bottom = 656.0
+color = Color(0.286275, 0, 0.541176, 0.454902)
+
+[node name="Option1" parent="." instance=ExtResource("2_qwh5e")]
+unique_name_in_owner = true
+offset_left = -213.0
+offset_right = 219.0
+
+[node name="Option2" parent="." instance=ExtResource("2_qwh5e")]
+unique_name_in_owner = true
+offset_left = -213.0
+offset_top = -187.5
+offset_right = 219.0
+offset_bottom = -112.5
+
+[node name="Option3" parent="." instance=ExtResource("2_qwh5e")]
+unique_name_in_owner = true
+offset_left = -213.0
+offset_top = 112.5
+offset_right = 219.0
+offset_bottom = 187.5
+
+[connection signal="gui_input" from="Option1" to="." method="_on_option_1_gui_input"]
+[connection signal="gui_input" from="Option2" to="." method="_on_option_2_gui_input"]
+[connection signal="gui_input" from="Option3" to="." method="_on_option_3_gui_input"]
+
+[editable path="Option1"]

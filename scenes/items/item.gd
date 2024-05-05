@@ -21,6 +21,8 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			#%DialogueManager.start_dialogue()
 			#clicked_item_name = get_name()
 			item_click.emit()
+			print(item_name)
+			%DialogueOptions.show_options(3)
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()

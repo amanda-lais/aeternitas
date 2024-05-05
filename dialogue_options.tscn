@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyu05xoocy8xo"]
+
+[ext_resource type="Script" path="res://dialogue_options.gd" id="1_opfef"]
+[ext_resource type="PackedScene" uid="uid://c536hqb13lx0u" path="res://dialogue_choice_box.tscn" id="2_swamw"]
+
+[node name="DialogueOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opfef")
+metadata/_edit_group_ = true
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 656.0
+color = Color(0.286275, 0, 0.541176, 0.454902)
+
+[node name="Option1" parent="." instance=ExtResource("2_swamw")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Option2" parent="." instance=ExtResource("2_swamw")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = -187.5
+offset_bottom = -112.5
+
+[node name="Option3" parent="." instance=ExtResource("2_swamw")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 112.5
+offset_bottom = 187.5
+
+[connection signal="gui_input" from="Option1" to="." method="_on_option_1_gui_input"]
+[connection signal="gui_input" from="Option2" to="." method="_on_option_2_gui_input"]
+[connection signal="gui_input" from="Option3" to="." method="_on_option_3_gui_input"]

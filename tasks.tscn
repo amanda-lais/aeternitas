@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3sy1uvpqm1sm"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/tasks.gd" id="1_pa480"]
+[ext_resource type="Script" path="res://Tasks.gd" id="1_pcg02"]
 [ext_resource type="Script" path="res://Task.gd" id="2_cwfb4"]
 
 [node name="TaskList" type="Control"]
@@ -8,7 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_pa480")
+script = ExtResource("1_pcg02")
 
 [node name="Task" type="Control" parent="."]
 anchors_preset = 0
