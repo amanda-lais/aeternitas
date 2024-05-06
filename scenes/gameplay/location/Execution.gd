@@ -3,6 +3,7 @@ extends Node
 signal score_earned(score_points)
 signal exp_earned(exp_points)
 
+var rng
 var general_modifier
 var specific_modifier
 var rng_edf
@@ -10,6 +11,21 @@ var score_points
 var exp_points
 var inventory
 var result
+
+func generate_rng():
+	rng = RandomNumberGenerator.new()
+	var my_random_number = rng.randf_range(0, 100)
+	return my_random_number
+
+func action():
+	rng = generate_rng()
+	var res = check_sf(rng)
+	if res <= 20:
+		#success
+		return true
+	else:
+		#failure
+		return false
 
 func calc_specific_modifier(item):
 	if item.is_active_crucial_strategy == true:
@@ -35,8 +51,9 @@ func calc_mmultiplier(checks):
 	var multiplier = 1 - checks
 	pass
 
-func check_sf(vrng, multiplier):
+func check_sf(vrng, multiplier = 1):
 	result = vrng * multiplier
+	return result
 
 func succeeds(experience, item, task, strategy):
 	score_points = task.score_points
@@ -49,9 +66,4 @@ func succeeds(experience, item, task, strategy):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass

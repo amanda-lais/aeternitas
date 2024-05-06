@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://d0m071cu2ka4o"]
+[gd_scene load_steps=35 format=3 uid="uid://d0m071cu2ka4o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
 [ext_resource type="Texture2D" uid="uid://chd6thw08dc0o" path="res://assets/placeholder/placeholder_forest_bg.png" id="2_xdibp"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Environment.gd" id="3_6dc3d"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="3_6406e"]
 [ext_resource type="Texture2D" uid="uid://cli3mc5f47ajf" path="res://assets/placeholder/items/placeholder_fruit_tree.png" id="3_hakki"]
 [ext_resource type="Texture2D" uid="uid://64gttwdm8osh" path="res://assets/placeholder/items/placeholder_stone.png" id="4_yn26y"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/items/FruitTree.gd" id="6_4ocx8"]
 [ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/placeholder/items/placeholder_crops.png" id="6_j7nw4"]
 [ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
+[ext_resource type="Script" path="res://scenes/items/spiderweb.gd" id="9_7mw0j"]
 [ext_resource type="Script" path="res://scenes/items/crops.gd" id="10_ixb7w"]
 [ext_resource type="Script" path="res://scenes/items/strategy.gd" id="12_gjkqv"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentStrategies.gd" id="13_qon51"]
@@ -18,10 +20,12 @@
 [ext_resource type="Script" path="res://scenes/items/calendar.gd" id="15_nigy8"]
 [ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="16_3egox"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="16_7p058"]
-[ext_resource type="Script" path="res://scenes/items/alarm.gd" id="16_fmvue"]
 [ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="17_ytbgd"]
 [ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Overlay.gd" id="19_ihnin"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Execution.gd" id="20_cej7w"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Inventory.gd" id="24_5wmk4"]
+[ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="25_26g6w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
 radius = 231.946
@@ -61,6 +65,7 @@ unique_name_in_owner = true
 script = ExtResource("3_6406e")
 
 [node name="FruitTree" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(707, 489)
 scale = Vector2(0.582031, 0.582031)
 texture = ExtResource("3_hakki")
@@ -80,9 +85,11 @@ position = Vector2(-27.7111, -30.8727)
 shape = SubResource("RectangleShape2D_5co3t")
 
 [node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(350.516, 255)
 scale = Vector2(-0.257812, -0.269531)
 texture = ExtResource("5_rlj8j")
+script = ExtResource("9_7mw0j")
 
 [node name="Hover" parent="EnvironmentItems/Spiderweb" index="0"]
 texture = ExtResource("19_ccr32")
@@ -132,9 +139,11 @@ position = Vector2(929, 127)
 scale = Vector2(0.652344, 0.652344)
 
 [node name="EnvironmentStrategies" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
 script = ExtResource("13_qon51")
 
 [node name="ToDoList" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(986, 187)
 scale = Vector2(0.414062, 0.414062)
 texture = ExtResource("14_bflgn")
@@ -145,6 +154,7 @@ position = Vector2(-15.698, -14.4906)
 shape = SubResource("RectangleShape2D_wbflp")
 
 [node name="Calendar" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(138, 265)
 scale = Vector2(0.414062, 0.414062)
 texture = ExtResource("15_85oih")
@@ -155,19 +165,32 @@ position = Vector2(-9.6604, 6.03772)
 shape = SubResource("RectangleShape2D_rioa8")
 
 [node name="Alarm" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 position = Vector2(620, 231.945)
 scale = Vector2(0.261719, 0.261719)
 texture = ExtResource("16_3egox")
-script = ExtResource("16_fmvue")
+script = ExtResource("12_gjkqv")
 
 [node name="CollisionShape2D" parent="EnvironmentStrategies/Alarm/Area2D" index="0"]
 shape = SubResource("CircleShape2D_55qxx")
 
 [node name="Mess" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(218, 472)
 scale = Vector2(0.90625, 0.90625)
 script = ExtResource("12_gjkqv")
+
+[node name="Environment" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_6dc3d")
+
+[node name="Overlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1158.0
+offset_bottom = 656.0
+color = Color(0.286275, 0, 0.541176, 0.454902)
+script = ExtResource("19_ihnin")
 
 [node name="DialogueManager" parent="." instance=ExtResource("16_7p058")]
 unique_name_in_owner = true
@@ -181,7 +204,15 @@ offset_bottom = 381.0
 unique_name_in_owner = true
 
 [node name="Execution" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("20_cej7w")
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("24_5wmk4")
+
+[node name="DayManager" parent="." instance=ExtResource("25_26g6w")]
+unique_name_in_owner = true
 
 [connection signal="test_activity" from="EnvironmentItems" to="." method="_on_environment_items_test_activity"]
 [connection signal="item_click" from="EnvironmentItems/FruitTree" to="EnvironmentItems" method="_on_fruit_tree_item_click"]
@@ -190,6 +221,16 @@ script = ExtResource("20_cej7w")
 [connection signal="item_click" from="EnvironmentItems/Crops" to="EnvironmentItems" method="_on_crops_item_click"]
 [connection signal="item_click" from="EnvironmentItems/Moon" to="EnvironmentItems" method="_on_moon_item_click"]
 [connection signal="item_click" from="EnvironmentItems/Workbench" to="EnvironmentItems" method="_on_workbench_item_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/ToDoList" to="EnvironmentStrategies" method="_on_to_do_list_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Calendar" to="EnvironmentStrategies" method="_on_calendar_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Alarm" to="EnvironmentStrategies" method="_on_alarm_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Mess" to="EnvironmentStrategies" method="_on_mess_strategy_click"]
+[connection signal="dialogue_finished" from="DialogueManager" to="EnvironmentStrategies" method="_on_dialogue_manager_dialogue_finished"]
+[connection signal="dialogue_finished" from="DialogueManager" to="Overlay" method="_on_dialogue_manager_dialogue_finished"]
+[connection signal="dialogue_started" from="DialogueManager" to="Overlay" method="_on_dialogue_manager_dialogue_started"]
+[connection signal="option_chosen" from="DialogueOptions" to="EnvironmentStrategies" method="_on_dialogue_options_option_chosen"]
+[connection signal="option_chosen" from="DialogueOptions" to="Overlay" method="_on_dialogue_options_option_chosen"]
+[connection signal="selection_started" from="DialogueOptions" to="Overlay" method="_on_dialogue_options_selection_started"]
 
 [editable path="EnvironmentItems/FruitTree"]
 [editable path="EnvironmentItems/Stone"]
@@ -202,3 +243,6 @@ script = ExtResource("20_cej7w")
 [editable path="EnvironmentStrategies/Calendar"]
 [editable path="EnvironmentStrategies/Alarm"]
 [editable path="EnvironmentStrategies/Mess"]
+[editable path="DialogueManager"]
+[editable path="DialogueOptions"]
+[editable path="DialogueOptions/Option2"]

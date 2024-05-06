@@ -1,14 +1,597 @@
-[gd_scene load_steps=5 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=10 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="PackedScene" uid="uid://d0m071cu2ka4o" path="res://scenes/gameplay/location/forest.tscn" id="1_cwlra"]
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="PackedScene" uid="uid://3sy1uvpqm1sm" path="res://tasks.tscn" id="3_yv5hb"]
-[ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="4_al8n2"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task3.gd" id="4_fpfwr"]
+[ext_resource type="Script" path="res://scenes/gameplay/task.gd" id="4_ownjl"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task4.gd" id="5_swkpl"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task2.gd" id="7_o2cfq"]
+[ext_resource type="Script" path="res://scenes/gameplay/CloseButton.gd" id="8_4q4aw"]
+[ext_resource type="Script" path="res://scenes/gameplay/Blackout.gd" id="9_yp60i"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
 
 [node name="Forest" parent="." instance=ExtResource("1_cwlra")]
+
+[node name="Tasks" parent="." instance=ExtResource("3_yv5hb")]
+
+[node name="ColorRect" type="ColorRect" parent="Tasks"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 28.879
+anchor_bottom = 16.3
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -52.16
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.244
+offset_left = 226.0
+offset_top = 28.0
+offset_right = -211.0
+offset_bottom = 0.263992
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "LISTA DE TAREFAS"
+
+[node name="Task3" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_right = 392.075
+offset_bottom = -128.992
+mouse_filter = 2
+script = ExtResource("4_fpfwr")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Consertar cetro mágico"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task3"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 41.0
+offset_right = -19.0
+offset_bottom = -18.2035
+script = ExtResource("4_ownjl")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Material para conserto (2 pedras)"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3/Subtask1"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task3"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 77.0
+offset_right = -19.0
+offset_bottom = 17.7965
+script = ExtResource("4_ownjl")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Fazer o reparo"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Task4" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_top = 99.0
+offset_right = 44.15
+offset_bottom = -73.544
+mouse_filter = 2
+script = ExtResource("5_swkpl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 214.0
+offset_right = 501.0
+offset_bottom = 275.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Recarregar cetro mágico"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 212.0
+offset_right = 64.0
+offset_bottom = 252.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task4"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 88.0
+offset_right = -19.0
+offset_bottom = 28.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Material para conserto (2 pedras)"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask1"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task4"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 124.0
+offset_right = -19.0
+offset_bottom = 64.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Fazer o reparo"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask3" type="Control" parent="Tasks/ColorRect/Task4"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 160.0
+offset_right = -19.0
+offset_bottom = 100.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Usar lua cheia para recarregar o cetro"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask3"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Task1" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 11.0
+offset_right = -445.85
+offset_bottom = -172.544
+mouse_filter = 2
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Acumular comida o suficiente"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task1"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Task2" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 11.0
+offset_top = 99.0
+offset_right = -445.85
+offset_bottom = -73.544
+mouse_filter = 2
+script = ExtResource("7_o2cfq")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 214.0
+offset_right = 501.0
+offset_bottom = 275.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Preparar poções o suficiente"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 212.0
+offset_right = 64.0
+offset_bottom = 252.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 88.0
+offset_right = -19.0
+offset_bottom = 28.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Plantar sementes"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask1"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 124.0
+offset_right = -19.0
+offset_bottom = 64.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Regar plantas"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask3" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 160.0
+offset_right = -19.0
+offset_bottom = 100.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Colher os vegetais mágicos"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask3"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask4" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 196.0
+offset_right = -19.0
+offset_bottom = 136.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Preparar poções"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask4"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Tasks/ColorRect"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 239.0
+offset_right = 416.0
+offset_bottom = 311.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Necessário 3 frutas no mínimo"
+
+[node name="CloseButton" type="ColorRect" parent="Tasks/ColorRect"]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 41.0
+offset_right = 1034.0
+offset_bottom = 81.0
+color = Color(1, 0.383333, 0, 0.396078)
+script = ExtResource("8_4q4aw")
+
+[node name="X" type="RichTextLabel" parent="Tasks/ColorRect/CloseButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 58.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.301961, 0.0941176, 0, 0.843137)
+theme_override_font_sizes/normal_font_size = 45
+text = "X"
+
+[node name="Blackout" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_yp60i")
 
 [node name="GameDay" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
@@ -44,10 +627,25 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 35
 text = "XXXXXX pts"
 
-[node name="Tasks" parent="." instance=ExtResource("3_yv5hb")]
-
-[node name="DayManager" parent="." instance=ExtResource("4_al8n2")]
-unique_name_in_owner = true
-
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
-[connection signal="new_day" from="DayManager" to="." method="_on_day_manager_new_day"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="." method="_on_to_do_list_strategy_click"]
+[connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
+[connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks/ColorRect/CloseButton" method="_on_gui_input"]
+[connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]
+
+[editable path="Forest"]
+[editable path="Forest/EnvironmentItems/FruitTree"]
+[editable path="Forest/EnvironmentItems/Stone"]
+[editable path="Forest/EnvironmentItems/Spiderweb"]
+[editable path="Forest/EnvironmentItems/Crops"]
+[editable path="Forest/EnvironmentItems/Moon"]
+[editable path="Forest/EnvironmentItems/Workbench"]
+[editable path="Forest/EnvironmentItems/Sun"]
+[editable path="Forest/EnvironmentStrategies/ToDoList"]
+[editable path="Forest/EnvironmentStrategies/Calendar"]
+[editable path="Forest/EnvironmentStrategies/Alarm"]
+[editable path="Forest/EnvironmentStrategies/Mess"]
+[editable path="Forest/DialogueManager"]
+[editable path="Forest/DialogueOptions"]
+[editable path="Forest/DialogueOptions/Option2"]
+[editable path="Tasks"]

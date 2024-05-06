@@ -6,10 +6,6 @@ signal score_gained
 #@onready var main_sprite = %SpiderwebMainSprite
 #@onready var hover_sprite = %SpiderwebHover
 
-func what():
-	
-	pass
-
 func _ready():
 	pass
 	# Initially hide the hover sprite

@@ -1,0 +1,208 @@
+[gd_scene load_steps=29 format=3 uid="uid://d0m071cu2ka4o"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="1_wsm47"]
+[ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="2_hdlov"]
+[ext_resource type="Texture2D" uid="uid://chd6thw08dc0o" path="res://assets/placeholder/placeholder_forest_bg.png" id="2_xdibp"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="3_6406e"]
+[ext_resource type="Texture2D" uid="uid://cli3mc5f47ajf" path="res://assets/placeholder/items/placeholder_fruit_tree.png" id="3_hakki"]
+[ext_resource type="Texture2D" uid="uid://64gttwdm8osh" path="res://assets/placeholder/items/placeholder_stone.png" id="4_yn26y"]
+[ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="5_rlj8j"]
+[ext_resource type="Script" path="res://scenes/items/FruitTree.gd" id="6_4ocx8"]
+[ext_resource type="Texture2D" uid="uid://dwcltgn0tn76f" path="res://assets/placeholder/items/placeholder_crops.png" id="6_j7nw4"]
+[ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="8_q8a5a"]
+[ext_resource type="Script" path="res://scenes/items/crops.gd" id="10_ixb7w"]
+[ext_resource type="Script" path="res://scenes/items/strategy.gd" id="12_gjkqv"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentStrategies.gd" id="13_qon51"]
+[ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="14_bflgn"]
+[ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="15_85oih"]
+[ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="16_3egox"]
+[ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="16_7p058"]
+[ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="17_ytbgd"]
+[ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="19_ccr32"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Execution.gd" id="20_cej7w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
+radius = 231.946
+height = 498.255
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5co3t"]
+size = Vector2(544.661, 556.005)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwpoy"]
+size = Vector2(513.758, 523.696)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk1o3"]
+size = Vector2(475.588, 493.156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwych"]
+size = Vector2(508.273, 365.727)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbflp"]
+size = Vector2(306.717, 304.302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rioa8"]
+size = Vector2(371.925, 335.699)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55qxx"]
+radius = 264.566
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_wsm47")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.586, 332)
+scale = Vector2(1.65025, 1.65025)
+texture = ExtResource("2_xdibp")
+
+[node name="EnvironmentItems" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_6406e")
+
+[node name="FruitTree" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(707, 489)
+scale = Vector2(0.582031, 0.582031)
+texture = ExtResource("3_hakki")
+script = ExtResource("6_4ocx8")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/FruitTree/Area2D" index="0"]
+shape = SubResource("CapsuleShape2D_jt2cv")
+
+[node name="Stone" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(69.7279, 566.694)
+rotation = 3.14159
+scale = Vector2(0.30753, 0.321509)
+texture = ExtResource("4_yn26y")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Stone/Area2D" index="0"]
+position = Vector2(-27.7111, -30.8727)
+shape = SubResource("RectangleShape2D_5co3t")
+
+[node name="Spiderweb" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(350.516, 255)
+scale = Vector2(-0.257812, -0.269531)
+texture = ExtResource("5_rlj8j")
+
+[node name="Hover" parent="EnvironmentItems/Spiderweb" index="0"]
+texture = ExtResource("19_ccr32")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Spiderweb/Area2D" index="0"]
+position = Vector2(-4.87781, 2.13776)
+shape = SubResource("RectangleShape2D_mwpoy")
+
+[node name="SpiderwebHover" type="Sprite2D" parent="EnvironmentItems/Spiderweb"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-141.515, 207.768)
+rotation = 3.14159
+scale = Vector2(1.56819, 1.5)
+texture = ExtResource("19_ccr32")
+
+[node name="Crops" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+unique_name_in_owner = true
+position = Vector2(354, 550)
+scale = Vector2(0.398438, 0.398438)
+texture = ExtResource("6_j7nw4")
+script = ExtResource("10_ixb7w")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Crops/Area2D" index="0"]
+position = Vector2(10.6763, 16.9509)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tk1o3")
+
+[node name="Moon" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(963, 119)
+scale = Vector2(0.472656, 0.472656)
+
+[node name="Workbench" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+position = Vector2(1028, 540)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("8_q8a5a")
+
+[node name="CollisionShape2D" parent="EnvironmentItems/Workbench/Area2D" index="0"]
+position = Vector2(-2.01514, 26.5909)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bwych")
+
+[node name="Sun" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(929, 127)
+scale = Vector2(0.652344, 0.652344)
+
+[node name="EnvironmentStrategies" type="CanvasGroup" parent="."]
+script = ExtResource("13_qon51")
+
+[node name="ToDoList" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(986, 187)
+scale = Vector2(0.414062, 0.414062)
+texture = ExtResource("14_bflgn")
+script = ExtResource("12_gjkqv")
+
+[node name="CollisionShape2D" parent="EnvironmentStrategies/ToDoList/Area2D" index="0"]
+position = Vector2(-15.698, -14.4906)
+shape = SubResource("RectangleShape2D_wbflp")
+
+[node name="Calendar" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(138, 265)
+scale = Vector2(0.414062, 0.414062)
+texture = ExtResource("15_85oih")
+script = ExtResource("12_gjkqv")
+
+[node name="CollisionShape2D" parent="EnvironmentStrategies/Calendar/Area2D" index="0"]
+position = Vector2(-9.6604, 6.03772)
+shape = SubResource("RectangleShape2D_rioa8")
+
+[node name="Alarm" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+position = Vector2(620, 231.945)
+scale = Vector2(0.261719, 0.261719)
+texture = ExtResource("16_3egox")
+script = ExtResource("12_gjkqv")
+
+[node name="CollisionShape2D" parent="EnvironmentStrategies/Alarm/Area2D" index="0"]
+shape = SubResource("CircleShape2D_55qxx")
+
+[node name="Mess" parent="EnvironmentStrategies" instance=ExtResource("2_hdlov")]
+visible = false
+position = Vector2(218, 472)
+scale = Vector2(0.90625, 0.90625)
+script = ExtResource("12_gjkqv")
+
+[node name="DialogueManager" parent="." instance=ExtResource("16_7p058")]
+unique_name_in_owner = true
+visible = false
+offset_left = 52.0
+offset_top = 381.0
+offset_right = 52.0
+offset_bottom = 381.0
+
+[node name="DialogueOptions" parent="." instance=ExtResource("17_ytbgd")]
+unique_name_in_owner = true
+
+[node name="Execution" type="Node" parent="."]
+script = ExtResource("20_cej7w")
+
+[connection signal="test_activity" from="EnvironmentItems" to="." method="_on_environment_items_test_activity"]
+[connection signal="item_click" from="EnvironmentItems/FruitTree" to="EnvironmentItems" method="_on_fruit_tree_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Stone" to="EnvironmentItems" method="_on_stone_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Spiderweb" to="EnvironmentItems" method="_on_spiderweb_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Crops" to="EnvironmentItems" method="_on_crops_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Moon" to="EnvironmentItems" method="_on_moon_item_click"]
+[connection signal="item_click" from="EnvironmentItems/Workbench" to="EnvironmentItems" method="_on_workbench_item_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/ToDoList" to="EnvironmentStrategies" method="_on_to_do_list_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Calendar" to="EnvironmentStrategies" method="_on_calendar_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Alarm" to="EnvironmentStrategies" method="_on_alarm_strategy_click"]
+[connection signal="strategy_click" from="EnvironmentStrategies/Mess" to="EnvironmentStrategies" method="_on_mess_strategy_click"]
+[connection signal="dialogue_finished" from="DialogueManager" to="EnvironmentStrategies" method="_on_dialogue_manager_dialogue_finished"]
+[connection signal="option_chosen" from="DialogueOptions" to="EnvironmentStrategies" method="_on_dialogue_options_option_chosen"]
+
+[editable path="EnvironmentItems/FruitTree"]
+[editable path="EnvironmentItems/Stone"]
+[editable path="EnvironmentItems/Spiderweb"]
+[editable path="EnvironmentItems/Crops"]
+[editable path="EnvironmentItems/Moon"]
+[editable path="EnvironmentItems/Workbench"]
+[editable path="EnvironmentItems/Sun"]
+[editable path="EnvironmentStrategies/ToDoList"]
+[editable path="EnvironmentStrategies/Calendar"]
+[editable path="EnvironmentStrategies/Alarm"]
+[editable path="EnvironmentStrategies/Mess"]

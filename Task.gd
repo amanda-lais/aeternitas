@@ -4,6 +4,7 @@ signal score_task_checked_off
 
 var task = {}
 var task_name = ""
+var dialogue_task_name
 var task_done = 0
 var pending_check = 0
 var is_chunked = 0

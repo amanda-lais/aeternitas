@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3sy1uvpqm1sm"]
 
 [ext_resource type="Script" path="res://Tasks.gd" id="1_pcg02"]
-[ext_resource type="Script" path="res://Task.gd" id="2_cwfb4"]
+[ext_resource type="PackedScene" uid="uid://cuhwsli24xf1t" path="res://task.tscn" id="2_3hk0x"]
 
 [node name="TaskList" type="Control"]
 layout_mode = 3
@@ -10,8 +10,26 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_pcg02")
 
-[node name="Task" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_cwfb4")
+[node name="RepairStaff" parent="." instance=ExtResource("2_3hk0x")]
+
+[node name="AcquireRock" parent="RepairStaff" instance=ExtResource("2_3hk0x")]
+
+[node name="RepairStaff" parent="RepairStaff" instance=ExtResource("2_3hk0x")]
+
+[node name="ChargeStaff" parent="." instance=ExtResource("2_3hk0x")]
+
+[node name="RepairStaff" parent="ChargeStaff" instance=ExtResource("2_3hk0x")]
+
+[node name="MoonExposure" parent="ChargeStaff" instance=ExtResource("2_3hk0x")]
+
+[node name="GetFood" parent="." instance=ExtResource("2_3hk0x")]
+
+[node name="StockPotions" parent="." instance=ExtResource("2_3hk0x")]
+
+[node name="PlantSeed" parent="StockPotions" instance=ExtResource("2_3hk0x")]
+
+[node name="WaterCrop" parent="StockPotions" instance=ExtResource("2_3hk0x")]
+
+[node name="HarvestCrop" parent="StockPotions" instance=ExtResource("2_3hk0x")]
+
+[node name="BrewPotion" parent="StockPotions" instance=ExtResource("2_3hk0x")]

@@ -7,18 +7,12 @@
 script = ExtResource("1_qjugd")
 metadata/_edit_group_ = true
 
-[node name="Overlay" type="ColorRect" parent="."]
-unique_name_in_owner = true
-offset_right = 1158.0
-offset_bottom = 656.0
-color = Color(0.286275, 0, 0.541176, 0.454902)
-
-[node name="Option1" parent="." instance=ExtResource("2_qwh5e")]
+[node name="Option2" parent="." instance=ExtResource("2_qwh5e")]
 unique_name_in_owner = true
 offset_left = -213.0
 offset_right = 219.0
 
-[node name="Option2" parent="." instance=ExtResource("2_qwh5e")]
+[node name="Option1" parent="." instance=ExtResource("2_qwh5e")]
 unique_name_in_owner = true
 offset_left = -213.0
 offset_top = -187.5
@@ -32,8 +26,8 @@ offset_top = 112.5
 offset_right = 219.0
 offset_bottom = 187.5
 
-[connection signal="gui_input" from="Option1" to="." method="_on_option_1_gui_input"]
 [connection signal="gui_input" from="Option2" to="." method="_on_option_2_gui_input"]
+[connection signal="gui_input" from="Option1" to="." method="_on_option_1_gui_input"]
 [connection signal="gui_input" from="Option3" to="." method="_on_option_3_gui_input"]
 
-[editable path="Option1"]
+[editable path="Option2"]

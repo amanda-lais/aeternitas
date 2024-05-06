@@ -3,14 +3,11 @@
 [ext_resource type="Script" path="res://day_manager.gd" id="1_naijf"]
 [ext_resource type="PackedScene" uid="uid://cqcvekx23x3th" path="res://date.tscn" id="2_7pd2k"]
 
-[node name="DayManager" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="DayManager" type="Node"]
 script = ExtResource("1_naijf")
 
 [node name="GameDay" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

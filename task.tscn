@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuhwsli24xf1t"]
+
+[ext_resource type="Script" path="res://Task.gd" id="1_oar7h"]
+
+[node name="Task" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oar7h")

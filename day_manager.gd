@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 signal new_day
 
@@ -16,16 +16,13 @@ func _ready():
 	today = 1
 
 func day_reset():
-	alarm_clicked_today = false
-	to_do_list_opened_today = false
-	calendar_opened_today = false
+	%Alarm.is_active = false
+	%ToDoList.is_active = false
+	%Calendar.is_active = false
 	calendar_upcoming_checked_today = false
 
 func date_change():
 	if today != 8:
 		today += 1
 		day_reset()
-		load_new_day()
-
-func load_new_day():
-	new_day.emit()
+		new_day.emit()

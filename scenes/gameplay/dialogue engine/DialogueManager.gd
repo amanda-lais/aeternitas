@@ -1,5 +1,8 @@
 extends Control
 
+signal dialogue_started
+signal dialogue_finished
+
 var Dialogue_Box_Active = false
 var List_of_Character_Names = [" ", "Circe", "Chronos"]
 var Log_Text = []
@@ -11,8 +14,8 @@ func _on_dialog_box_gui_input(event):
 			display_next_dialogue_line(dialogue_list)
 
 func start_dialogue():
-	#self.show()
 	if dialogue_list.size() >= 1 and dialogue_list[0] != '':
+		dialogue_started.emit()
 		Dialogue_Box_Active = true
 		display_dialogue_line(dialogue_list)
 
@@ -30,13 +33,9 @@ func display_next_dialogue_line(dialogue_list):
 		dialogue_list = []
 		Dialogue_Box_Active = false
 		self.hide()
-		#%Hotbar.show()
+		dialogue_finished.emit()
 	else:
 		display_dialogue_line(dialogue_list)
 
 func _ready():
 	self.hide()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://csom2oe82dq4c"]
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 28.879
+anchor_bottom = 16.3
+offset_left = 32.0
+offset_top = 59.0
+offset_right = -57.16
+offset_bottom = -95.0001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_right = -456.85
+offset_bottom = -172.544
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 153.0
+offset_right = 501.0
+offset_bottom = 214.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Acumular comida o suficiente"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 99.0
+offset_right = -456.85
+offset_bottom = -73.544
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 153.0
+offset_right = 501.0
+offset_bottom = 214.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 27
+text = "Preparar poções o suficiente"
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -483.0
+offset_top = 40.0
+offset_right = 397.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "LISTA DE TAREFAS"
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_right = 44.15
+offset_bottom = -172.544
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 153.0
+offset_right = 501.0
+offset_bottom = 214.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Consertar cetro mágico"
+
+[node name="ColorRect" type="ColorRect" parent="Control3"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Control4" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_top = 99.0
+offset_right = 44.15
+offset_bottom = -73.544
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control4"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 153.0
+offset_right = 501.0
+offset_bottom = 214.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Recarregar cetro mágico"
+
+[node name="ColorRect" type="ColorRect" parent="Control4"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+color = Color(0.607843, 0, 1, 0.396078)
