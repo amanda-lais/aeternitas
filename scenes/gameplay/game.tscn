@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=9 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="PackedScene" uid="uid://d0m071cu2ka4o" path="res://scenes/gameplay/location/forest.tscn" id="1_cwlra"]
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/gameplay/task.gd" id="4_ownjl"]
 [ext_resource type="Script" path="res://scenes/gameplay/Task4.gd" id="5_swkpl"]
 [ext_resource type="Script" path="res://scenes/gameplay/Task2.gd" id="7_o2cfq"]
-[ext_resource type="Script" path="res://scenes/gameplay/CloseButton.gd" id="8_4q4aw"]
 [ext_resource type="Script" path="res://scenes/gameplay/Blackout.gd" id="9_yp60i"]
 
 [node name="Game" type="Node2D"]
@@ -574,7 +573,6 @@ offset_top = 41.0
 offset_right = 1034.0
 offset_bottom = 81.0
 color = Color(1, 0.383333, 0, 0.396078)
-script = ExtResource("8_4q4aw")
 
 [node name="X" type="RichTextLabel" parent="Tasks/ColorRect/CloseButton"]
 layout_mode = 0
@@ -628,9 +626,12 @@ theme_override_font_sizes/normal_font_size = 35
 text = "XXXXXX pts"
 
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
+[connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="." method="_on_to_do_list_strategy_click"]
+[connection signal="input_event" from="Forest/EnvironmentStrategies/ToDoList/Area2D" to="Tasks" method="_on_area_2d_input_event"]
 [connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
-[connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks/ColorRect/CloseButton" method="_on_gui_input"]
+[connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
 [connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]
 
 [editable path="Forest"]

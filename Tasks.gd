@@ -4,6 +4,8 @@ var to_do_list
 var to_do_list_exp
 var to_do_list_checked_today
 var to_do_list_level
+signal todolist_closed
+signal todolist_clicked
 #var checklist_checks_pending
 
 # Called when the node enters the scene tree for the first time.
@@ -24,3 +26,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _on_environment_items_show_todolist():
+	$ColorRect.show()
+
+func _on_close_button_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			todolist_closed.emit()
+			$ColorRect.hide()
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$ColorRect.show()
+
+func _on_color_rect_gui_input(event):
+	todolist_clicked.emit()

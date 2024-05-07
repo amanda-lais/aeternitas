@@ -34,7 +34,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			#%DialogueManager.dialogue_list = %EnvironmentItems.all_dialogues_at_location[get_name()]
 			#%DialogueManager.start_dialogue()
-			#clicked_item_name = get_name()
+			#clicked_item_name = get_name() ##
 			strategy_click.emit()
 
 func _on_area_2d_mouse_entered():

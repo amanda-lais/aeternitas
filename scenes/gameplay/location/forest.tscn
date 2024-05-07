@@ -115,7 +115,6 @@ script = ExtResource("10_ixb7w")
 
 [node name="CollisionShape2D" parent="EnvironmentItems/Crops/Area2D" index="0"]
 position = Vector2(10.6763, 16.9509)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tk1o3")
 
 [node name="Moon" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
@@ -130,11 +129,9 @@ texture = ExtResource("8_q8a5a")
 
 [node name="CollisionShape2D" parent="EnvironmentItems/Workbench/Area2D" index="0"]
 position = Vector2(-2.01514, 26.5909)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bwych")
 
 [node name="Sun" parent="EnvironmentItems" instance=ExtResource("2_hdlov")]
-visible = false
 position = Vector2(929, 127)
 scale = Vector2(0.652344, 0.652344)
 

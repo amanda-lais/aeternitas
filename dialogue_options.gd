@@ -52,3 +52,8 @@ func set_option_box_text(box, box_text):
 		%Option2.set_option_box_text(box_text)
 	elif box == 3:
 		%Option3.set_option_box_text(box_text)
+
+func default_option_box():
+	set_option_box_text(1, "SIM")
+	set_option_box_text(2, "NÃO")
+	set_option_box_text(3, "ESPERA")

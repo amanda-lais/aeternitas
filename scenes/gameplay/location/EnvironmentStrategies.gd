@@ -6,9 +6,9 @@ var location_strategies = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%DialogueOptions.set_option_box_text(1, "YES")
-	%DialogueOptions.set_option_box_text(2, "NO")
-	%DialogueOptions.set_option_box_text(3, "WAIT")
+	%DialogueOptions.set_option_box_text(1, "SIM")
+	%DialogueOptions.set_option_box_text(2, "NÃO")
+	%DialogueOptions.set_option_box_text(3, "ESPERA")
 
 func run_dialogue(dialogue):
 	%DialogueManager.dialogue_list = [dialogue]
