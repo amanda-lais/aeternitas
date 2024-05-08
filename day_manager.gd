@@ -1,6 +1,7 @@
 extends Node
 
 signal new_day
+signal full_moon
 
 var game_days = {}
 var today
@@ -23,6 +24,8 @@ func day_reset():
 
 func date_change():
 	if today != 8:
+		if today == 5:
+			full_moon.emit()
 		today += 1
 		day_reset()
 		new_day.emit()

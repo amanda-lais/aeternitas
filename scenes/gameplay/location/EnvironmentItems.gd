@@ -61,8 +61,6 @@ func run_dialogue(dialogue):
 func _ready():
 	%FruitTree.can_forage = 0
 	%Crops.crops_dict()
-	all_dialogues_at_location['workbench'] = [""]
-	all_dialogues_at_location['spiderweb'] = [""]
 	all_dialogues_at_location['moon'] = [""]
 
 func generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no):
@@ -154,8 +152,12 @@ func _on_workbench_item_click():
 	if %Inventory.inventory["stone"] < 2:
 		run_dialogue("0Circe não tem material o suficiente...")
 	else:
-		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
-			%Inventory.add_to_inventory("staff", 1)
+		if %Inventory.inventory["staff"] != 0:
+			run_dialogue("1...? Eu já consertei o cetro.")
+		else:
+			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
+				%Inventory.add_to_inventory("stone", -2)
+				%Inventory.add_to_inventory("staff", 1)
 
 func dialogue_on_click(dialogue):
 	%DialogueManager.dialogue_list = dialogue
@@ -167,3 +169,19 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func _on_close_button_todolist_closed():
 	pass # Replace with function body.
+
+
+func _on_cauldron_item_click():
+	var dialogue_prompt = "0Deseja preparar poções?"
+	var dialogue_success = "0Circe fez as poções com sucesso!"
+	var dialogue_fail = "0Circe se distraiu..."
+	var dialogue_no = "0Talvez depois."
+	if %Inventory.inventory["vegetable"] < 2:
+		run_dialogue("0Circe não tem vegetais mágicos o suficiente...")
+	else:
+		if %Alarm.is_active == true:
+			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
+				%Inventory.add_to_inventory("vegetable", -2)
+		else:
+			run_dialogue("0A poção deu errado...")
+			%Inventory.add_to_inventory("vegetable", -2)

@@ -37,9 +37,17 @@ func add_to_inventory(item, amount):
 		task_finished.emit("WaterCrop")
 	elif item == "vegetable" and amount > 0:
 		task_finished.emit("HarvestCrop")
+	elif item == "vegetable" and amount < 0:
+		if %Alarm.is_active == true:
+			print("pocao :D")
+			%Inventory.add_to_inventory("potion", 1)
+			#task_finished.emit("HarvestCrop")
 	elif item == "staff" and inventory[item] == 1:
 		task_finished.emit("RepairStaff")
 		task_finished.emit("StaffRepaired")
+	elif item == "staff" and inventory[item] == 2:
+		task_finished.emit("MoonExposure")
+		print("lua")
 	
 func stone_check(stone_amount):
 	if stone_amount >= 1:
@@ -67,3 +75,11 @@ func staff_recharge_check(staff_status):
 		return true
 	else:
 		return false
+
+
+func _on_day_manager_full_moon():
+	print("DIA 5")
+	print(%Calendar.is_active)
+	print(%Alarm.is_active)
+	if %Alarm.is_active == true and %Calendar.is_active == true:
+		add_to_inventory("staff", 1)
