@@ -20,6 +20,7 @@ func generate_rng():
 func action():
 	rng = generate_rng()
 	var res = check_sf(rng)
+	res = 5
 	if res <= 20:
 		#success
 		return true

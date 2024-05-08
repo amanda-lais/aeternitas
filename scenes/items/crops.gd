@@ -65,7 +65,6 @@ func water_plant():
 
 func harvest():
 	crop_current_status = "can plant"
-	%Inventory.vegetable_amount += 1
 
 func date_updated():
 	date_update.emit()

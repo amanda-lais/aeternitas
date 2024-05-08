@@ -1,5 +1,10 @@
 extends Control
 
+var new = []
+
+var task_list = {}
+var subtask_node = {}
+
 var to_do_list
 var to_do_list_exp
 var to_do_list_checked_today
@@ -9,23 +14,9 @@ signal todolist_clicked
 #var checklist_checks_pending
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$RepairStaff.dialogue_task_name = "Consertar cetro mágico"
-	$ChargeStaff.dialogue_task_name = "Recarregar cetro mágico"
-	$GetFood.dialogue_task_name = "Acumular comida o suficiente"
-	$StockPotions.dialogue_task_name = "Preparar poções o suficiente"
-	$RepairStaff/AcquireRock.dialogue_task_name = "Conseguir 2 pedaços de pedra (material para conserto)"
-	$RepairStaff/RepairStaff.dialogue_task_name = "Fazer o reparo"
-	$ChargeStaff/RepairStaff.dialogue_task_name = "Consertar cetro mágico"
-	$ChargeStaff/MoonExposure.dialogue_task_name = "Usar lua cheia para recarregar o cetro mágico"
-	$StockPotions/PlantSeed.dialogue_task_name = "Plantar semente"
-	$StockPotions/WaterCrop.dialogue_task_name = "Regar plantas"
-	$StockPotions/HarvestCrop.dialogue_task_name = "Colher os vegetais mágicos"
-	$StockPotions/BrewPotion.dialogue_task_name = "Cozinhar poções o suficiente"
-
+#func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
 
 func _on_environment_items_show_todolist():
 	$ColorRect.show()
@@ -42,4 +33,45 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			$ColorRect.show()
 
 func _on_color_rect_gui_input(event):
-	todolist_clicked.emit()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			todolist_clicked.emit()
+			if len(new)>0:
+				subtask_node[new[0]].check_task()
+				new.pop_front()
+
+func _on_inventory_task_finished(task_id):
+	task_list[task_id] = true
+	new.append(task_id)
+	#Main tasks
+	#Task 1 - Food
+	if task_id == "GetFood":
+		subtask_node[task_id] = get_node("ColorRect/Task1")
+	#Task 2 - Potion Brewing
+	elif task_id == "StockPotions":
+		subtask_node[task_id] = get_node("ColorRect/Task2")
+	#Task 3 - Repair Staff
+	elif task_id == "StaffRepaired":
+		subtask_node[task_id] = get_node("ColorRect/Task3")
+	#Task 4 - Recharge Staff
+	elif task_id == "ChargeStaff":
+		subtask_node[task_id] = get_node("ColorRect/Task4")
+	#Subtasks
+	#Task 3 - Repair
+	elif task_id == "AcquireRock":
+		subtask_node[task_id] = get_node("ColorRect/Task3/Subtask1")
+	elif task_id == "RepairStaff":
+		subtask_node[task_id] = get_node("ColorRect/Task3/Subtask2")
+	#Task 4 - Recharge
+	elif task_id == "MoonExposure":
+		subtask_node[task_id] = get_node("ColorRect/Task4/Subtask3")
+		subtask_node["ChargeStaff"] = get_node("ColorRect/Task4")
+	#Task 2 - Potion Brewing
+	elif task_id == "PlantSeed":
+		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask1")
+	elif task_id == "WaterCrop":
+		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask2")
+	elif task_id == "HarvestCrop":
+		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask3")
+	elif task_id == "BrewPotion":
+		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask4")

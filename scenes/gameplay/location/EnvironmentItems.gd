@@ -5,6 +5,7 @@ var all_dialogues_at_location = {}
 var outcome
 signal show_todolist
 signal test_activity
+signal task_finished(task_id)
 
 var default_todolist_dialogue = [
 	"2Talvez tenha algo que possa marcar como feita na lista de tarefas.",
@@ -86,7 +87,8 @@ func _on_fruit_tree_item_click():
 	if %FruitTree.can_forage == 0:
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%FruitTree.forage()
-			%Inventory.fruit_amount += 3
+			%Inventory.add_to_inventory("fruit", 3)
+			#%Inventory.fruit_amount += 3
 	else:
 		await run_dialogue(%FruitTree.dialogue)
 
@@ -96,7 +98,7 @@ func _on_stone_item_click():
 	var dialogue_fail = "0Circe se distraiu e não minerou..."
 	var dialogue_no = "0Talvez depois."
 	if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
-		%Inventory.stone_amount += 1
+		%Inventory.add_to_inventory("stone", 2)
 		%DayManager.date_change()
 
 func _on_spiderweb_item_click():
@@ -111,6 +113,7 @@ func _on_crops_item_click():
 	if %Crops.crop_current_status == "can plant":
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.plant_seed()
+			%Inventory.add_to_inventory("seed", -1)
 			var option_number
 			option_number = await maybe_use_strategy()
 			if option_number == 1:
@@ -121,8 +124,6 @@ func _on_crops_item_click():
 				elif option_number == 2:
 					await dialogue_on_click(default_todolist_dialogue)
 					show_todolist.emit()
-					await $"../../Tasks/".todolist_clicked
-					$"../../Tasks/ColorRect/Task2/Subtask1".check_task()
 					await _on_close_button_todolist_closed()
 					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
 			%DialogueOptions.default_option_box()
@@ -132,19 +133,29 @@ func _on_crops_item_click():
 		dialogue_success = "0Circe regou a planta!"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.water_plant()
+			%Inventory.add_to_inventory("water", -1)
 			%DayManager.date_change()
 	elif %Crops.crop_current_status == "watered":
 		dialogue_prompt = "0Deseja colher?"
 		dialogue_success = "0Circe colheu os vegetais mágicos"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.harvest()
+			%Inventory.add_to_inventory("vegetable", 2)
 			%DayManager.date_change()
 
 func _on_moon_item_click():
 	dialogue_on_click("moon")
 
 func _on_workbench_item_click():
-	dialogue_on_click("workbench")
+	var dialogue_prompt = "0Deseja consertar o cetro?"
+	var dialogue_success = "0Circe consertou o cetro com sucesso!"
+	var dialogue_fail = "0Circe se distraiu..."
+	var dialogue_no = "0Talvez depois."
+	if %Inventory.inventory["stone"] < 2:
+		run_dialogue("0Circe não tem material o suficiente...")
+	else:
+		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
+			%Inventory.add_to_inventory("staff", 1)
 
 func dialogue_on_click(dialogue):
 	%DialogueManager.dialogue_list = dialogue

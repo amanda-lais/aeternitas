@@ -1,8 +1,69 @@
 extends Node
 
-var stone_amount = 0
-var fruit_amount = 0
-var potion_amount = 0
-var vegetable_amount = 0
 var staff_broken = true
 var staff_powered = false
+var inventory = {
+	"stone": 0,
+	"fruit": 0,
+	"potion":0,
+	"vegetable": 0,
+	"seed": 2,
+	"staff": 0,
+	"water": 1,
+	"staff_repaired": false,
+	"staff_recharged": false
+	}
+signal task_finished(task_id)
+
+#staff =
+#0 <- broken
+#1 <- repaired
+#2 <- powered up
+
+func add_to_inventory(item, amount):
+	inventory[item] += amount
+	if item == "stone":
+		if stone_check(inventory[item]) == true:
+			task_finished.emit("AcquireRock")
+	elif item == "fruit":
+		if fruit_check(inventory[item]) == true:
+			task_finished.emit("GetFood")
+	elif item == "potion":
+		if potion_check(inventory[item]) == true:
+			task_finished.emit("potion")
+	elif item == "seed" and amount < 0:
+		task_finished.emit("PlantSeed")
+	elif item == "water" and amount < 0:
+		task_finished.emit("WaterCrop")
+	elif item == "vegetable" and amount > 0:
+		task_finished.emit("HarvestCrop")
+	elif item == "staff" and inventory[item] == 1:
+		task_finished.emit("RepairStaff")
+		task_finished.emit("StaffRepaired")
+	
+func stone_check(stone_amount):
+	if stone_amount >= 1:
+		return true
+	return false
+
+func fruit_check(fruit_amount):
+	if fruit_amount >= 3:
+		return true
+	return false
+
+func potion_check(potion_amount):
+	if potion_amount >= 1:
+		return true
+	return false
+	
+func staff_repair_check(staff_status):
+	if staff_status == "broken":
+		return false
+	else:
+		return true
+
+func staff_recharge_check(staff_status):
+	if staff_status == "recharged":
+		return true
+	else:
+		return false

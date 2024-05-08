@@ -5,3 +5,10 @@ func _ready():
 	$Subtask2.hide()
 	$Subtask3.hide()
 	$Subtask4.hide()
+	todolist_leveltwo()
+
+func todolist_leveltwo():
+	$Subtask1.show()
+	$Subtask2.show()
+	$Subtask3.show()
+	$Subtask4.show()

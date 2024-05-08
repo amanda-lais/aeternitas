@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=44 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scenes/items/calendar.gd" id="19_8d3we"]
 [ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="20_im3ul"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Environment.gd" id="21_rfsu2"]
+[ext_resource type="Texture2D" uid="uid://cyaagcmdcolv1" path="res://assets/placeholder/strategies/placeholder_mess.png" id="21_ysuw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Overlay.gd" id="22_58kja"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="23_53yyp"]
 [ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="24_e021a"]
@@ -33,7 +34,6 @@
 [ext_resource type="Script" path="res://scenes/gameplay/location/Inventory.gd" id="26_28jrm"]
 [ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="27_34723"]
 [ext_resource type="Script" path="res://Tasks.gd" id="28_nlgrb"]
-[ext_resource type="PackedScene" uid="uid://cuhwsli24xf1t" path="res://task.tscn" id="29_ttyhc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
 radius = 231.946
@@ -59,6 +59,9 @@ size = Vector2(371.925, 335.699)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_55qxx"]
 radius = 264.566
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glsyl"]
+size = Vector2(467.862, 386.207)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
@@ -184,10 +187,14 @@ shape = SubResource("CircleShape2D_55qxx")
 
 [node name="Mess" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(218, 472)
 scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("21_ysuw5")
 script = ExtResource("17_eu5k7")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Mess/Area2D" index="0"]
+position = Vector2(-34.2069, 57.3793)
+shape = SubResource("RectangleShape2D_glsyl")
 
 [node name="Environment" type="CanvasGroup" parent="Forest"]
 unique_name_in_owner = true
@@ -215,12 +222,12 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("25_ru805")
 
-[node name="Inventory" type="Node" parent="Forest"]
-unique_name_in_owner = true
-script = ExtResource("26_28jrm")
-
 [node name="DayManager" parent="Forest" instance=ExtResource("27_34723")]
 unique_name_in_owner = true
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("26_28jrm")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 3
@@ -228,30 +235,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("28_nlgrb")
-
-[node name="RepairStaff" parent="Tasks" instance=ExtResource("29_ttyhc")]
-
-[node name="AcquireRock" parent="Tasks/RepairStaff" instance=ExtResource("29_ttyhc")]
-
-[node name="RepairStaff" parent="Tasks/RepairStaff" instance=ExtResource("29_ttyhc")]
-
-[node name="ChargeStaff" parent="Tasks" instance=ExtResource("29_ttyhc")]
-
-[node name="RepairStaff" parent="Tasks/ChargeStaff" instance=ExtResource("29_ttyhc")]
-
-[node name="MoonExposure" parent="Tasks/ChargeStaff" instance=ExtResource("29_ttyhc")]
-
-[node name="GetFood" parent="Tasks" instance=ExtResource("29_ttyhc")]
-
-[node name="StockPotions" parent="Tasks" instance=ExtResource("29_ttyhc")]
-
-[node name="PlantSeed" parent="Tasks/StockPotions" instance=ExtResource("29_ttyhc")]
-
-[node name="WaterCrop" parent="Tasks/StockPotions" instance=ExtResource("29_ttyhc")]
-
-[node name="HarvestCrop" parent="Tasks/StockPotions" instance=ExtResource("29_ttyhc")]
-
-[node name="BrewPotion" parent="Tasks/StockPotions" instance=ExtResource("29_ttyhc")]
 
 [node name="ColorRect" type="ColorRect" parent="Tasks"]
 layout_mode = 1
@@ -331,7 +314,7 @@ offset_right = -19.0
 offset_bottom = -18.2035
 script = ExtResource("4_ownjl")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1"]
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1"]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 167.0
@@ -370,7 +353,7 @@ offset_right = -19.0
 offset_bottom = 17.7965
 script = ExtResource("4_ownjl")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2"]
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2"]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 167.0
@@ -440,52 +423,13 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 50
 text = "X"
 
-[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task4"]
-layout_mode = 1
-anchor_right = 0.475
-anchor_bottom = 0.576
-offset_top = 88.0
-offset_right = -19.0
-offset_bottom = 28.7965
-script = ExtResource("4_ownjl")
-
-[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask1"]
-layout_mode = 0
-offset_left = 82.0
-offset_top = 167.0
-offset_right = 501.0
-offset_bottom = 228.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 22
-bbcode_enabled = true
-text = "Material para conserto (2 pedras)"
-
-[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask1"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 170.0
-offset_right = 64.0
-offset_bottom = 198.0
-color = Color(1, 0.384314, 0, 0.396078)
-
-[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask1/Checkbox"]
-visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = -15.0
-offset_right = 40.0
-offset_bottom = 55.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-text = "X"
-
 [node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task4"]
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 124.0
+offset_top = 87.0
 offset_right = -19.0
-offset_bottom = 64.7965
+offset_bottom = 27.7965
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2"]
@@ -522,9 +466,9 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 160.0
+offset_top = 123.0
 offset_right = -19.0
-offset_bottom = 100.796
+offset_bottom = 63.796
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3"]
@@ -884,6 +828,7 @@ text = "XXXXXX pts"
 [connection signal="option_chosen" from="Forest/DialogueOptions" to="Forest/Overlay" method="_on_dialogue_options_option_chosen"]
 [connection signal="selection_started" from="Forest/DialogueOptions" to="Forest/Overlay" method="_on_dialogue_options_selection_started"]
 [connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
+[connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
 [connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
 [connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]

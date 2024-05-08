@@ -72,6 +72,7 @@ func _on_mess_strategy_click():
 	var option_number = await %DialogueOptions.option_chosen
 	if option_number == 1:
 		dialogue = "0Cleaned up!"
+		%Mess.hide()
 	elif option_number == 2:
 		dialogue = "0Alright."
 	elif option_number == 3:
