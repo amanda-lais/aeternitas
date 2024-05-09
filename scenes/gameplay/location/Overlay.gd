@@ -14,3 +14,6 @@ func _on_dialogue_manager_dialogue_finished():
 
 func _on_dialogue_options_option_chosen(option_number):
 	self.hide()
+
+func _on_tasks_todolist_closed():
+	self.hide()

@@ -12,13 +12,13 @@ var exp_points
 var inventory
 var result
 
-func generate_rng():
+func generate_rng(min, max):
 	rng = RandomNumberGenerator.new()
 	var my_random_number = rng.randf_range(0, 100)
 	return my_random_number
 
 func action():
-	rng = generate_rng()
+	rng = generate_rng(0, 100)
 	var res = check_sf(rng)
 	res = 5
 	if res <= 20:

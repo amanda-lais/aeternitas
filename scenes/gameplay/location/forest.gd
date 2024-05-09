@@ -60,13 +60,5 @@ func _process(delta):
 #func _on_hotbar_to_do_list_status(to_do_list_active):
 	#pass # Replace with function body.
 
-
-func _on_environment_items_test_activity():
-	score_gained.emit()
-	#print("begjhsdkjg")
-
-
-func _on_option_1_gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("sdjkhghjih")
+func _on_environment_strategies_score_gained(score):
+	pass # Replace with function body.

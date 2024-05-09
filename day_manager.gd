@@ -21,6 +21,10 @@ func day_reset():
 	%ToDoList.is_active = false
 	%Calendar.is_active = false
 	calendar_upcoming_checked_today = false
+	if %FruitTree.can_forage == 1:
+		%FruitTree.can_forage += 1
+	elif %FruitTree.can_forage == 2:
+		%FruitTree.can_forage = 0
 
 func date_change():
 	if today != 8:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=45 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="18_4iau7"]
 [ext_resource type="Script" path="res://scenes/items/calendar.gd" id="19_8d3we"]
 [ext_resource type="Texture2D" uid="uid://chf3ag4h1akeg" path="res://assets/placeholder/strategies/placeholder_alarm.png" id="20_im3ul"]
-[ext_resource type="Script" path="res://scenes/gameplay/location/Environment.gd" id="21_rfsu2"]
 [ext_resource type="Texture2D" uid="uid://cyaagcmdcolv1" path="res://assets/placeholder/strategies/placeholder_mess.png" id="21_ysuw5"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Overlay.gd" id="22_58kja"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="23_53yyp"]
@@ -66,7 +65,7 @@ size = Vector2(371.925, 335.699)
 radius = 264.566
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glsyl"]
-size = Vector2(467.862, 386.207)
+size = Vector2(321.103, 260.414)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
@@ -202,12 +201,8 @@ texture = ExtResource("21_ysuw5")
 script = ExtResource("17_eu5k7")
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Mess/Area2D" index="0"]
-position = Vector2(-34.2069, 57.3793)
+position = Vector2(39.1724, -5.51727)
 shape = SubResource("RectangleShape2D_glsyl")
-
-[node name="Environment" type="CanvasGroup" parent="Forest"]
-unique_name_in_owner = true
-script = ExtResource("21_rfsu2")
 
 [node name="Overlay" type="ColorRect" parent="Forest"]
 unique_name_in_owner = true
@@ -239,6 +234,7 @@ unique_name_in_owner = true
 script = ExtResource("26_28jrm")
 
 [node name="Tasks" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -776,6 +772,7 @@ theme_override_font_sizes/normal_font_size = 45
 text = "X"
 
 [node name="Blackout" type="ColorRect" parent="."]
+visible = false
 offset_right = 1155.0
 offset_bottom = 652.0
 color = Color(0, 0, 0, 1)
@@ -817,7 +814,6 @@ text = "XXXXXX pts"
 
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
 [connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
-[connection signal="test_activity" from="Forest/EnvironmentItems" to="Forest" method="_on_environment_items_test_activity"]
 [connection signal="item_click" from="Forest/EnvironmentItems/FruitTree" to="Forest/EnvironmentItems" method="_on_fruit_tree_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Stone" to="Forest/EnvironmentItems" method="_on_stone_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Spiderweb" to="Forest/EnvironmentItems" method="_on_spiderweb_item_click"]
@@ -825,6 +821,7 @@ text = "XXXXXX pts"
 [connection signal="item_click" from="Forest/EnvironmentItems/Moon" to="Forest/EnvironmentItems" method="_on_moon_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Workbench" to="Forest/EnvironmentItems" method="_on_workbench_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Cauldron" to="Forest/EnvironmentItems" method="_on_cauldron_item_click"]
+[connection signal="score_gained" from="Forest/EnvironmentStrategies" to="." method="_on_environment_strategies_score_gained"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="." method="_on_to_do_list_strategy_click"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="Forest/EnvironmentStrategies" method="_on_to_do_list_strategy_click"]
 [connection signal="input_event" from="Forest/EnvironmentStrategies/ToDoList/Area2D" to="Tasks" method="_on_area_2d_input_event"]
@@ -839,7 +836,10 @@ text = "XXXXXX pts"
 [connection signal="selection_started" from="Forest/DialogueOptions" to="Forest/Overlay" method="_on_dialogue_options_selection_started"]
 [connection signal="full_moon" from="Forest/DayManager" to="Inventory" method="_on_day_manager_full_moon"]
 [connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
+[connection signal="score_gained" from="Inventory" to="." method="_on_inventory_score_gained"]
 [connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
+[connection signal="score_gained" from="Tasks" to="." method="_on_tasks_score_gained"]
+[connection signal="todolist_closed" from="Tasks" to="Forest/Overlay" method="_on_tasks_todolist_closed"]
 [connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
 [connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]

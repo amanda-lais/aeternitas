@@ -11,6 +11,8 @@ var to_do_list_checked_today
 var to_do_list_level
 signal todolist_closed
 signal todolist_clicked
+
+signal score_gained(score)
 #var checklist_checks_pending
 
 # Called when the node enters the scene tree for the first time.
@@ -38,6 +40,7 @@ func _on_color_rect_gui_input(event):
 			todolist_clicked.emit()
 			if len(new)>0:
 				subtask_node[new[0]].check_task()
+				score_gained.emit(10)
 				new.pop_front()
 
 func _on_inventory_task_finished(task_id):
