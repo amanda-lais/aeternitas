@@ -49,7 +49,6 @@ func add_to_inventory(item, amount):
 			#task_finished.emit("HarvestCrop")
 	elif item == "staff" and inventory[item] == 1:
 		task_finished.emit("RepairStaff")
-		task_finished.emit("StaffRepaired")
 		score_gained.emit(200)
 	elif item == "staff" and inventory[item] == 2:
 		task_finished.emit("MoonExposure")

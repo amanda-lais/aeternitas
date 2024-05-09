@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=47 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -66,6 +66,13 @@ radius = 264.566
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glsyl"]
 size = Vector2(321.103, 260.414)
+
+[sub_resource type="Gradient" id="Gradient_e15vc"]
+colors = PackedColorArray(1, 0.604, 0.46, 1, 0.768507, 0.5704, 0.92, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q24bd"]
+gradient = SubResource("Gradient_e15vc")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
@@ -213,11 +220,23 @@ script = ExtResource("22_58kja")
 
 [node name="DialogueManager" parent="Forest" instance=ExtResource("23_53yyp")]
 unique_name_in_owner = true
-visible = false
 offset_left = 52.0
 offset_top = 381.0
 offset_right = 52.0
 offset_bottom = 381.0
+
+[node name="Sprite2D" parent="Forest/DialogueManager" index="0"]
+position = Vector2(860, -148)
+scale = Vector2(0.616006, 0.616006)
+
+[node name="Sprite2D2" parent="Forest/DialogueManager" index="1"]
+position = Vector2(119, -114)
+rotation = -0.304023
+scale = Vector2(6.4, 6.4)
+
+[node name="DialogueBox" parent="Forest/DialogueManager/DialogueBox" index="0"]
+texture = SubResource("GradientTexture1D_q24bd")
+expand_mode = 0
 
 [node name="DialogueOptions" parent="Forest" instance=ExtResource("24_e021a")]
 unique_name_in_owner = true
@@ -234,7 +253,6 @@ unique_name_in_owner = true
 script = ExtResource("26_28jrm")
 
 [node name="Tasks" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

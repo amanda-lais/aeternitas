@@ -120,14 +120,13 @@ func _on_crops_item_click():
 	if %Crops.crop_current_status == "can plant":
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.plant_seed()
-			%Calendar.add_to_calendar("water_crop", %DayManager.today+1)
 			%Inventory.add_to_inventory("seed", -1)
-			var option_number
-			option_number = await maybe_use_strategy()
+			var option_number = await maybe_use_strategy()
 			if option_number == 1:
 				option_number = await choose_strategy()
 				if option_number == 1:
 					await dialogue_on_click(%Crops.dialogues["planted_calendar"])
+					%Calendar.add_to_calendar("water_crop", %DayManager.today+1)
 					await remaining_choose_todolist(default_todolist_dialogue)
 				elif option_number == 2:
 					await dialogue_on_click(default_todolist_dialogue)
@@ -141,8 +140,20 @@ func _on_crops_item_click():
 		dialogue_success = "0Circe regou a planta!"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.water_plant()
-			%Calendar.add_to_calendar("harvest_crop", %DayManager.today+1)
 			%Inventory.add_to_inventory("water", -1)
+			var option_number = await maybe_use_strategy()
+			if option_number == 1:
+				option_number = await choose_strategy()
+				if option_number == 1:
+					await dialogue_on_click(%Crops.dialogues["planted_calendar"])
+					%Calendar.add_to_calendar("harvest_crop", %DayManager.today+1)
+					await remaining_choose_todolist(default_todolist_dialogue)
+				elif option_number == 2:
+					await dialogue_on_click(default_todolist_dialogue)
+					show_todolist.emit()
+					await _on_close_button_todolist_closed()
+					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
+			%DialogueOptions.default_option_box()
 			%DayManager.date_change()
 	elif %Crops.crop_current_status == "watered":
 		dialogue_prompt = "0Deseja colher?"
@@ -150,6 +161,18 @@ func _on_crops_item_click():
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.harvest()
 			%Inventory.add_to_inventory("vegetable", 2)
+			var option_number = await maybe_use_strategy()
+			if option_number == 1:
+				option_number = await choose_strategy()
+				if option_number == 1:
+					await dialogue_on_click(%Crops.dialogues["planted_calendar"])
+					await remaining_choose_todolist(default_todolist_dialogue)
+				elif option_number == 2:
+					await dialogue_on_click(default_todolist_dialogue)
+					show_todolist.emit()
+					await _on_close_button_todolist_closed()
+					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
+			%DialogueOptions.default_option_box()
 			%DayManager.date_change()
 
 func _on_workbench_item_click():
@@ -186,5 +209,5 @@ func _on_cauldron_item_click():
 			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 				%Inventory.add_to_inventory("vegetable", -2)
 		else:
-			run_dialogue("0A poção deu errado...")
+			run_dialogue("0A poção queimou e deu errado...")
 			%Inventory.add_to_inventory("vegetable", -2)

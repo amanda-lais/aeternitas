@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbdyfvikl5ja6"]
+[gd_scene load_steps=5 format=3 uid="uid://cbdyfvikl5ja6"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/dialogue engine/DialogueManager.gd" id="1_ssebq"]
 [ext_resource type="Texture2D" uid="uid://b6w4ifk46ojlg" path="res://assets/placeholder/placeholder_paper_dialogue_box.png" id="2_aqkmd"]
+[ext_resource type="Texture2D" uid="uid://cpcxtifa68ai7" path="res://assets/sprites/witch_default.png" id="2_hxcg3"]
+[ext_resource type="Texture2D" uid="uid://b4ilbux7qlo2p" path="res://assets/chronos_cursor.png" id="3_y3ucx"]
 
 [node name="DialogueManager" type="Control"]
 layout_mode = 3
@@ -17,6 +19,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ssebq")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hxcg3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_y3ucx")
 
 [node name="Option" type="Control" parent="."]
 anchors_preset = 0

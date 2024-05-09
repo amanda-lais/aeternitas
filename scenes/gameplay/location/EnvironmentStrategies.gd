@@ -31,7 +31,7 @@ func _ready():
 	%DialogueOptions.set_option_box_text(2, "NÃO")
 	%DialogueOptions.set_option_box_text(3, "ESPERA")
 
-func activate_strategy(strategy_name, option_box_amount = 3):
+func activate_strategy(strategy_name, option_box_amount = 2):
 	var dialogue = "0Deseja utilizar " + strategy_name.capitalize() + "?"
 	run_dialogue(dialogue)
 	await %DialogueManager.dialogue_finished
@@ -50,19 +50,20 @@ func activate_strategy(strategy_name, option_box_amount = 3):
 func _on_to_do_list_strategy_click():
 	var strategy_name = "lista de tarefas"
 	var node_name = "ToDoList"
+	%ToDoList.activate_strategy()
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
 		%ToDoList.unlock_strategy()
-	elif %EnvironmentStrategies.location_strategies[node_name].is_active == false:
-		%ToDoList.activate_strategy()
+		
 
 func _on_calendar_strategy_click():
 	var strategy_name = "calendário"
 	var node_name = "Calendar"
+	%Calendar.activate_strategy()
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
 		run_dialogue(%Calendar.first_dialogue)
 		%Calendar.unlock_strategy()
-	elif %EnvironmentStrategies.location_strategies[node_name].is_active == false:
-		%Calendar.activate_strategy()
+	else:
+		run_dialogue(%Calendar.first_dialogue)
 	choice = await generic_branch(
 		%Calendar.dialogue_default,
 		3,
@@ -78,6 +79,7 @@ func _on_calendar_strategy_click():
 	elif choice == 3:
 		run_dialogue("2Dê uma olhada no calendário em geral!")
 		dialogue_on_click(%Calendar.check_overall())
+	%DialogueOptions.default_option_box()
 
 func _on_alarm_strategy_click():
 	var strategy_name = "alarme"
@@ -97,7 +99,7 @@ func _on_mess_strategy_click():
 	var dialogue = "0Você gostaria de limpar a bagunça?"
 	run_dialogue(dialogue)
 	await %DialogueManager.dialogue_finished
-	%DialogueOptions.show_options(3)
+	%DialogueOptions.show_options(2)
 	var option_number = await %DialogueOptions.option_chosen
 	if option_number == 1:
 		dialogue = "0Tudo limpo agora!"
@@ -106,7 +108,7 @@ func _on_mess_strategy_click():
 	elif option_number == 2:
 		dialogue = "1Depois..."
 	elif option_number == 3:
-		dialogue = "0Oopsie?"
+		dialogue = "0?"
 	run_dialogue(dialogue)
 
 func _on_dialogue_manager_dialogue_finished(option_box_amount):

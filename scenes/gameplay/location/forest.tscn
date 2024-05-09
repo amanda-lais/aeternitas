@@ -211,7 +211,6 @@ script = ExtResource("24_5wmk4")
 [node name="DayManager" parent="." instance=ExtResource("25_26g6w")]
 unique_name_in_owner = true
 
-[connection signal="test_activity" from="EnvironmentItems" to="." method="_on_environment_items_test_activity"]
 [connection signal="item_click" from="EnvironmentItems/FruitTree" to="EnvironmentItems" method="_on_fruit_tree_item_click"]
 [connection signal="item_click" from="EnvironmentItems/Stone" to="EnvironmentItems" method="_on_stone_item_click"]
 [connection signal="item_click" from="EnvironmentItems/Spiderweb" to="EnvironmentItems" method="_on_spiderweb_item_click"]

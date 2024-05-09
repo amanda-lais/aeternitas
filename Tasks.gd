@@ -54,21 +54,29 @@ func _on_inventory_task_finished(task_id):
 	elif task_id == "StockPotions":
 		subtask_node[task_id] = get_node("ColorRect/Task2")
 	#Task 3 - Repair Staff
-	elif task_id == "StaffRepaired":
+	elif task_id == "RepairStaff":
 		subtask_node[task_id] = get_node("ColorRect/Task3")
+		subtask_node["StaffRepaired"] = get_node("ColorRect/Task3/Subtask2")
+		subtask_node["RepairedStaff"] = get_node("ColorRect/Task4/Subtask2")
+		new.append("StaffRepaired")
+		new.append("RepairedStaff")
+		task_list["StaffRepaired"] = true
+		task_list["RepairedStaff"] = true
 	#Task 4 - Recharge Staff
-	elif task_id == "ChargeStaff":
-		subtask_node[task_id] = get_node("ColorRect/Task4")
+	#elif task_id == "ChargeStaff":
+	#	subtask_node[task_id] = get_node("ColorRect/Task4")
 	#Subtasks
 	#Task 3 - Repair
 	elif task_id == "AcquireRock":
 		subtask_node[task_id] = get_node("ColorRect/Task3/Subtask1")
-	elif task_id == "RepairStaff":
-		subtask_node[task_id] = get_node("ColorRect/Task3/Subtask2")
+	#elif task_id == "RepairStaff":
+	#	subtask_node[task_id] = get_node("ColorRect/Task3/Subtask2")
 	#Task 4 - Recharge
 	elif task_id == "MoonExposure":
 		subtask_node[task_id] = get_node("ColorRect/Task4/Subtask3")
 		subtask_node["ChargeStaff"] = get_node("ColorRect/Task4")
+		new.append("ChargeStaff")
+		task_list["ChargeStaff"] = true
 	#Task 2 - Potion Brewing
 	elif task_id == "PlantSeed":
 		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask1")
