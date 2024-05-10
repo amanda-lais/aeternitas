@@ -1,20 +1,20 @@
 extends "res://scenes/items/item.gd"
 
 var dialogue = [
-"0Examina teia de aranha", 
-"1Uma teia de aranha!", 
+"0(Examina [wave]teia de aranha[/wave])", 
+"1Uma [shake]teia de aranha[/shake]!", 
 "1Hmm, a aranha que fez isso deve estar por aqui...", 
-"2... (sprite incomodado)", 
-"0Circe examina a região", 
+"2[wave]...[/wave]", 
+"0(Circe examina a região)", 
 "1Aww... Sem sinal dela...", 
 "2(suspira aliviada)", 
-"1? O que foi, Chronos?", 
-"2Eu não gosto de aranhas...", 
+"1[wave]?[/wave] O que foi, Chronos?", 
+"2Eu [shake]não[/shake] gosto de aranhas...", 
 "1Poxa, sério?", 
-"1Mas aranhas são tão fofas! E legais!", 
+"1Mas aranhas são tão [shake]fofas[/shake]! E [shake]legais[/shake]!", 
 "2...Circe, você sabe que eu sou uma borboleta, certo?", 
-'1E "aranhas comem borboletas", blá blá blá", certo?', 
+'1E [wave]"aranhas comem borboletas", blá blá blá"[/wave], certo?', 
 "2Sim! Exatamente!", 
 "1Meh. Se eu fosse uma borboleta ainda acharia elas legais.", 
-"2...", 
-"2Okay..."]
+"2[wave]...[/wave]", 
+"2[wave]Okay...[/wave]"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://kl8oxk7aq3m7"]
+[gd_scene load_steps=6 format=3 uid="uid://kl8oxk7aq3m7"]
 
 [ext_resource type="Script" path="res://dialogue_options.gd" id="1_qjugd"]
 [ext_resource type="Script" path="res://dialogue_choice_box.gd" id="2_2svgf"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="3_2wabe"]
+[ext_resource type="Texture2D" uid="uid://bnq78lg0lk7ko" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/6 Player HUD/1.png" id="3_xudmi"]
+[ext_resource type="Texture2D" path="res://.godot/imported/1.png-03e4d76ef21f5e7827462ef85fe42ff4.ctex" id="5_0gidu"]
 
 [node name="DialogueOptions" type="CanvasLayer"]
 script = ExtResource("1_qjugd")
@@ -24,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2svgf")
 
-[node name="OptionBox" type="ColorRect" parent="Option2"]
+[node name="OptionBox" type="TextureRect" parent="Option2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -39,7 +41,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 0.770333, 0.47, 1)
+texture = ExtResource("3_xudmi")
 
 [node name="OptionText" type="RichTextLabel" parent="Option2/OptionBox"]
 layout_mode = 1
@@ -48,16 +50,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.0
-offset_top = -38.0
-offset_right = 223.0
-offset_bottom = 45.0
+offset_left = -182.0
+offset_top = -23.0
+offset_right = 181.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_2wabe")
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "[center][/center]"
 fit_content = true
@@ -78,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2svgf")
 
-[node name="OptionBox" type="ColorRect" parent="Option1"]
+[node name="OptionBox" type="TextureRect" parent="Option1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,7 +94,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 0.770333, 0.47, 1)
+texture = ExtResource("5_0gidu")
 
 [node name="OptionText" type="RichTextLabel" parent="Option1/OptionBox"]
 layout_mode = 1
@@ -101,18 +103,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.0
-offset_top = -38.0
-offset_right = 223.0
-offset_bottom = 45.0
+offset_left = -181.0
+offset_top = -23.0
+offset_right = 183.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_2wabe")
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
-text = "[center]SIM[/center]"
+text = "[center][/center]"
 fit_content = true
 
 [node name="Option3" type="Control" parent="."]
@@ -131,7 +133,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2svgf")
 
-[node name="OptionBox" type="ColorRect" parent="Option3"]
+[node name="OptionBox" type="TextureRect" parent="Option3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,7 +147,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 0.770333, 0.47, 1)
+texture = ExtResource("5_0gidu")
 
 [node name="OptionText" type="RichTextLabel" parent="Option3/OptionBox"]
 layout_mode = 1
@@ -154,16 +156,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.0
-offset_top = -38.0
-offset_right = 223.0
-offset_bottom = 45.0
+offset_left = -180.0
+offset_top = -23.0
+offset_right = 183.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_2wabe")
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "[center][/center]"
 fit_content = true

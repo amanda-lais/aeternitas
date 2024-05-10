@@ -83,15 +83,33 @@ func _on_calendar_strategy_click():
 	%DialogueOptions.default_option_box()
 
 func _on_alarm_strategy_click():
+	$"../../Inventory/Crow Sound".play()
 	var strategy_name = "alarme"
 	var node_name = "Alarm"
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
-		run_dialogue("0Isso é um Alarme!")
+		var dialogue = [
+			"1Hmm.. Você citou usar alarmes, certo Chronos?",
+			"1Bem, isso é um alarme!",
+			"2[wave]...[/wave]",
+			"2[shake]???[/shake]",
+			"2Isso é um corvo...",
+			"1Essas coisas não são mutuamente exclusivas!",
+			"1E não chame meu Noir de [wave]'um corvo'[/wave]!",
+			"2...você falou que ele é um alarme, como chamar de corvo seria pior?",
+			"1[shake]Eu[/shake] posso. [shake]Você[/shake] não.",
+			"2[wave]...[/wave]",
+			"2[wave]...mudando de assunto...[/wave]",
+			"2...ele consegue funcionar como um alarme mesmo?",
+			"1Sim, consegue. Eu treinei muito bem meu Noir.",
+			"2Hmm..."
+		]
+		dialogue_on_click(dialogue)
 		%Alarm.unlock_strategy()
 	elif %EnvironmentStrategies.location_strategies[node_name].is_active == false:
 		choice = await activate_strategy(strategy_name)
 		if choice == 1:
 			%Alarm.activate_strategy()
+			$"../../Inventory/Crow Sound".play()
 			score_gained.emit(10)
 	else:
 		run_dialogue("0Mais nada para fazer aqui...")

@@ -4,7 +4,7 @@ signal dialogue_started
 signal dialogue_finished
 
 var Dialogue_Box_Active = false
-var List_of_Character_Names = [" ", "Circe", "Chronos"]
+var List_of_Character_Names = [" ", "[center]Circe[/center]", "[center]Chronos[/center]"]
 var Log_Text = []
 var dialogue_list = []
 

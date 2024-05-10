@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=91 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -6,30 +6,36 @@
 [ext_resource type="Script" path="res://scenes/gameplay/Task3.gd" id="4_fpfwr"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="4_n8hmo"]
 [ext_resource type="Script" path="res://scenes/gameplay/task.gd" id="4_ownjl"]
+[ext_resource type="Texture2D" uid="uid://l6pcwq6a75ar" path="res://assets/ae .png" id="4_wbfqo"]
 [ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="5_2to6g"]
+[ext_resource type="Texture2D" uid="uid://d37kpiwk81qxj" path="res://assets/Tower_Purple.png" id="5_bcsru"]
 [ext_resource type="Script" path="res://scenes/gameplay/Task4.gd" id="5_swkpl"]
 [ext_resource type="Script" path="res://scenes/items/FruitTree.gd" id="7_g5cru"]
+[ext_resource type="Texture2D" uid="uid://c5k0wxcd144yl" path="res://assets/under grass.png" id="7_lnihh"]
 [ext_resource type="Script" path="res://scenes/gameplay/Task2.gd" id="7_o2cfq"]
 [ext_resource type="Texture2D" uid="uid://cgpdd5oc1g31w" path="res://assets/Tree.png" id="8_7h6pe"]
+[ext_resource type="Texture2D" uid="uid://c8kp6edvk4loc" path="res://assets/top grass.png" id="8_d7whn"]
 [ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="9_13e3v"]
 [ext_resource type="Texture2D" uid="uid://dpa7tbtu60p2r" path="res://assets/rock.png" id="9_qcmi5"]
 [ext_resource type="Script" path="res://scenes/gameplay/Blackout.gd" id="9_yp60i"]
 [ext_resource type="Script" path="res://scenes/items/spiderweb.gd" id="10_d1i0u"]
-[ext_resource type="Texture2D" uid="uid://cdheg0awn2t6j" path="res://assets/rock2.png" id="10_up5cw"]
+[ext_resource type="Texture2D" uid="uid://cwcqh75o6w551" path="res://assets/grass.png" id="10_msyfn"]
 [ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="11_chdx8"]
 [ext_resource type="Script" path="res://scenes/items/crops.gd" id="13_mpvnh"]
 [ext_resource type="Texture2D" uid="uid://btryeiygw6uub" path="res://assets/before planting.png" id="14_7uff0"]
-[ext_resource type="Texture2D" uid="uid://biuv6slh2igfa" path="res://assets/placeholder/items/placeholder_workbench.png" id="14_hba8n"]
 [ext_resource type="Texture2D" uid="uid://d12mmeuqey86l" path="res://assets/crops growing.png" id="14_mu3n4"]
 [ext_resource type="Texture2D" uid="uid://choiwsyfux5f0" path="res://assets/pumpkin.png" id="14_ttyog"]
 [ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://assets/sprites/items_pixel/cauldron_sprite_boiling.png" id="15_dg8xb"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentStrategies.gd" id="15_l1ief"]
 [ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="16_fsbfq"]
 [ext_resource type="Script" path="res://scenes/items/strategy.gd" id="17_eu5k7"]
+[ext_resource type="Texture2D" uid="uid://6tpjqn3l17gw" path="res://assets/anvil.png" id="17_nokcu"]
 [ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="18_4iau7"]
 [ext_resource type="Script" path="res://scenes/items/calendar.gd" id="19_8d3we"]
+[ext_resource type="Texture2D" uid="uid://bliimx5qacgdp" path="res://assets/cauldron.png" id="21_6wvai"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Overlay.gd" id="22_58kja"]
 [ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="23_53yyp"]
+[ext_resource type="Texture2D" uid="uid://drx0igok5nlpg" path="res://assets/cauldronboom_green.png" id="23_puli8"]
 [ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="24_e021a"]
 [ext_resource type="Texture2D" uid="uid://c7hs3voq55vhg" path="res://assets/Crow.png" id="24_gqa0p"]
 [ext_resource type="Texture2D" uid="uid://byhxavxupc8a7" path="res://assets/mess.png" id="24_qvtoj"]
@@ -43,13 +49,18 @@
 [ext_resource type="AudioStream" uid="uid://d3ljvklin0lt1" path="res://assets/sounds/Fruit collect 1.wav" id="30_q2h7c"]
 [ext_resource type="FontFile" uid="uid://bt0m3fsw4eqeq" path="res://assets/fonts/DungeonFont.ttf" id="31_glwgf"]
 [ext_resource type="AudioStream" uid="uid://dkqv5wgp5s5k6" path="res://assets/sounds/02_tree_rustling_3.wav" id="31_s4x2u"]
+[ext_resource type="Texture2D" uid="uid://ddau2wsvuc54e" path="res://assets/chronos.png" id="32_tmnd5"]
 [ext_resource type="AudioStream" uid="uid://bm0q637vc107g" path="res://assets/sounds/mine 3.wav" id="34_gcrsd"]
+[ext_resource type="Texture2D" uid="uid://bnq78lg0lk7ko" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/6 Player HUD/1.png" id="35_k2t4y"]
 [ext_resource type="AudioStream" uid="uid://ct7kfdm0kt4gg" path="res://assets/sounds/Dirt Walk 2.wav" id="35_w0ds5"]
 [ext_resource type="AudioStream" uid="uid://bn6f2264mrees" path="res://assets/sounds/Wave Attack 1.wav" id="36_maxi3"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="37_2vt7i"]
 [ext_resource type="AudioStream" uid="uid://cedt5muiiqmjx" path="res://assets/sounds/Rock Wall 2.wav" id="37_6h5bq"]
+[ext_resource type="Texture2D" uid="uid://euvwly4iv1sq" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/6 Player HUD/1.png" id="38_76wot"]
 [ext_resource type="AudioStream" uid="uid://cxnyajsgtwo10" path="res://assets/sounds/Sword Parry 1.wav" id="38_wjv5g"]
 [ext_resource type="AudioStream" uid="uid://bfoc1qjnpc3bc" path="res://assets/sounds/Darkworld PaperDocument2.wav" id="46_5gq4h"]
+[ext_resource type="AudioStream" uid="uid://4c1i3yjyxdsr" path="res://assets/sounds/Retro Crow 01.wav" id="51_rtxga"]
+[ext_resource type="Texture2D" uid="uid://cm4wl44j6fot3" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/10 Calander/1.png" id="53_c58i4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
 radius = 173.53
@@ -139,26 +150,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5co3t"]
-size = Vector2(314.331, 275.862)
+size = Vector2(280, 226.053)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwpoy"]
 size = Vector2(513.758, 523.696)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk1o3"]
-size = Vector2(272, 296)
+size = Vector2(373.433, 200.823)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwych"]
-size = Vector2(508.273, 365.727)
+size = Vector2(171, 85)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymn23"]
-radius = 176.396
-height = 563.488
+radius = 51.0
+height = 116.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbflp"]
 size = Vector2(306.717, 304.302)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rioa8"]
 size = Vector2(371.925, 335.699)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnhts"]
+radius = 84.1167
+height = 383.449
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnms1"]
 atlas = ExtResource("24_gqa0p")
@@ -219,18 +234,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_55qxx"]
-radius = 264.566
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_glsyl"]
-size = Vector2(375, 263.023)
-
-[sub_resource type="Gradient" id="Gradient_e15vc"]
-colors = PackedColorArray(1, 0.604, 0.46, 1, 0.768507, 0.5704, 0.92, 1)
-metadata/_snap_enabled = true
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_q24bd"]
-gradient = SubResource("Gradient_e15vc")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjq8s"]
+radius = 73.4216
+height = 227.837
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kcd0b"]
 
@@ -245,44 +251,69 @@ position = Vector2(577.586, 332)
 scale = Vector2(1.65025, 1.65025)
 texture = ExtResource("3_ul0cr")
 
+[node name="BgAlt" type="Sprite2D" parent="Forest/Background"]
+position = Vector2(6.91653, 11.5134)
+scale = Vector2(0.163612, 0.163612)
+texture = ExtResource("4_wbfqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Forest/Background"]
+position = Vector2(119.021, -155.734)
+scale = Vector2(0.163612, 0.163612)
+texture = ExtResource("5_bcsru")
+
 [node name="EnvironmentItems" type="CanvasGroup" parent="Forest"]
 unique_name_in_owner = true
 script = ExtResource("4_n8hmo")
 
 [node name="FruitTree" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(788, 275)
-scale = Vector2(0.5, 0.5)
+position = Vector2(412, 90)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("7_g5cru")
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/FruitTree/Area2D" index="0"]
 shape = SubResource("CapsuleShape2D_jt2cv")
 
-[node name="Sprite2D" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree"]
-position = Vector2(4.95911e-05, 266.309)
-texture = ExtResource("14_mu3n4")
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree"]
+visible = false
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
 
 [node name="Tree" type="AnimatedSprite2D" parent="Forest/EnvironmentItems/FruitTree"]
 position = Vector2(-10.3088, 13.7449)
 sprite_frames = SubResource("SpriteFrames_kwqd8")
 
 [node name="Stone" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
-position = Vector2(135, 538)
-scale = Vector2(0.5, 0.522)
-texture = ExtResource("9_qcmi5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
-position = Vector2(98, 17.2414)
-texture = ExtResource("10_up5cw")
+position = Vector2(612, 130)
+scale = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/Stone/Area2D" index="0"]
-position = Vector2(44.8347, 7.66284)
+position = Vector2(10, -93.8698)
 shape = SubResource("RectangleShape2D_5co3t")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
+visible = false
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_msyfn")
+
+[node name="Stone" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
+position = Vector2(8, -90.0383)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_qcmi5")
 
 [node name="Spiderweb" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(350.516, 255)
-scale = Vector2(-0.257812, -0.269531)
+position = Vector2(434, 296)
+rotation = 3.95271
+scale = Vector2(-0.0711544, -0.0743888)
 texture = ExtResource("9_13e3v")
 script = ExtResource("10_d1i0u")
 
@@ -303,40 +334,106 @@ texture = ExtResource("11_chdx8")
 
 [node name="Crops" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(354, 550)
+position = Vector2(337, 532)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("14_mu3n4")
 script = ExtResource("13_mpvnh")
 
-[node name="Land" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
-position = Vector2(4, -40)
-texture = ExtResource("14_7uff0")
-
-[node name="Pumpkin" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
-position = Vector2(-16, -80)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("14_ttyog")
+[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="1"]
+position = Vector2(-37.3334, -296.667)
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
-position = Vector2(-4, -42)
+position = Vector2(43.9283, 56.2062)
+rotation = 0.576544
 shape = SubResource("RectangleShape2D_tk1o3")
 
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+visible = false
+position = Vector2(564, -624)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Crops/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Crops/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Before Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-34, -282)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_7uff0")
+
+[node name="After Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-40, -304)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_mu3n4")
+
+[node name="Pumpkin" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-50, -346)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("14_ttyog")
+
 [node name="Workbench" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
-position = Vector2(1028, 540)
-scale = Vector2(0.515625, 0.515625)
-texture = ExtResource("14_hba8n")
+position = Vector2(891, 438)
+scale = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/Workbench/Area2D" index="0"]
-position = Vector2(-2.01514, 26.5909)
+position = Vector2(7.5, -49.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bwych")
 
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+visible = false
+position = Vector2(-91, -250)
+scale = Vector2(0.5, 0.5)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+visible = false
+position = Vector2(-9.53674e-07, -15)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_msyfn")
+
+[node name="Workbench" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+position = Vector2(8.99998, -51)
+scale = Vector2(0.401037, 0.401037)
+texture = ExtResource("17_nokcu")
+
 [node name="Cauldron" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
-position = Vector2(512, 547)
-scale = Vector2(0.408172, 0.408172)
-texture = ExtResource("15_dg8xb")
+position = Vector2(604, 526)
+scale = Vector2(0.7, 0.7)
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/Cauldron/Area2D" index="0"]
+position = Vector2(34, -24)
 shape = SubResource("CapsuleShape2D_ymn23")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("21_6wvai")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+visible = false
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("15_dg8xb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+visible = false
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("23_puli8")
 
 [node name="EnvironmentStrategies" type="CanvasGroup" parent="Forest"]
 unique_name_in_owner = true
@@ -344,8 +441,8 @@ script = ExtResource("15_l1ief")
 
 [node name="ToDoList" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(986, 187)
-scale = Vector2(0.414062, 0.414062)
+position = Vector2(1080, 250)
+scale = Vector2(0.255859, 0.255859)
 texture = ExtResource("16_fsbfq")
 script = ExtResource("17_eu5k7")
 
@@ -355,8 +452,8 @@ shape = SubResource("RectangleShape2D_wbflp")
 
 [node name="Calendar" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(138, 265)
-scale = Vector2(0.414062, 0.414062)
+position = Vector2(89, 258)
+scale = Vector2(0.21289, 0.21289)
 texture = ExtResource("18_4iau7")
 script = ExtResource("19_8d3we")
 
@@ -366,29 +463,91 @@ shape = SubResource("RectangleShape2D_rioa8")
 
 [node name="Alarm" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(620, 231.945)
+position = Vector2(140, 465)
 scale = Vector2(0.261719, 0.261719)
 script = ExtResource("17_eu5k7")
 
+[node name="Area2D" parent="Forest/EnvironmentStrategies/Alarm" index="1"]
+position = Vector2(1623.88, -343.88)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Alarm/Area2D" index="0"]
+position = Vector2(767.999, -477.612)
+rotation = -2.19629
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CapsuleShape2D_nnhts")
+
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+visible = false
+position = Vector2(1092.77, -966.686)
+scale = Vector2(1.97015, 1.97015)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Grass and dirt2" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+visible = false
+position = Vector2(767.999, -790.925)
+scale = Vector2(1.97015, 1.97015)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
 [node name="Crow" type="AnimatedSprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
-position = Vector2(-0.000244141, 61.3445)
-scale = Vector2(2.29254, 2.29254)
+position = Vector2(2399.52, -825.313)
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_qjgxf")
 speed_scale = 0.8
 
-[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Alarm/Area2D" index="0"]
-shape = SubResource("CircleShape2D_55qxx")
-
 [node name="Mess" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(741, 554)
+position = Vector2(403, 530)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("24_qvtoj")
 script = ExtResource("17_eu5k7")
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Mess/Area2D" index="0"]
-position = Vector2(-5.83374, -6.82178)
-shape = SubResource("RectangleShape2D_glsyl")
+position = Vector2(175, -93.3334)
+rotation = 1.20698
+shape = SubResource("CapsuleShape2D_bjq8s")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+visible = false
+position = Vector2(195, -48.3333)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_msyfn")
+
+[node name="Grass and dirt2" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+visible = false
+position = Vector2(355, -146.667)
+scale = Vector2(0.75, 0.75)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess/Grass and dirt2"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess/Grass and dirt2"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+position = Vector2(168.333, -86.6667)
+scale = Vector2(0.599132, 0.599132)
+texture = ExtResource("24_qvtoj")
 
 [node name="Overlay" type="ColorRect" parent="Forest"]
 unique_name_in_owner = true
@@ -410,22 +569,46 @@ position = Vector2(860, -148)
 scale = Vector2(0.616006, 0.616006)
 
 [node name="Sprite2D2" parent="Forest/DialogueManager" index="1"]
-position = Vector2(119, -114)
-rotation = -0.304023
-scale = Vector2(6.4, 6.4)
+position = Vector2(179, -138)
+rotation = -0.00644627
+texture = ExtResource("32_tmnd5")
 
 [node name="DialogueBox" parent="Forest/DialogueManager/DialogueBox" index="0"]
-texture = SubResource("GradientTexture1D_q24bd")
 expand_mode = 0
 
-[node name="DialogueCharacterName" parent="Forest/DialogueManager/DialogueBox" index="2"]
+[node name="TextureRect" type="TextureRect" parent="Forest/DialogueManager/DialogueBox" index="1"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -57.0
+offset_right = 274.0
+offset_bottom = 103.0
+texture = ExtResource("35_k2t4y")
+
+[node name="DialogueText" parent="Forest/DialogueManager/DialogueBox" index="2"]
+offset_left = 75.0
+offset_top = 84.0
+offset_right = 1070.0
+offset_bottom = 232.0
+
+[node name="DialogueCharacterName" parent="Forest/DialogueManager/DialogueBox" index="3"]
+offset_left = 40.0
+offset_top = 2.0
+offset_right = 251.0
+offset_bottom = 46.0
 theme_override_fonts/normal_font = ExtResource("31_glwgf")
 theme_override_font_sizes/normal_font_size = 43
-text = ""
+bbcode_enabled = true
+text = "[center][/center]"
 
 [node name="DialogueOptions" parent="Forest" instance=ExtResource("24_e021a")]
 unique_name_in_owner = true
 visible = false
+
+[node name="OptionBox" parent="Forest/DialogueOptions/Option1" index="0"]
+texture = ExtResource("35_k2t4y")
+
+[node name="OptionBox" parent="Forest/DialogueOptions/Option3" index="0"]
+texture = ExtResource("38_76wot")
 
 [node name="Fantasy_UI cancel" type="AudioStreamPlayer" parent="Forest/DialogueOptions"]
 stream = ExtResource("27_ls6lu")
@@ -465,12 +648,16 @@ stream = ExtResource("37_6h5bq")
 [node name="Sword Parry" type="AudioStreamPlayer" parent="Inventory"]
 stream = ExtResource("38_wjv5g")
 
+[node name="Crow Sound" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("51_rtxga")
+
 [node name="Tasks" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 41.0
+offset_bottom = 71.0
 script = ExtResource("28_nlgrb")
 
 [node name="CheckTaskSound" type="AudioStreamPlayer" parent="Tasks"]
@@ -480,7 +667,7 @@ stream = ExtResource("30_h286i")
 [node name="Darkworld PaperDocument2" type="AudioStreamPlayer" parent="Tasks"]
 stream = ExtResource("46_5gq4h")
 
-[node name="ColorRect" type="ColorRect" parent="Tasks"]
+[node name="ColorRect" type="TextureRect" parent="Tasks"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -493,16 +680,17 @@ offset_right = -52.16
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("53_c58i4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Tasks/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.244
-offset_left = 226.0
-offset_top = 28.0
-offset_right = -211.0
-offset_bottom = 0.263992
+offset_left = 81.0
+offset_top = 72.0
+offset_right = -80.0
+offset_bottom = 27.552
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -516,8 +704,9 @@ layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
 offset_left = 501.0
+offset_top = 12.0
 offset_right = 392.075
-offset_bottom = -128.992
+offset_bottom = -116.992
 mouse_filter = 2
 script = ExtResource("4_fpfwr")
 
@@ -637,9 +826,9 @@ layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
 offset_left = 501.0
-offset_top = 99.0
+offset_top = 111.0
 offset_right = 44.15
-offset_bottom = -73.544
+offset_bottom = -61.544
 mouse_filter = 2
 script = ExtResource("5_swkpl")
 
@@ -726,8 +915,8 @@ script = ExtResource("4_ownjl")
 layout_mode = 0
 offset_left = 82.0
 offset_top = 167.0
-offset_right = 501.0
-offset_bottom = 228.0
+offset_right = 456.0
+offset_bottom = 279.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -757,9 +946,10 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_left = 11.0
-offset_right = -445.85
-offset_bottom = -172.544
+offset_left = 72.0
+offset_top = 12.0
+offset_right = -384.85
+offset_bottom = -160.544
 mouse_filter = 2
 script = ExtResource("4_ownjl")
 
@@ -767,14 +957,13 @@ script = ExtResource("4_ownjl")
 layout_mode = 0
 offset_left = 82.0
 offset_top = 167.0
-offset_right = 501.0
-offset_bottom = 228.0
+offset_right = 446.0
+offset_bottom = 308.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
 bbcode_enabled = true
-text = "Acumular comida o suficiente
-(3 frutas no mínimo)"
+text = "Acumular comida o suficiente (3 frutas no mínimo)"
 
 [node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task1"]
 layout_mode = 0
@@ -799,10 +988,10 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_left = 11.0
-offset_top = 99.0
-offset_right = -445.85
-offset_bottom = -73.544
+offset_left = 72.0
+offset_top = 79.0
+offset_right = -384.85
+offset_bottom = -93.544
 mouse_filter = 2
 script = ExtResource("7_o2cfq")
 
@@ -810,8 +999,8 @@ script = ExtResource("7_o2cfq")
 layout_mode = 0
 offset_left = 82.0
 offset_top = 214.0
-offset_right = 501.0
-offset_bottom = 275.0
+offset_right = 439.0
+offset_bottom = 304.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
@@ -840,9 +1029,9 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 88.0
+offset_top = 112.0
 offset_right = -19.0
-offset_bottom = 28.7965
+offset_bottom = 52.7965
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1"]
@@ -880,9 +1069,9 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 124.0
+offset_top = 148.0
 offset_right = -19.0
-offset_bottom = 64.7965
+offset_bottom = 88.7965
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2"]
@@ -920,9 +1109,9 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 160.0
+offset_top = 184.0
 offset_right = -19.0
-offset_bottom = 100.796
+offset_bottom = 124.796
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3"]
@@ -960,9 +1149,9 @@ text = "X"
 layout_mode = 1
 anchor_right = 0.475
 anchor_bottom = 0.576
-offset_top = 196.0
+offset_top = 220.0
 offset_right = -19.0
-offset_bottom = 136.796
+offset_bottom = 160.796
 script = ExtResource("4_ownjl")
 
 [node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4"]
@@ -998,11 +1187,11 @@ text = "X"
 
 [node name="CloseButton" type="ColorRect" parent="Tasks/ColorRect"]
 layout_mode = 0
-offset_left = 994.0
-offset_top = 41.0
-offset_right = 1034.0
-offset_bottom = 81.0
-color = Color(1, 0.383333, 0, 0.396078)
+offset_left = 919.0
+offset_top = 94.0
+offset_right = 959.0
+offset_bottom = 134.0
+color = Color(1, 0.384314, 0, 0)
 
 [node name="X" type="RichTextLabel" parent="Tasks/ColorRect/CloseButton"]
 layout_mode = 0
@@ -1022,6 +1211,14 @@ offset_bottom = 652.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("9_yp60i")
 
+[node name="GameDayPaper3" type="Sprite2D" parent="."]
+position = Vector2(152, 59)
+texture = ExtResource("35_k2t4y")
+
+[node name="GameDayPaper2" type="Sprite2D" parent="GameDayPaper3"]
+position = Vector2(904, -19)
+texture = ExtResource("35_k2t4y")
+
 [node name="GameDay" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -1029,32 +1226,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 9.0
-offset_top = 81.0
-offset_right = 274.0
-offset_bottom = 184.0
+offset_left = 47.0
+offset_top = 27.0
+offset_right = 258.0
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.323958
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/default_color = Color(0.533333, 0, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("31_glwgf")
-theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/normal_font_size = 65
 bbcode_enabled = true
 text = "[center]Dia 1[/center]"
 
 [node name="ScoreCounter" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-offset_left = 896.0
-offset_top = 23.0
-offset_right = 1167.0
-offset_bottom = 89.0
-theme_override_colors/default_color = Color(0.533333, 0, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
+offset_left = 951.0
+offset_top = 18.0
+offset_right = 1153.0
+offset_bottom = 72.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true

@@ -155,10 +155,10 @@ func _on_crops_item_click():
 					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
 			%DialogueOptions.default_option_box()
 			%DayManager.date_change()
-			$Crops/Land.hide()
+			$"Crops/Before Planting".hide()
 	elif %Crops.crop_current_status == "planted":
 		dialogue_prompt = "0Deseja regar?"
-		dialogue_success = "0Circe regou a planta!"
+		dialogue_success = "0Circe usou um feitiço e regou a planta!"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.water_plant()
 			%Inventory.add_to_inventory("water", -1)

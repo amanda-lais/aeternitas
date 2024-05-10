@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbdyfvikl5ja6"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/dialogue engine/DialogueManager.gd" id="1_ssebq"]
-[ext_resource type="Texture2D" uid="uid://b6w4ifk46ojlg" path="res://assets/placeholder/placeholder_paper_dialogue_box.png" id="2_aqkmd"]
 [ext_resource type="Texture2D" uid="uid://cpcxtifa68ai7" path="res://assets/sprites/witch_default.png" id="2_hxcg3"]
 [ext_resource type="Texture2D" uid="uid://b4ilbux7qlo2p" path="res://assets/chronos_cursor.png" id="3_y3ucx"]
+[ext_resource type="Texture2D" uid="uid://5ppqtng437r" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/7 Dialogue Box/1.png" id="4_3ewux"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="5_su8qd"]
 
 [node name="DialogueManager" type="Control"]
@@ -41,7 +41,7 @@ offset_bottom = 262.0
 layout_mode = 0
 offset_right = 1075.0
 offset_bottom = 256.0
-texture = ExtResource("2_aqkmd")
+texture = ExtResource("4_3ewux")
 expand_mode = 1
 
 [node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=9 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="Texture2D" uid="uid://bfghsunw8gyog" path="res://assets/menu_circe.png" id="2_aw6sc"]
 [ext_resource type="FontFile" uid="uid://bt0m3fsw4eqeq" path="res://assets/fonts/DungeonFont.ttf" id="3_vrd8u"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="4_ffscf"]
+[ext_resource type="Texture2D" uid="uid://bnq78lg0lk7ko" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/6 Player HUD/1.png" id="4_vobq0"]
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="5"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
 [ext_resource type="AudioStream" uid="uid://cetwvq2uakk3q" path="res://assets/sounds/xDeviruchi - Title Theme .wav" id="6_k47jb"]
@@ -89,31 +90,46 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -289.0
-offset_top = -82.0
+offset_left = -345.0
+offset_top = -117.0
 offset_right = -89.0
-offset_bottom = 82.0
+offset_bottom = 219.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
+[node name="PlayButton" type="TextureRect" parent="MarginContainer/Control/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../ExitButton")
-focus_next = NodePath("../ExitButton")
-theme_override_fonts/font = ExtResource("4_ffscf")
-theme_override_font_sizes/font_size = 35
-text = "INICIAR"
+texture = ExtResource("4_vobq0")
 
-[node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Control/VBoxContainer/PlayButton"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 51.0
+offset_right = 232.0
+offset_bottom = 108.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_vrd8u")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Iniciar[/center]"
+
+[node name="ExitButton" type="TextureRect" parent="MarginContainer/Control/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../PlayButton")
-focus_previous = NodePath("../PlayButton")
-theme_override_fonts/font = ExtResource("4_ffscf")
-theme_override_font_sizes/font_size = 35
-text = "SAIR"
+texture = ExtResource("4_vobq0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Control/VBoxContainer/ExitButton"]
+offset_left = 23.0
+offset_top = 51.0
+offset_right = 232.0
+offset_bottom = 108.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_vrd8u")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Sair[/center]"
 
 [node name="Version" type="VBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
@@ -187,5 +203,9 @@ text = "Developer 3"
 stream = ExtResource("6_k47jb")
 autoplay = true
 
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="gui_input" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_play_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_exit_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_exited"]
