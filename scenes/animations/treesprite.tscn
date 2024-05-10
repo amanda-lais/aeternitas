@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://s2efyt8j3u5h"]
+
+[ext_resource type="Texture2D" uid="uid://cgpdd5oc1g31w" path="res://assets/Tree.png" id="1_kre42"]
+[ext_resource type="Texture2D" uid="uid://d12mmeuqey86l" path="res://assets/crops growing.png" id="2_5mdtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikc5"]
+atlas = ExtResource("1_kre42")
+region = Rect2(0, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imhwd"]
+atlas = ExtResource("1_kre42")
+region = Rect2(576, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqpt"]
+atlas = ExtResource("1_kre42")
+region = Rect2(1152, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgm5e"]
+atlas = ExtResource("1_kre42")
+region = Rect2(1728, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4vf3"]
+atlas = ExtResource("1_kre42")
+region = Rect2(0, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv12f"]
+atlas = ExtResource("1_kre42")
+region = Rect2(576, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg37x"]
+atlas = ExtResource("1_kre42")
+region = Rect2(1152, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgxx6"]
+atlas = ExtResource("1_kre42")
+region = Rect2(1728, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n470a"]
+atlas = ExtResource("1_kre42")
+region = Rect2(0, 576, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc26j"]
+atlas = ExtResource("1_kre42")
+region = Rect2(576, 576, 576, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwqd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jikc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imhwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srqpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgm5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4vf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg37x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgxx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n470a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc26j")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Tree" type="AnimatedSprite2D"]
+position = Vector2(91, 98)
+sprite_frames = SubResource("SpriteFrames_kwqd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, 108)
+texture = ExtResource("2_5mdtx")

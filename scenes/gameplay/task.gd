@@ -1,6 +1,7 @@
 extends Control
 
 func check_task():
+	%CheckTaskSound.play()
 	$Description.text = "[s]" + $Description.text + "[/s]"
 	$Checkbox/Check.show()
 

@@ -33,6 +33,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			$ColorRect.show()
+			$"Darkworld PaperDocument2".play()
 
 func _on_color_rect_gui_input(event):
 	if event is InputEventMouseButton:

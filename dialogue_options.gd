@@ -7,6 +7,7 @@ signal option_chosen(option_number)
 var box
 var box_text
 var option_amount
+var before_shake
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,3 +58,25 @@ func default_option_box():
 	set_option_box_text(1, "SIM")
 	set_option_box_text(2, "NÃO")
 	set_option_box_text(3, "ESPERA")
+
+
+func _on_option_1_mouse_entered():
+	before_shake = $Option1/OptionBox/OptionText.text
+	$Option1/OptionBox/OptionText.text = "[shake]" + $Option1/OptionBox/OptionText.text + "[/shake]"
+
+func _on_option_2_mouse_entered():
+	before_shake = $Option2/OptionBox/OptionText.text
+	$Option2/OptionBox/OptionText.text = "[shake]" + $Option2/OptionBox/OptionText.text + "[/shake]"
+
+func _on_option_3_mouse_entered():
+	before_shake = $Option3/OptionBox/OptionText.text
+	$Option3/OptionBox/OptionText.text = "[shake]" + $Option3/OptionBox/OptionText.text + "[/shake]"
+
+func _on_option_1_mouse_exited():
+	$Option1/OptionBox/OptionText.text = before_shake
+
+func _on_option_2_mouse_exited():
+	$Option2/OptionBox/OptionText.text = before_shake
+
+func _on_option_3_mouse_exited():
+	$Option3/OptionBox/OptionText.text = before_shake

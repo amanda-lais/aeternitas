@@ -40,6 +40,7 @@ func activate_strategy(strategy_name, option_box_amount = 2):
 	if option_number == 1:
 		dialogue = "0" + strategy_name.capitalize() + " ativado!"
 	elif option_number == 2:
+		$"../DialogueOptions/Fantasy_UI cancel".play()
 		dialogue = "0Okay."
 	elif option_number == 3:
 		dialogue = "0Oopsie?"
@@ -107,6 +108,7 @@ func _on_mess_strategy_click():
 		%Mess.hide()
 	elif option_number == 2:
 		dialogue = "1Depois..."
+		$"../DialogueOptions/Fantasy_UI cancel".play()
 	elif option_number == 3:
 		dialogue = "0?"
 	run_dialogue(dialogue)

@@ -25,6 +25,8 @@ func day_reset():
 		%FruitTree.can_forage += 1
 	elif %FruitTree.can_forage == 2:
 		%FruitTree.can_forage = 0
+	if %Crops.crop_current_status == "watered":
+		$"../EnvironmentItems/Crops/Pumpkin".show()
 
 func date_change():
 	if today != 8:
