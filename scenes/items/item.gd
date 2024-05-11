@@ -57,13 +57,17 @@ func mine_stone():
 		audio_collect()
 		await %DialogueManager.run_dialogue("0" + str(int(amount)) + " pedra(s) adicionada(s) ao inventário!")
 	%Inventory.add_to_inventory("stone", amount)
+	await %EnvironmentStrategies.choose_strategy_3(
+		false, true, false)
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	$Hover.hide()
-#	item_name = get_name()
-#	item_info = {"item_name": item_name, "used_up": 0}
-#	%EnvironmentItems.location_items[item_name] = item_info
+func repair():
+	%Inventory.add_to_inventory("stone", -2)
+	%Inventory.add_to_inventory("staff", 1)
+	await %EnvironmentStrategies.choose_strategy_3(
+		false, true, false)
+
+func _ready():
+	$Hover.hide()
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

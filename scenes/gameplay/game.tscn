@@ -333,14 +333,6 @@ position = Vector2(337, 532)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("13_mpvnh")
 
-[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="1"]
-position = Vector2(-37.3334, -296.667)
-
-[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
-position = Vector2(43.9283, 56.2062)
-rotation = 0.576544
-shape = SubResource("RectangleShape2D_tk1o3")
-
 [node name="Before Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
 position = Vector2(-34, -282)
 scale = Vector2(0.5, 0.5)
@@ -355,6 +347,14 @@ texture = ExtResource("14_mu3n4")
 position = Vector2(-50, -346)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("14_ttyog")
+
+[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="4"]
+position = Vector2(-37.3334, -296.667)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
+position = Vector2(43.9283, 56.2062)
+rotation = 0.576544
+shape = SubResource("RectangleShape2D_tk1o3")
 
 [node name="Workbench" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 position = Vector2(891, 438)
@@ -429,6 +429,9 @@ script = ExtResource("27_4heev")
 [node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/ToDoList/Area2D" index="0"]
 position = Vector2(-15.698, -14.4906)
 shape = SubResource("RectangleShape2D_wbflp")
+
+[node name="Darkworld PaperDocument2" type="AudioStreamPlayer" parent="Forest/EnvironmentStrategies/ToDoList"]
+stream = ExtResource("46_5gq4h")
 
 [node name="Calendar" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
@@ -533,6 +536,7 @@ texture = ExtResource("24_qvtoj")
 unique_name_in_owner = true
 offset_right = 1158.0
 offset_bottom = 656.0
+mouse_force_pass_scroll_events = false
 color = Color(0.286275, 0, 0.541176, 0.454902)
 script = ExtResource("22_58kja")
 
@@ -601,35 +605,8 @@ script = ExtResource("25_ru805")
 [node name="DayManager" parent="Forest" instance=ExtResource("27_34723")]
 unique_name_in_owner = true
 
-[node name="Inventory" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("26_28jrm")
-
-[node name="Fruit collect 1_wav" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("30_q2h7c")
-
-[node name="02_tree_rustling_3_wav" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("31_s4x2u")
-
-[node name="16_Hit_on_brick_2_wav" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("34_gcrsd")
-
-[node name="Dirt Walk 2" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("35_w0ds5")
-
-[node name="Wave Attack 1" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("36_maxi3")
-
-[node name="Rock Wall 2" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("37_6h5bq")
-
-[node name="Sword Parry" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("38_wjv5g")
-
-[node name="Crow Sound" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("51_rtxga")
-
 [node name="Tasks" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -642,9 +619,6 @@ script = ExtResource("28_nlgrb")
 [node name="CheckTaskSound" type="AudioStreamPlayer" parent="Tasks"]
 unique_name_in_owner = true
 stream = ExtResource("30_h286i")
-
-[node name="Darkworld PaperDocument2" type="AudioStreamPlayer" parent="Tasks"]
-stream = ExtResource("46_5gq4h")
 
 [node name="ColorRect" type="TextureRect" parent="Tasks"]
 layout_mode = 1
@@ -659,6 +633,7 @@ offset_right = -52.16
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("53_c58i4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Tasks/ColorRect"]
@@ -1208,6 +1183,7 @@ theme_override_font_sizes/normal_font_size = 45
 text = "X"
 
 [node name="Blackout" type="ColorRect" parent="."]
+visible = false
 offset_right = 1155.0
 offset_bottom = 652.0
 color = Color(0, 0, 0, 1)
@@ -1257,6 +1233,34 @@ text = "[center]XXXXXX pts[/center]"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kcd0b")
 
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("26_28jrm")
+
+[node name="Fruit collect 1_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("30_q2h7c")
+
+[node name="02_tree_rustling_3_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("31_s4x2u")
+
+[node name="16_Hit_on_brick_2_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("34_gcrsd")
+
+[node name="Dirt Walk 2" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("35_w0ds5")
+
+[node name="Wave Attack 1" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("36_maxi3")
+
+[node name="Rock Wall 2" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("37_6h5bq")
+
+[node name="Sword Parry" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("38_wjv5g")
+
+[node name="Crow Sound" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("51_rtxga")
+
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
 [connection signal="exp_gained" from="Forest/EnvironmentItems" to="Forest/EnvironmentStrategies/ToDoList" method="_on_environment_items_exp_gained"]
 [connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
@@ -1288,13 +1292,13 @@ sprite_frames = SubResource("SpriteFrames_kcd0b")
 [connection signal="mouse_exited" from="Forest/DialogueOptions/Option3" to="Forest/DialogueOptions" method="_on_option_3_mouse_exited"]
 [connection signal="full_moon" from="Forest/DayManager" to="Inventory" method="_on_day_manager_full_moon"]
 [connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
-[connection signal="score_gained" from="Inventory" to="." method="_on_inventory_score_gained"]
-[connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
 [connection signal="score_gained" from="Tasks" to="." method="_on_tasks_score_gained"]
 [connection signal="todolist_closed" from="Tasks" to="Forest/Overlay" method="_on_tasks_todolist_closed"]
 [connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
 [connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]
+[connection signal="score_gained" from="Inventory" to="." method="_on_inventory_score_gained"]
+[connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
 
 [editable path="Forest/EnvironmentItems/FruitTree"]
 [editable path="Forest/EnvironmentItems/Stone"]

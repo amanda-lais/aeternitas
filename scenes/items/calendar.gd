@@ -5,6 +5,13 @@ var first_dialogue = "0Isso é um Calendário!"
 
 var other_calendar_events = {}
 
+var cal_d = {
+	"fruit": ["1Oh!",
+	"1Depois de amanhã já nascerão mais frutas na árvore de novo.",
+	"2Hmm... Pode ser uma boa colocar isso no calendário!",
+	"1Isso! Pensei nisso mesmo."]
+}
+
 var dialogue_default = [
 	"1Uuh... tinha algo...? Err, amanhã? Ou já foi... Não me lembro...",
 	"2Minha sugestão sobre o que checar no calendário é..."
@@ -125,7 +132,6 @@ func check_overall():
 				str(other_calendar_events[i]) +
 				" poderei finalmente colher os vegetais mágicos!!")
 	return dialogue
-
 #harvest_cropwater_crop
 
 func add_to_calendar(event, day):
@@ -139,3 +145,21 @@ func chronos_reminders_when_unrelated():
 	if calendar_checked_today == true && event_today == true:
 		pass
 
+func cal_or_end(action, add, date):
+	await %DialogueManager.run_dialogue("2(Hmmm... Ainda seria possível usar o calendário...)")
+	%DialogueOptions.set_option_box_text(1, "CALENDÁRIO")
+	%DialogueOptions.set_option_box_text(2, "ENCERRAR DIA")
+	%DialogueOptions.show_options(2)
+	var option = await %DialogueOptions.option_chosen
+	if option == 1:
+		await cal_default(action, add, date)
+	%DialogueOptions.default_option_box()
+
+func cal_default(action, add, date):
+	#add water_crop
+	if action == "planted" or action == "watered":
+		await %DialogueManager.dialogue_on_click(%Crops.dialogues[action + "_calendar"])
+	else:
+		await %DialogueManager.dialogue_on_click(cal_d[action])
+	add_to_calendar(add, date) #%DayManager.today+1)
+	print(add, date)

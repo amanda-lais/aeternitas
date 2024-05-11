@@ -18,3 +18,6 @@ var dialogue = [
 "1Meh. Se eu fosse uma borboleta ainda acharia elas legais.", 
 "2[wave]...[/wave]", 
 "2[wave]Okay...[/wave]"]
+
+func spiderweb_dialogue():
+	%DialogueManager.dialogue_on_click(dialogue)

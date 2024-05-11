@@ -5,7 +5,7 @@ var ftree_d = {
 	"success": "0Frutas coletadas!",
 	"fail": "0Circe se distraiu...",
 	"no": "0Talvez depois.",
-	"already": "0Dê mais tempo para as frutas crescerem!"
+	"already": "0Dê mais tempo para as frutas crescerem!",
 	}
 
 var can_forage = 0
@@ -22,11 +22,12 @@ func forage():
 	audio_collect()
 	await %DialogueManager.run_dialogue("0" + str(int(amount)) + " fruta(s) adicionada(s) ao inventário!")
 	%Inventory.add_to_inventory("fruit", amount)
-	%Calendar.add_to_calendar("forage_again", %DayManager.today+2)
+	await %EnvironmentStrategies.choose_strategy_3(
+		true, true, false, "fruit", "forage_again", %DayManager.today+2)
 
 func tree_sound():
 	$"../../../Inventory/02_tree_rustling_3_wav".play()
 
 func ftree_already():
-	audio_collect()
+	audio_cant_do()
 	await %DialogueManager.run_dialogue(ftree_d["already"])

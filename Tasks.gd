@@ -11,7 +11,6 @@ var to_do_list_checked_today
 var to_do_list_level
 signal todolist_closed
 signal todolist_clicked
-
 signal score_gained(score)
 
 func show_todolist():
@@ -25,7 +24,6 @@ func _on_close_button_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			todolist_closed.emit()
-			$ColorRect.hide()
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

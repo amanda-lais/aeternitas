@@ -6,6 +6,42 @@ var location_strategies = {}
 
 signal score_gained(score)
 
+func maybe_use_strategy():
+	await %DialogueManager.run_dialogue("2Hmmm...")
+	%DialogueOptions.set_option_box_text(1, "USAR ESTRATÉGIA")
+	%DialogueOptions.set_option_box_text(2, "ENCERRAR DIA")
+	%DialogueOptions.show_options(2)
+	var option = await %DialogueOptions.option_chosen
+	%DialogueOptions.default_option_box()
+	return option
+
+func choose_strategy_3(cal=true, tdl=true, alarm=false, action = "", add = "", date = 0):
+	choice = await maybe_use_strategy()
+	if choice == 1:
+		if cal == true and tdl == true:
+			await dialogue_on_click([
+				"2O que acha de usarmos uma estratégia agora, Circe?",
+				"1Hmm... Pode ser. Vamos usar... uh, qual mesmo..."
+				])
+			%DialogueOptions.set_option_box_text(1, "CALENDÁRIO")
+			%DialogueOptions.set_option_box_text(2, "LISTA DE TAREFAS")
+			%DialogueOptions.set_option_box_text(3, "ENCERRAR DIA")
+			%DialogueOptions.show_options(3)
+			choice = await %DialogueOptions.option_chosen
+			%DialogueOptions.default_option_box()
+			if choice == 1:
+				await %Calendar.cal_default(action, add, date)
+				await %ToDoList.tdl_or_end()
+			elif choice == 2:
+				await %ToDoList.tdl_default()
+				await %Calendar.cal_or_end(action, add, date)
+		elif cal == false and tdl == true:
+			await %DialogueManager.run_dialogue("2([wave]Hmmmmm...[/wave])")
+			await %ToDoList.tdl_or_end()
+		elif cal == true and tdl == false:
+			await %DialogueManager.run_dialogue("2([wave]Hmmmmm...[/wave])")
+			await %Calendar.cal_or_end(action, add, date)
+
 func dialogue_on_click(dialogue):
 	%DialogueManager.dialogue_list = dialogue
 	%DialogueManager.start_dialogue()

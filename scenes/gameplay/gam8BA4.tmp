@@ -1,0 +1,1311 @@
+[gd_scene load_steps=91 format=3 uid="uid://2p2mmxdegkog"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
+[ext_resource type="Texture2D" uid="uid://chd6thw08dc0o" path="res://assets/placeholder/placeholder_forest_bg.png" id="3_ul0cr"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task3.gd" id="4_fpfwr"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentItems.gd" id="4_n8hmo"]
+[ext_resource type="Script" path="res://scenes/gameplay/task.gd" id="4_ownjl"]
+[ext_resource type="Texture2D" uid="uid://l6pcwq6a75ar" path="res://assets/ae .png" id="4_wbfqo"]
+[ext_resource type="PackedScene" uid="uid://cfssxie28f0n2" path="res://scenes/items/item.tscn" id="5_2to6g"]
+[ext_resource type="Texture2D" uid="uid://d37kpiwk81qxj" path="res://assets/Tower_Purple.png" id="5_bcsru"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task4.gd" id="5_swkpl"]
+[ext_resource type="Script" path="res://scenes/items/FruitTree.gd" id="7_g5cru"]
+[ext_resource type="Texture2D" uid="uid://c5k0wxcd144yl" path="res://assets/under grass.png" id="7_lnihh"]
+[ext_resource type="Script" path="res://scenes/gameplay/Task2.gd" id="7_o2cfq"]
+[ext_resource type="Texture2D" uid="uid://cgpdd5oc1g31w" path="res://assets/Tree.png" id="8_7h6pe"]
+[ext_resource type="Texture2D" uid="uid://c8kp6edvk4loc" path="res://assets/top grass.png" id="8_d7whn"]
+[ext_resource type="Texture2D" uid="uid://dpmxd3wu4m8hm" path="res://assets/placeholder/items/placeholder_spiderweb.png" id="9_13e3v"]
+[ext_resource type="Texture2D" uid="uid://dpa7tbtu60p2r" path="res://assets/rock.png" id="9_qcmi5"]
+[ext_resource type="Script" path="res://scenes/gameplay/Blackout.gd" id="9_yp60i"]
+[ext_resource type="Script" path="res://scenes/items/spiderweb.gd" id="10_d1i0u"]
+[ext_resource type="Texture2D" uid="uid://cwcqh75o6w551" path="res://assets/grass.png" id="10_msyfn"]
+[ext_resource type="Texture2D" uid="uid://bvkqexsya3wd4" path="res://assets/placeholder/items/placeholder_spiderweb_hover.png" id="11_chdx8"]
+[ext_resource type="Script" path="res://scenes/items/crops.gd" id="13_mpvnh"]
+[ext_resource type="Texture2D" uid="uid://btryeiygw6uub" path="res://assets/before planting.png" id="14_7uff0"]
+[ext_resource type="Texture2D" uid="uid://d12mmeuqey86l" path="res://assets/crops growing.png" id="14_mu3n4"]
+[ext_resource type="Texture2D" uid="uid://choiwsyfux5f0" path="res://assets/pumpkin.png" id="14_ttyog"]
+[ext_resource type="Texture2D" uid="uid://cyumjhuu5t14p" path="res://assets/sprites/items_pixel/cauldron_sprite_boiling.png" id="15_dg8xb"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/EnvironmentStrategies.gd" id="15_l1ief"]
+[ext_resource type="Texture2D" uid="uid://e41l1vf70528" path="res://assets/placeholder/strategies/placeholder_checklist.png" id="16_fsbfq"]
+[ext_resource type="Script" path="res://scenes/items/strategy.gd" id="17_eu5k7"]
+[ext_resource type="Texture2D" uid="uid://6tpjqn3l17gw" path="res://assets/anvil.png" id="17_nokcu"]
+[ext_resource type="Texture2D" uid="uid://clexurvmia7rb" path="res://assets/placeholder/strategies/placeholder_calendar.png" id="18_4iau7"]
+[ext_resource type="Script" path="res://scenes/items/calendar.gd" id="19_8d3we"]
+[ext_resource type="Texture2D" uid="uid://bliimx5qacgdp" path="res://assets/cauldron.png" id="21_6wvai"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Overlay.gd" id="22_58kja"]
+[ext_resource type="PackedScene" uid="uid://cbdyfvikl5ja6" path="res://scenes/gameplay/dialogue engine/DialogueManager.tscn" id="23_53yyp"]
+[ext_resource type="Texture2D" uid="uid://drx0igok5nlpg" path="res://assets/cauldronboom_green.png" id="23_puli8"]
+[ext_resource type="PackedScene" uid="uid://kl8oxk7aq3m7" path="res://choose_dialogue_option.tscn" id="24_e021a"]
+[ext_resource type="Texture2D" uid="uid://c7hs3voq55vhg" path="res://assets/Crow.png" id="24_gqa0p"]
+[ext_resource type="Texture2D" uid="uid://byhxavxupc8a7" path="res://assets/mess.png" id="24_qvtoj"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Execution.gd" id="25_ru805"]
+[ext_resource type="Script" path="res://scenes/gameplay/location/Inventory.gd" id="26_28jrm"]
+[ext_resource type="Script" path="res://scenes/items/todolist.gd" id="27_4heev"]
+[ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="27_34723"]
+[ext_resource type="AudioStream" uid="uid://l7l7kaa8leob" path="res://assets/sounds/Fantasy_UI cancel.wav" id="27_ls6lu"]
+[ext_resource type="AudioStream" uid="uid://0xdixaaek5li" path="res://assets/sounds/Fantasy_UI cant do.wav" id="28_3c75u"]
+[ext_resource type="Script" path="res://Tasks.gd" id="28_nlgrb"]
+[ext_resource type="AudioStream" uid="uid://cyyodhkedfhjy" path="res://assets/sounds/Big Egg collect 1.wav" id="30_h286i"]
+[ext_resource type="AudioStream" uid="uid://d3ljvklin0lt1" path="res://assets/sounds/Fruit collect 1.wav" id="30_q2h7c"]
+[ext_resource type="FontFile" uid="uid://bt0m3fsw4eqeq" path="res://assets/fonts/DungeonFont.ttf" id="31_glwgf"]
+[ext_resource type="AudioStream" uid="uid://dkqv5wgp5s5k6" path="res://assets/sounds/02_tree_rustling_3.wav" id="31_s4x2u"]
+[ext_resource type="Texture2D" uid="uid://ddau2wsvuc54e" path="res://assets/chronos.png" id="32_tmnd5"]
+[ext_resource type="AudioStream" uid="uid://bm0q637vc107g" path="res://assets/sounds/mine 3.wav" id="34_gcrsd"]
+[ext_resource type="Texture2D" uid="uid://bnq78lg0lk7ko" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/6 Player HUD/1.png" id="35_k2t4y"]
+[ext_resource type="AudioStream" uid="uid://ct7kfdm0kt4gg" path="res://assets/sounds/Dirt Walk 2.wav" id="35_w0ds5"]
+[ext_resource type="AudioStream" uid="uid://bn6f2264mrees" path="res://assets/sounds/Wave Attack 1.wav" id="36_maxi3"]
+[ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="37_2vt7i"]
+[ext_resource type="AudioStream" uid="uid://cedt5muiiqmjx" path="res://assets/sounds/Rock Wall 2.wav" id="37_6h5bq"]
+[ext_resource type="AudioStream" uid="uid://cxnyajsgtwo10" path="res://assets/sounds/Sword Parry 1.wav" id="38_wjv5g"]
+[ext_resource type="AudioStream" uid="uid://bfoc1qjnpc3bc" path="res://assets/sounds/Darkworld PaperDocument2.wav" id="46_5gq4h"]
+[ext_resource type="AudioStream" uid="uid://4c1i3yjyxdsr" path="res://assets/sounds/Retro Crow 01.wav" id="51_rtxga"]
+[ext_resource type="Texture2D" uid="uid://cm4wl44j6fot3" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/10 Calander/1.png" id="53_c58i4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
+radius = 173.53
+height = 498.255
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikc5"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(0, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imhwd"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(576, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqpt"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(1152, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgm5e"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(1728, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4vf3"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(0, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv12f"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(576, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg37x"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(1152, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgxx6"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(1728, 0, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n470a"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(0, 576, 576, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc26j"]
+atlas = ExtResource("8_7h6pe")
+region = Rect2(576, 576, 576, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwqd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jikc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imhwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srqpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgm5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4vf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg37x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgxx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n470a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc26j")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5co3t"]
+size = Vector2(280, 226.053)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwpoy"]
+size = Vector2(513.758, 523.696)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk1o3"]
+size = Vector2(373.433, 200.823)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwych"]
+size = Vector2(171, 85)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymn23"]
+radius = 51.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbflp"]
+size = Vector2(306.717, 304.302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rioa8"]
+size = Vector2(371.925, 335.699)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnhts"]
+radius = 84.1167
+height = 383.449
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnms1"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28m0s"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adc2y"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cbv2"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eidpq"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(480, 480, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vfev"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(960, 480, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjgxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnms1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28m0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adc2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cbv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eidpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vfev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cbv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adc2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28m0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjq8s"]
+radius = 73.4216
+height = 227.837
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcd0b"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_inb7v")
+
+[node name="Forest" type="Node2D" parent="."]
+script = ExtResource("2_ogbyc")
+
+[node name="Background" type="Sprite2D" parent="Forest"]
+position = Vector2(577.586, 332)
+scale = Vector2(1.65025, 1.65025)
+texture = ExtResource("3_ul0cr")
+
+[node name="BgAlt" type="Sprite2D" parent="Forest/Background"]
+position = Vector2(6.91653, 11.5134)
+scale = Vector2(0.163612, 0.163612)
+texture = ExtResource("4_wbfqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Forest/Background"]
+position = Vector2(119.021, -155.734)
+scale = Vector2(0.163612, 0.163612)
+texture = ExtResource("5_bcsru")
+
+[node name="EnvironmentItems" type="CanvasGroup" parent="Forest"]
+unique_name_in_owner = true
+script = ExtResource("4_n8hmo")
+
+[node name="FruitTree" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(412, 90)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("7_g5cru")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/FruitTree/Area2D" index="0"]
+shape = SubResource("CapsuleShape2D_jt2cv")
+
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree"]
+visible = false
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/FruitTree/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Tree" type="AnimatedSprite2D" parent="Forest/EnvironmentItems/FruitTree"]
+position = Vector2(-10.3088, 13.7449)
+sprite_frames = SubResource("SpriteFrames_kwqd8")
+
+[node name="Stone" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+position = Vector2(612, 130)
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Stone/Area2D" index="0"]
+position = Vector2(10, -93.8698)
+shape = SubResource("RectangleShape2D_5co3t")
+
+[node name="Stone" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
+position = Vector2(8, -90.0383)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_qcmi5")
+
+[node name="Spiderweb" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(434, 296)
+rotation = 3.95271
+scale = Vector2(-0.0711544, -0.0743888)
+texture = ExtResource("9_13e3v")
+script = ExtResource("10_d1i0u")
+
+[node name="Hover" parent="Forest/EnvironmentItems/Spiderweb" index="0"]
+texture = ExtResource("11_chdx8")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Spiderweb/Area2D" index="0"]
+position = Vector2(-4.87781, 2.13776)
+shape = SubResource("RectangleShape2D_mwpoy")
+
+[node name="SpiderwebHover" type="Sprite2D" parent="Forest/EnvironmentItems/Spiderweb"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-141.515, 207.768)
+rotation = 3.14159
+scale = Vector2(1.56819, 1.5)
+texture = ExtResource("11_chdx8")
+
+[node name="Crops" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(337, 532)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("13_mpvnh")
+
+[node name="Before Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-34, -282)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_7uff0")
+
+[node name="After Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-40, -304)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_mu3n4")
+
+[node name="Pumpkin" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
+position = Vector2(-50, -346)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("14_ttyog")
+
+[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="4"]
+position = Vector2(-37.3334, -296.667)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
+position = Vector2(43.9283, 56.2062)
+rotation = 0.576544
+shape = SubResource("RectangleShape2D_tk1o3")
+
+[node name="Workbench" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+position = Vector2(891, 438)
+scale = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Workbench/Area2D" index="0"]
+position = Vector2(7.5, -49.5)
+shape = SubResource("RectangleShape2D_bwych")
+
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+visible = false
+position = Vector2(-91, -250)
+scale = Vector2(0.5, 0.5)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+visible = false
+position = Vector2(-9.53674e-07, -15)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_msyfn")
+
+[node name="Workbench" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
+position = Vector2(8.99998, -51)
+scale = Vector2(0.401037, 0.401037)
+texture = ExtResource("17_nokcu")
+
+[node name="Cauldron" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
+position = Vector2(604, 526)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Cauldron/Area2D" index="0"]
+position = Vector2(34, -24)
+shape = SubResource("CapsuleShape2D_ymn23")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("21_6wvai")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+visible = false
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("15_dg8xb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+visible = false
+position = Vector2(35, -34)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("23_puli8")
+
+[node name="EnvironmentStrategies" type="CanvasGroup" parent="Forest"]
+unique_name_in_owner = true
+script = ExtResource("15_l1ief")
+
+[node name="ToDoList" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(1080, 250)
+scale = Vector2(0.255859, 0.255859)
+texture = ExtResource("16_fsbfq")
+script = ExtResource("27_4heev")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/ToDoList/Area2D" index="0"]
+position = Vector2(-15.698, -14.4906)
+shape = SubResource("RectangleShape2D_wbflp")
+
+[node name="Calendar" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(149, 155)
+scale = Vector2(0.21289, 0.21289)
+texture = ExtResource("18_4iau7")
+script = ExtResource("19_8d3we")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Calendar/Area2D" index="0"]
+position = Vector2(-9.6604, 6.03772)
+shape = SubResource("RectangleShape2D_rioa8")
+
+[node name="Alarm" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(140, 465)
+scale = Vector2(0.261719, 0.261719)
+script = ExtResource("17_eu5k7")
+
+[node name="Area2D" parent="Forest/EnvironmentStrategies/Alarm" index="1"]
+position = Vector2(1623.88, -343.88)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Alarm/Area2D" index="0"]
+position = Vector2(767.999, -477.612)
+rotation = -2.19629
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CapsuleShape2D_nnhts")
+
+[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+visible = false
+position = Vector2(1092.77, -966.686)
+scale = Vector2(1.97015, 1.97015)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Grass and dirt2" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+visible = false
+position = Vector2(767.999, -790.925)
+scale = Vector2(1.97015, 1.97015)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Crow" type="AnimatedSprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+position = Vector2(2399.52, -825.313)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_qjgxf")
+speed_scale = 0.8
+
+[node name="Mess" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
+unique_name_in_owner = true
+position = Vector2(403, 530)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("17_eu5k7")
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/Mess/Area2D" index="0"]
+position = Vector2(175, -93.3334)
+rotation = 1.20698
+shape = SubResource("CapsuleShape2D_bjq8s")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+visible = false
+position = Vector2(195, -48.3333)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_msyfn")
+
+[node name="Grass and dirt2" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+visible = false
+position = Vector2(355, -146.667)
+scale = Vector2(0.75, 0.75)
+
+[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess/Grass and dirt2"]
+position = Vector2(-4, 280.309)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_lnihh")
+
+[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess/Grass and dirt2"]
+position = Vector2(-4, 232)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_d7whn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Forest/EnvironmentStrategies/Mess"]
+position = Vector2(168.333, -86.6667)
+scale = Vector2(0.599132, 0.599132)
+texture = ExtResource("24_qvtoj")
+
+[node name="Overlay" type="ColorRect" parent="Forest"]
+unique_name_in_owner = true
+offset_right = 1158.0
+offset_bottom = 656.0
+color = Color(0.286275, 0, 0.541176, 0.454902)
+script = ExtResource("22_58kja")
+
+[node name="DialogueManager" parent="Forest" instance=ExtResource("23_53yyp")]
+unique_name_in_owner = true
+offset_left = 52.0
+offset_top = 381.0
+offset_right = 52.0
+offset_bottom = 381.0
+
+[node name="Sprite2D" parent="Forest/DialogueManager" index="0"]
+position = Vector2(860, -148)
+scale = Vector2(0.616006, 0.616006)
+
+[node name="Sprite2D2" parent="Forest/DialogueManager" index="1"]
+position = Vector2(179, -138)
+rotation = -0.00644627
+texture = ExtResource("32_tmnd5")
+
+[node name="DialogueBox" parent="Forest/DialogueManager/DialogueBox" index="0"]
+expand_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Forest/DialogueManager/DialogueBox" index="1"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -57.0
+offset_right = 274.0
+offset_bottom = 103.0
+texture = ExtResource("35_k2t4y")
+
+[node name="DialogueText" parent="Forest/DialogueManager/DialogueBox" index="2"]
+offset_left = 75.0
+offset_top = 84.0
+offset_right = 1070.0
+offset_bottom = 232.0
+
+[node name="DialogueCharacterName" parent="Forest/DialogueManager/DialogueBox" index="3"]
+offset_left = 40.0
+offset_top = 2.0
+offset_right = 251.0
+offset_bottom = 46.0
+theme_override_fonts/normal_font = ExtResource("31_glwgf")
+theme_override_font_sizes/normal_font_size = 43
+bbcode_enabled = true
+text = "[center][/center]"
+
+[node name="DialogueOptions" parent="Forest" instance=ExtResource("24_e021a")]
+unique_name_in_owner = true
+
+[node name="OptionBox" parent="Forest/DialogueOptions/Option1" index="0"]
+texture = ExtResource("35_k2t4y")
+
+[node name="OptionBox" parent="Forest/DialogueOptions/Option3" index="0"]
+texture = ExtResource("35_k2t4y")
+
+[node name="Fantasy_UI cancel" type="AudioStreamPlayer" parent="Forest/DialogueOptions"]
+stream = ExtResource("27_ls6lu")
+
+[node name="Fantasy_UI cant do" type="AudioStreamPlayer" parent="Forest/DialogueOptions"]
+stream = ExtResource("28_3c75u")
+
+[node name="Execution" type="Node" parent="Forest"]
+unique_name_in_owner = true
+script = ExtResource("25_ru805")
+
+[node name="DayManager" parent="Forest" instance=ExtResource("27_34723")]
+unique_name_in_owner = true
+
+[node name="Tasks" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 41.0
+offset_bottom = 71.0
+mouse_filter = 2
+script = ExtResource("28_nlgrb")
+
+[node name="CheckTaskSound" type="AudioStreamPlayer" parent="Tasks"]
+unique_name_in_owner = true
+stream = ExtResource("30_h286i")
+
+[node name="Darkworld PaperDocument2" type="AudioStreamPlayer" parent="Tasks"]
+stream = ExtResource("46_5gq4h")
+
+[node name="ColorRect" type="TextureRect" parent="Tasks"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 28.879
+anchor_bottom = 16.3
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -52.16
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("53_c58i4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.244
+offset_left = 81.0
+offset_top = 72.0
+offset_right = -80.0
+offset_bottom = 27.552
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("31_glwgf")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave][center]Lista de Tarefas[/center][/wave]"
+
+[node name="Task3" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_top = 12.0
+offset_right = 392.075
+offset_bottom = -116.992
+mouse_filter = 2
+script = ExtResource("4_fpfwr")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
+text = "Consertar cetro mágico"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+mouse_filter = 2
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task3"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 41.0
+offset_right = -19.0
+offset_bottom = -18.2035
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Material para conserto (2 pedras)"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3/Subtask1"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task3"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 100.0
+offset_right = -19.0
+offset_bottom = 40.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Fazer o reparo"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task3/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Task4" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 501.0
+offset_top = 111.0
+offset_right = 44.15
+offset_bottom = -61.544
+mouse_filter = 2
+script = ExtResource("5_swkpl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 214.0
+offset_right = 501.0
+offset_bottom = 275.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 37
+text = "Recarregar cetro mágico"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 212.0
+offset_right = 64.0
+offset_bottom = 252.0
+mouse_filter = 2
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task4"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 87.0
+offset_right = -19.0
+offset_bottom = 27.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Fazer o reparo"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask3" type="Control" parent="Tasks/ColorRect/Task4"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 123.0
+offset_right = -19.0
+offset_bottom = 63.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 456.0
+offset_bottom = 279.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Usar lua cheia para recarregar o cetro"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task4/Subtask3"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Task1" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 72.0
+offset_top = 12.0
+offset_right = -384.85
+offset_bottom = -160.544
+mouse_filter = 2
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 446.0
+offset_bottom = 308.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
+text = "Acumular comida o suficiente (3 frutas no mínimo)"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task1"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 165.0
+offset_right = 64.0
+offset_bottom = 205.0
+mouse_filter = 2
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Task2" type="Control" parent="Tasks/ColorRect"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_left = 72.0
+offset_top = 79.0
+offset_right = -384.85
+offset_bottom = -93.544
+mouse_filter = 2
+script = ExtResource("7_o2cfq")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 214.0
+offset_right = 439.0
+offset_bottom = 304.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 37
+text = "Preparar poções o suficiente"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 212.0
+offset_right = 64.0
+offset_bottom = 252.0
+mouse_filter = 2
+color = Color(0.607843, 0, 1, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "X"
+
+[node name="Subtask1" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 112.0
+offset_right = -19.0
+offset_bottom = 52.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Plantar sementes"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask1"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask2" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 148.0
+offset_right = -19.0
+offset_bottom = 88.7965
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Regar plantas"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask3" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 184.0
+offset_right = -19.0
+offset_bottom = 124.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Colher os vegetais mágicos"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask3"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="Subtask4" type="Control" parent="Tasks/ColorRect/Task2"]
+layout_mode = 1
+anchor_right = 0.475
+anchor_bottom = 0.576
+offset_top = 220.0
+offset_right = -19.0
+offset_bottom = 160.796
+script = ExtResource("4_ownjl")
+
+[node name="Description" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 167.0
+offset_right = 501.0
+offset_bottom = 228.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Preparar poções"
+
+[node name="Checkbox" type="ColorRect" parent="Tasks/ColorRect/Task2/Subtask4"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 64.0
+offset_bottom = 198.0
+mouse_filter = 2
+color = Color(1, 0.384314, 0, 0.396078)
+
+[node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4/Checkbox"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "X"
+
+[node name="CloseButton" type="ColorRect" parent="Tasks/ColorRect"]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 94.0
+offset_right = 959.0
+offset_bottom = 134.0
+color = Color(1, 0.384314, 0, 0)
+
+[node name="X" type="RichTextLabel" parent="Tasks/ColorRect/CloseButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 46.0
+offset_bottom = 58.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.301961, 0.0941176, 0, 0.843137)
+theme_override_font_sizes/normal_font_size = 45
+text = "X"
+
+[node name="Blackout" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_yp60i")
+
+[node name="GameDayPaper3" type="Sprite2D" parent="."]
+position = Vector2(152, 59)
+texture = ExtResource("35_k2t4y")
+
+[node name="GameDayPaper2" type="Sprite2D" parent="GameDayPaper3"]
+position = Vector2(904, -19)
+texture = ExtResource("35_k2t4y")
+
+[node name="GameDay" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = 27.0
+offset_right = 258.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("31_glwgf")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]Dia 1[/center]"
+
+[node name="ScoreCounter" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = 951.0
+offset_top = 18.0
+offset_right = 1153.0
+offset_bottom = 72.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]XXXXXX pts[/center]"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kcd0b")
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("26_28jrm")
+
+[node name="Fruit collect 1_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("30_q2h7c")
+
+[node name="02_tree_rustling_3_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("31_s4x2u")
+
+[node name="16_Hit_on_brick_2_wav" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("34_gcrsd")
+
+[node name="Dirt Walk 2" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("35_w0ds5")
+
+[node name="Wave Attack 1" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("36_maxi3")
+
+[node name="Rock Wall 2" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("37_6h5bq")
+
+[node name="Sword Parry" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("38_wjv5g")
+
+[node name="Crow Sound" type="AudioStreamPlayer" parent="Inventory"]
+stream = ExtResource("51_rtxga")
+
+[connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
+[connection signal="exp_gained" from="Forest/EnvironmentItems" to="Forest/EnvironmentStrategies/ToDoList" method="_on_environment_items_exp_gained"]
+[connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
+[connection signal="item_click" from="Forest/EnvironmentItems/FruitTree" to="Forest/EnvironmentItems" method="_on_fruit_tree_item_click"]
+[connection signal="item_click" from="Forest/EnvironmentItems/Stone" to="Forest/EnvironmentItems" method="_on_stone_item_click"]
+[connection signal="item_click" from="Forest/EnvironmentItems/Spiderweb" to="Forest/EnvironmentItems" method="_on_spiderweb_item_click"]
+[connection signal="item_click" from="Forest/EnvironmentItems/Crops" to="Forest/EnvironmentItems" method="_on_crops_item_click"]
+[connection signal="item_click" from="Forest/EnvironmentItems/Workbench" to="Forest/EnvironmentItems" method="_on_workbench_item_click"]
+[connection signal="item_click" from="Forest/EnvironmentItems/Cauldron" to="Forest/EnvironmentItems" method="_on_cauldron_item_click"]
+[connection signal="score_gained" from="Forest/EnvironmentStrategies" to="." method="_on_environment_strategies_score_gained"]
+[connection signal="level_up" from="Forest/EnvironmentStrategies/ToDoList" to="Tasks" method="_on_to_do_list_level_up"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="." method="_on_to_do_list_strategy_click"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="Forest/EnvironmentStrategies" method="_on_to_do_list_strategy_click"]
+[connection signal="input_event" from="Forest/EnvironmentStrategies/ToDoList/Area2D" to="Tasks" method="_on_area_2d_input_event"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/Calendar" to="Forest/EnvironmentStrategies" method="_on_calendar_strategy_click"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/Alarm" to="Forest/EnvironmentStrategies" method="_on_alarm_strategy_click"]
+[connection signal="strategy_click" from="Forest/EnvironmentStrategies/Mess" to="Forest/EnvironmentStrategies" method="_on_mess_strategy_click"]
+[connection signal="dialogue_finished" from="Forest/DialogueManager" to="Forest/EnvironmentStrategies" method="_on_dialogue_manager_dialogue_finished"]
+[connection signal="dialogue_finished" from="Forest/DialogueManager" to="Forest/Overlay" method="_on_dialogue_manager_dialogue_finished"]
+[connection signal="dialogue_started" from="Forest/DialogueManager" to="Forest/Overlay" method="_on_dialogue_manager_dialogue_started"]
+[connection signal="option_chosen" from="Forest/DialogueOptions" to="Forest/EnvironmentStrategies" method="_on_dialogue_options_option_chosen"]
+[connection signal="option_chosen" from="Forest/DialogueOptions" to="Forest/Overlay" method="_on_dialogue_options_option_chosen"]
+[connection signal="selection_started" from="Forest/DialogueOptions" to="Forest/Overlay" method="_on_dialogue_options_selection_started"]
+[connection signal="mouse_entered" from="Forest/DialogueOptions/Option2" to="Forest/DialogueOptions" method="_on_option_2_mouse_entered"]
+[connection signal="mouse_exited" from="Forest/DialogueOptions/Option2" to="Forest/DialogueOptions" method="_on_option_2_mouse_exited"]
+[connection signal="mouse_entered" from="Forest/DialogueOptions/Option1" to="Forest/DialogueOptions" method="_on_option_1_mouse_entered"]
+[connection signal="mouse_exited" from="Forest/DialogueOptions/Option1" to="Forest/DialogueOptions" method="_on_option_1_mouse_exited"]
+[connection signal="mouse_entered" from="Forest/DialogueOptions/Option3" to="Forest/DialogueOptions" method="_on_option_3_mouse_entered"]
+[connection signal="mouse_exited" from="Forest/DialogueOptions/Option3" to="Forest/DialogueOptions" method="_on_option_3_mouse_exited"]
+[connection signal="full_moon" from="Forest/DayManager" to="Inventory" method="_on_day_manager_full_moon"]
+[connection signal="new_day" from="Forest/DayManager" to="." method="_on_day_manager_new_day"]
+[connection signal="score_gained" from="Tasks" to="." method="_on_tasks_score_gained"]
+[connection signal="todolist_closed" from="Tasks" to="Forest/Overlay" method="_on_tasks_todolist_closed"]
+[connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
+[connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]
+[connection signal="score_gained" from="Inventory" to="." method="_on_inventory_score_gained"]
+[connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
+
+[editable path="Forest/EnvironmentItems/FruitTree"]
+[editable path="Forest/EnvironmentItems/Stone"]
+[editable path="Forest/EnvironmentItems/Spiderweb"]
+[editable path="Forest/EnvironmentItems/Crops"]
+[editable path="Forest/EnvironmentItems/Workbench"]
+[editable path="Forest/EnvironmentItems/Cauldron"]
+[editable path="Forest/EnvironmentStrategies/ToDoList"]
+[editable path="Forest/EnvironmentStrategies/Calendar"]
+[editable path="Forest/EnvironmentStrategies/Alarm"]
+[editable path="Forest/EnvironmentStrategies/Mess"]
+[editable path="Forest/DialogueManager"]
+[editable path="Forest/DialogueOptions"]
