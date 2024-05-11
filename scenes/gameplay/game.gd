@@ -1,6 +1,6 @@
 extends Node2D
 
-var contador_pontos = 0 #str(randi_range(0,1000000))
+var contador_pontos = 0
 var today = 1
 
 func _ready():

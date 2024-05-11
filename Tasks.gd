@@ -13,12 +13,10 @@ signal todolist_closed
 signal todolist_clicked
 
 signal score_gained(score)
-#var checklist_checks_pending
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func show_todolist():
+	self.show()
+	$ColorRect.show()
 
 func _on_environment_items_show_todolist():
 	$ColorRect.show()
@@ -87,3 +85,23 @@ func _on_inventory_task_finished(task_id):
 		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask3")
 	elif task_id == "BrewPotion":
 		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask4")
+
+#func _on_to_do_list_level_up():
+	#$ColorRect/Task3/Subtask1.show()
+	#$ColorRect/Task3/Subtask2.show()
+	#$ColorRect/Task4/Subtask2.show()
+	#$ColorRect/Task4/Subtask3.show()
+	#$ColorRect/Task2/Subtask1.show()
+	#$ColorRect/Task2/Subtask2.show()
+	#$ColorRect/Task2/Subtask3.show()
+	#$ColorRect/Task2/Subtask4.show()
+#
+#func _ready():
+	#$ColorRect/Task3/Subtask1.hide()
+	#$ColorRect/Task3/Subtask2.hide()
+	#$ColorRect/Task4/Subtask2.hide()
+	#$ColorRect/Task4/Subtask3.hide()
+	#$ColorRect/Task2/Subtask1.hide()
+	#$ColorRect/Task2/Subtask2.hide()
+	#$ColorRect/Task2/Subtask3.hide()
+	#$ColorRect/Task2/Subtask4.hide()

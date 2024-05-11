@@ -120,6 +120,7 @@ layout_mode = 2
 texture = ExtResource("4_vobq0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Control/VBoxContainer/ExitButton"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 51.0
 offset_right = 232.0

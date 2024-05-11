@@ -8,6 +8,9 @@ var List_of_Character_Names = [" ", "[center]Circe[/center]", "[center]Chronos[/
 var Log_Text = []
 var dialogue_list = []
 
+func _ready():
+	self.hide()
+
 func _on_dialog_box_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -25,7 +28,6 @@ func display_dialogue_line(dialogue_list):
 	var current_line = dialogue_list[0].substr(1)
 	%DialogueText.text = current_line
 	self.show()
-	#%Hotbar.hide()
 
 func display_next_dialogue_line(dialogue_list):
 	dialogue_list.pop_front()
@@ -37,5 +39,12 @@ func display_next_dialogue_line(dialogue_list):
 	else:
 		display_dialogue_line(dialogue_list)
 
-func _ready():
-	self.hide()
+func dialogue_on_click(dialogue):
+	dialogue_list = dialogue
+	start_dialogue()
+	await dialogue_finished
+
+func run_dialogue(dialogue):
+	dialogue_list = [dialogue]
+	start_dialogue()
+	await dialogue_finished

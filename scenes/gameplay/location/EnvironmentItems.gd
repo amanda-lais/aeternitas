@@ -5,6 +5,7 @@ var outcome
 
 signal show_todolist
 signal task_finished(task_id)
+signal exp_gained(exp_points)
 
 var default_todolist_dialogue = [
 	"2Talvez tenha algo que possa marcar como feita na lista de tarefas.",
@@ -30,7 +31,6 @@ func maybe_use_strategy():
 	return option_number
 
 func choose_strategy():
-	%DialogueOptions.set_option_box_text(1, "CALENDÁRIO")
 	%DialogueOptions.set_option_box_text(2, "LISTA DE TAREFAS")
 	%DialogueOptions.set_option_box_text(3, "ENCERRAR DIA")
 	var dialogue = [
@@ -38,6 +38,7 @@ func choose_strategy():
 		"1Hmm... Pode ser. Vamos usar... uh, qual mesmo..."
 		]
 	await dialogue_on_click(dialogue)
+	%DialogueOptions.set_option_box_text(1, "CALENDÁRIO")
 	%DialogueOptions.show_options(3)
 	var option_number = await %DialogueOptions.option_chosen
 	return option_number
@@ -51,6 +52,7 @@ func remaining_choose_todolist(dialogue):
 	if option_number == 1:
 		await dialogue_on_click(dialogue)
 		show_todolist.emit()
+		exp_gained.emit(10)
 
 func remaining_choose_calendar(dialogue):
 	await run_dialogue("2(Hmmm... Ainda seria possível usar o calendário...)")
@@ -150,12 +152,14 @@ func _on_crops_item_click():
 					await remaining_choose_todolist(default_todolist_dialogue)
 				elif option_number == 2:
 					await dialogue_on_click(default_todolist_dialogue)
-					show_todolist.emit()
+					$"../../Tasks".show()
+					exp_gained.emit(20)
 					await _on_close_button_todolist_closed()
 					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
 			%DialogueOptions.default_option_box()
 			%DayManager.date_change()
 			$"Crops/Before Planting".hide()
+			$"Crops/After Planting".show()
 	elif %Crops.crop_current_status == "planted":
 		dialogue_prompt = "0Deseja regar?"
 		dialogue_success = "0Circe usou um feitiço e regou a planta!"
@@ -171,7 +175,8 @@ func _on_crops_item_click():
 					await remaining_choose_todolist(default_todolist_dialogue)
 				elif option_number == 2:
 					await dialogue_on_click(default_todolist_dialogue)
-					show_todolist.emit()
+					$"../../Tasks".show()
+					exp_gained.emit(20)
 					await _on_close_button_todolist_closed()
 					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
 			%DialogueOptions.default_option_box()
@@ -182,30 +187,39 @@ func _on_crops_item_click():
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.harvest()
 			$Crops/Pumpkin.hide()
+			$"Crops/Before Planting".show()
+			$"Crops/After Planting".hide()
 			%Inventory.add_to_inventory("vegetable", 2)
 			var option_number = await maybe_use_strategy()
 			if option_number == 1:
-				option_number = await choose_strategy()
-				if option_number == 1:
-					await dialogue_on_click(%Crops.dialogues["planted_calendar"])
-					await remaining_choose_todolist(default_todolist_dialogue)
-				elif option_number == 2:
+				print("blaaaaaaaa")
+				%DialogueOptions.set_option_box_text(1, "LISTA DE TAREFAS")
+				%DialogueOptions.set_option_box_text(2, "ENCERRAR DIA")
+				%DialogueOptions.show_options(2)
+				option_number = await %DialogueOptions.option_chosen
+				#option_number = await choose_strategy()
+				#if option_number == 1:
+				#	await dialogue_on_click(%Crops.dialogues["planted_calendar"])
+				#	await remaining_choose_todolist(default_todolist_dialogue)
+				if option_number == 1: #elif
 					await dialogue_on_click(default_todolist_dialogue)
-					show_todolist.emit()
+					$"../../Tasks".show()
+					exp_gained.emit(20)
 					await _on_close_button_todolist_closed()
-					await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
+					#await remaining_choose_calendar(%Crops.dialogues["planted_calendar"])
 			%DialogueOptions.default_option_box()
 			%DayManager.date_change()
-			$Crops/Land.show()
+			$"Crops/Before Planting".show()
 
 func _on_workbench_item_click():
-	var dialogue_prompt = "0Deseja consertar o cetro?"
-	var dialogue_success = "0Circe consertou o cetro com sucesso!"
-	var dialogue_fail = "0Circe se distraiu..."
-	var dialogue_no = "0Talvez depois."
+	var dialogue_prompt = $Workbench.workbench_d["prompt"]
+	var dialogue_success = $Workbench.workbench_d["success"]
+	var dialogue_fail = $Workbench.workbench_d["fail"]
+	var dialogue_no = $Workbench.workbench_d["no"]
 	if %Inventory.inventory["stone"] < 2:
-		$"../DialogueOptions/Fantasy_UI cant do".play()
-		run_dialogue("0Circe não tem material o suficiente...")
+		$Workbench.workbench_lacking()
+		#$"../DialogueOptions/Fantasy_UI cant do".play()
+		#run_dialogue($Workbench.workbench_d["lacking"])
 	else:
 		if %Inventory.inventory["staff"] != 0:
 			$"../DialogueOptions/Fantasy_UI cant do".play()
@@ -214,6 +228,16 @@ func _on_workbench_item_click():
 			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 				%Inventory.add_to_inventory("stone", -2)
 				%Inventory.add_to_inventory("staff", 1)
+				var option_number = await maybe_use_strategy()
+				if option_number == 1:
+					await remaining_choose_todolist(default_todolist_dialogue)
+					if option_number == 1:
+						await dialogue_on_click(default_todolist_dialogue)
+						$"../../Tasks".show()
+						exp_gained.emit(20)
+						await _on_close_button_todolist_closed()
+			%DialogueOptions.default_option_box()
+			%DayManager.date_change()
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	pass # Replace with function body.

@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://byhxavxupc8a7" path="res://assets/mess.png" id="24_qvtoj"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Execution.gd" id="25_ru805"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/Inventory.gd" id="26_28jrm"]
+[ext_resource type="Script" path="res://scenes/items/todolist.gd" id="27_4heev"]
 [ext_resource type="PackedScene" uid="uid://bj4kvvhbkrvi0" path="res://day_manager.tscn" id="27_34723"]
 [ext_resource type="AudioStream" uid="uid://l7l7kaa8leob" path="res://assets/sounds/Fantasy_UI cancel.wav" id="27_ls6lu"]
 [ext_resource type="AudioStream" uid="uid://0xdixaaek5li" path="res://assets/sounds/Fantasy_UI cant do.wav" id="28_3c75u"]
@@ -56,7 +57,6 @@
 [ext_resource type="AudioStream" uid="uid://bn6f2264mrees" path="res://assets/sounds/Wave Attack 1.wav" id="36_maxi3"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="37_2vt7i"]
 [ext_resource type="AudioStream" uid="uid://cedt5muiiqmjx" path="res://assets/sounds/Rock Wall 2.wav" id="37_6h5bq"]
-[ext_resource type="Texture2D" uid="uid://euvwly4iv1sq" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/6 Player HUD/1.png" id="38_76wot"]
 [ext_resource type="AudioStream" uid="uid://cxnyajsgtwo10" path="res://assets/sounds/Sword Parry 1.wav" id="38_wjv5g"]
 [ext_resource type="AudioStream" uid="uid://bfoc1qjnpc3bc" path="res://assets/sounds/Darkworld PaperDocument2.wav" id="46_5gq4h"]
 [ext_resource type="AudioStream" uid="uid://4c1i3yjyxdsr" path="res://assets/sounds/Retro Crow 01.wav" id="51_rtxga"]
@@ -381,7 +381,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentItems/Workbench/Area2D" index="0"]
 position = Vector2(7.5, -49.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bwych")
 
 [node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Workbench"]
@@ -444,7 +443,7 @@ unique_name_in_owner = true
 position = Vector2(1080, 250)
 scale = Vector2(0.255859, 0.255859)
 texture = ExtResource("16_fsbfq")
-script = ExtResource("17_eu5k7")
+script = ExtResource("27_4heev")
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/ToDoList/Area2D" index="0"]
 position = Vector2(-15.698, -14.4906)
@@ -452,7 +451,7 @@ shape = SubResource("RectangleShape2D_wbflp")
 
 [node name="Calendar" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
-position = Vector2(89, 258)
+position = Vector2(149, 155)
 scale = Vector2(0.21289, 0.21289)
 texture = ExtResource("18_4iau7")
 script = ExtResource("19_8d3we")
@@ -558,7 +557,6 @@ script = ExtResource("22_58kja")
 
 [node name="DialogueManager" parent="Forest" instance=ExtResource("23_53yyp")]
 unique_name_in_owner = true
-visible = false
 offset_left = 52.0
 offset_top = 381.0
 offset_right = 52.0
@@ -602,13 +600,12 @@ text = "[center][/center]"
 
 [node name="DialogueOptions" parent="Forest" instance=ExtResource("24_e021a")]
 unique_name_in_owner = true
-visible = false
 
 [node name="OptionBox" parent="Forest/DialogueOptions/Option1" index="0"]
 texture = ExtResource("35_k2t4y")
 
 [node name="OptionBox" parent="Forest/DialogueOptions/Option3" index="0"]
-texture = ExtResource("38_76wot")
+texture = ExtResource("35_k2t4y")
 
 [node name="Fantasy_UI cancel" type="AudioStreamPlayer" parent="Forest/DialogueOptions"]
 stream = ExtResource("27_ls6lu")
@@ -658,6 +655,7 @@ offset_left = 1.0
 offset_top = 31.0
 offset_right = 41.0
 offset_bottom = 71.0
+mouse_filter = 2
 script = ExtResource("28_nlgrb")
 
 [node name="CheckTaskSound" type="AudioStreamPlayer" parent="Tasks"]
@@ -716,6 +714,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
@@ -728,6 +727,7 @@ offset_left = 24.0
 offset_top = 165.0
 offset_right = 64.0
 offset_bottom = 205.0
+mouse_filter = 2
 color = Color(0.607843, 0, 1, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Checkbox"]
@@ -756,6 +756,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -768,6 +769,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask1/Checkbox"]
@@ -796,6 +798,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -808,6 +811,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task3/Subtask2/Checkbox"]
@@ -838,6 +842,7 @@ offset_left = 82.0
 offset_top = 214.0
 offset_right = 501.0
 offset_bottom = 275.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
@@ -849,6 +854,7 @@ offset_left = 24.0
 offset_top = 212.0
 offset_right = 64.0
 offset_bottom = 252.0
+mouse_filter = 2
 color = Color(0.607843, 0, 1, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Checkbox"]
@@ -877,6 +883,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -889,6 +896,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask2/Checkbox"]
@@ -917,6 +925,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 456.0
 offset_bottom = 279.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -929,6 +938,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task4/Subtask3/Checkbox"]
@@ -959,6 +969,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 446.0
 offset_bottom = 308.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
@@ -971,6 +982,7 @@ offset_left = 24.0
 offset_top = 165.0
 offset_right = 64.0
 offset_bottom = 205.0
+mouse_filter = 2
 color = Color(0.607843, 0, 1, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task1/Checkbox"]
@@ -1001,6 +1013,7 @@ offset_left = 82.0
 offset_top = 214.0
 offset_right = 439.0
 offset_bottom = 304.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
@@ -1012,6 +1025,7 @@ offset_left = 24.0
 offset_top = 212.0
 offset_right = 64.0
 offset_bottom = 252.0
+mouse_filter = 2
 color = Color(0.607843, 0, 1, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Checkbox"]
@@ -1040,6 +1054,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -1052,6 +1067,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask1/Checkbox"]
@@ -1080,6 +1096,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -1092,6 +1109,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask2/Checkbox"]
@@ -1120,6 +1138,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -1132,6 +1151,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask3/Checkbox"]
@@ -1160,6 +1180,7 @@ offset_left = 82.0
 offset_top = 167.0
 offset_right = 501.0
 offset_bottom = 228.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 35
@@ -1172,6 +1193,7 @@ offset_left = 36.0
 offset_top = 170.0
 offset_right = 64.0
 offset_bottom = 198.0
+mouse_filter = 2
 color = Color(1, 0.384314, 0, 0.396078)
 
 [node name="Check" type="RichTextLabel" parent="Tasks/ColorRect/Task2/Subtask4/Checkbox"]
@@ -1205,7 +1227,6 @@ theme_override_font_sizes/normal_font_size = 45
 text = "X"
 
 [node name="Blackout" type="ColorRect" parent="."]
-visible = false
 offset_right = 1155.0
 offset_bottom = 652.0
 color = Color(0, 0, 0, 1)
@@ -1256,6 +1277,7 @@ text = "[center]XXXXXX pts[/center]"
 sprite_frames = SubResource("SpriteFrames_kcd0b")
 
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
+[connection signal="exp_gained" from="Forest/EnvironmentItems" to="Forest/EnvironmentStrategies/ToDoList" method="_on_environment_items_exp_gained"]
 [connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
 [connection signal="item_click" from="Forest/EnvironmentItems/FruitTree" to="Forest/EnvironmentItems" method="_on_fruit_tree_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Stone" to="Forest/EnvironmentItems" method="_on_stone_item_click"]
@@ -1264,6 +1286,7 @@ sprite_frames = SubResource("SpriteFrames_kcd0b")
 [connection signal="item_click" from="Forest/EnvironmentItems/Workbench" to="Forest/EnvironmentItems" method="_on_workbench_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Cauldron" to="Forest/EnvironmentItems" method="_on_cauldron_item_click"]
 [connection signal="score_gained" from="Forest/EnvironmentStrategies" to="." method="_on_environment_strategies_score_gained"]
+[connection signal="level_up" from="Forest/EnvironmentStrategies/ToDoList" to="Tasks" method="_on_to_do_list_level_up"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="." method="_on_to_do_list_strategy_click"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/ToDoList" to="Forest/EnvironmentStrategies" method="_on_to_do_list_strategy_click"]
 [connection signal="input_event" from="Forest/EnvironmentStrategies/ToDoList/Area2D" to="Tasks" method="_on_area_2d_input_event"]
