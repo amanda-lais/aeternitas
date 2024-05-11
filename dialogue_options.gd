@@ -13,6 +13,9 @@ var before_shake
 func _ready():
 	hide_options()
 
+func cancel_audio():
+	$"Fantasy_UI cancel".play()
+
 func show_options(option_amount):
 	selection_started.emit()
 	%Option1.show()

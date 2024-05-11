@@ -1,7 +1,5 @@
 extends "res://scenes/items/item.gd"
 
-signal date_update
-
 var dialogues = {
 	"planted_todolist": [],
 	"planted_calendar": [
@@ -29,10 +27,6 @@ var is_watered
 var is_harvested
 var crop_current_status
 
-#receives signal that date has changed
-func temporari():
-	pass
-
 func crops_dict():
 	crop_current_status = "can plant"
 	day_planted = 0
@@ -45,44 +39,26 @@ func crops_dict():
 		"is_harvested": is_harvested
 	}
 
-func can_water(today):
-	if today >= day_needs_water:
-		if is_watered == false:
-			return true
-		return false
-	return false
-
-func can_harvest(today):
-	if today >= day_can_harvest:
-		return true
-	return false
-
 func plant_seed():
+	audio_plant()
 	crop_current_status = "planted"
+	%Inventory.add_to_inventory("seed", -1)
 
 func water_plant():
+	audio_water()
 	crop_current_status = "watered"
+	%Inventory.add_to_inventory("water", -1)
 
 func harvest():
 	crop_current_status = "can plant"
+	%Inventory.add_to_inventory("vegetable", 2)
+	audio_collect()
+	$Pumpkin.hide()
+	$"Before Planting".show()
+	$"After Planting".hide()
 
-func date_updated():
-	date_update.emit()
+func audio_water():
+	$"../../../Inventory/Wave Attack 1".play()
 
-func look_at_checklist():
-	#checklist.something(crops)
-	#what is needed
-	#how much
-	#lowers crop modifiers
-	#to do list exp
-	pass
-
-func succeeds_step(option):
-	if option == "calendar":
-		#sets goes_bad_date
-		#sets harvestable_date
-		pass
-	elif option == "to do list":
-		#check off the task
-		#to do list exp points
-		pass
+func audio_plant():
+	$"../../../Inventory/Dirt Walk 2".play()

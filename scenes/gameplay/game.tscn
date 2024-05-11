@@ -299,11 +299,6 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(10, -93.8698)
 shape = SubResource("RectangleShape2D_5co3t")
 
-[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
-visible = false
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("10_msyfn")
-
 [node name="Stone" type="Sprite2D" parent="Forest/EnvironmentItems/Stone"]
 position = Vector2(8, -90.0383)
 scale = Vector2(0.75, 0.75)
@@ -345,20 +340,6 @@ position = Vector2(-37.3334, -296.667)
 position = Vector2(43.9283, 56.2062)
 rotation = 0.576544
 shape = SubResource("RectangleShape2D_tk1o3")
-
-[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
-visible = false
-position = Vector2(564, -624)
-
-[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentItems/Crops/Grass and dirt"]
-position = Vector2(-4, 280.309)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("7_lnihh")
-
-[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentItems/Crops/Grass and dirt"]
-position = Vector2(-4, 232)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_d7whn")
 
 [node name="Before Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
 position = Vector2(-34, -282)

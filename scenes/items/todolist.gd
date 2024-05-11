@@ -18,3 +18,9 @@ var default_todolist_dialogue = [
 	"2Talvez tenha algo que possa marcar como feita na lista de tarefas.",
 	"1Ah, é verdade!"
 	]
+
+func tdl_or_end():
+	%DialogueOptions.set_option_box_text(1, "LISTA DE TAREFAS")
+	%DialogueOptions.set_option_box_text(2, "ENCERRAR DIA")
+	%DialogueOptions.show_options(2)
+	return await %DialogueOptions.option_chosen

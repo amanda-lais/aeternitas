@@ -63,25 +63,23 @@ func remaining_choose_calendar(dialogue):
 	if option_number == 1:
 		await dialogue_on_click(dialogue)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	%FruitTree.can_forage = 0
-	%Crops.crops_dict()
-
 func generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no):
 	await run_dialogue(dialogue_prompt)
 	%DialogueOptions.show_options(2)
 	var option_number = await %DialogueOptions.option_chosen
 	if option_number == 1:
-		if dialogue_prompt == "0Deseja minerar?":
-			$"../../Inventory/Rock Wall 2".play()
-			#$"../../Inventory/16_Hit_on_brick_2_wav".play()
-		elif dialogue_prompt == "0Deseja plantar?":
-			$"../../Inventory/Dirt Walk 2".play()
-		elif dialogue_prompt == "0Deseja regar?":
-			$"../../Inventory/Wave Attack 1".play()
-		elif dialogue_prompt == "0Deseja consertar o cetro?":
-			$"../../Inventory/Sword Parry".play()
+		var i = 0
+		#if dialogue_prompt == "0Deseja minerar?":
+			#i += 1
+			##$Stone.mine_sound()
+		#elif dialogue_prompt == "0Deseja plantar?":
+			#i += 1
+			##%Crops.plant_sound()
+		#elif dialogue_prompt == "0Deseja regar?":
+			#i += 1
+			##%Crops.water_sound()
+		#elif dialogue_prompt == "0Deseja consertar o cetro?":
+			#i += 1
 		outcome = %Execution.action()
 		if outcome == true:
 			await run_dialogue(dialogue_success)
@@ -89,31 +87,21 @@ func generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, di
 			await run_dialogue(dialogue_fail)
 		return outcome
 	elif option_number == 2:
-		$"../DialogueOptions/Fantasy_UI cancel".play()
+		%DialogueOptions.cancel_audio()
 		await run_dialogue(dialogue_no)
 
 func _on_fruit_tree_item_click():
-	$"../../Inventory/02_tree_rustling_3_wav".play()
+	%FruitTree.tree_sound()
 	var dialogue_prompt = "0Deseja coletar as frutas?"
 	var dialogue_success = "0Circe coletou as frutas!"
 	var dialogue_fail = "0Circe se distraiu e não coletou as frutas..."
 	var dialogue_no = "0Talvez depois."
 	if %FruitTree.can_forage == 0:
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
-			%FruitTree.forage()
-			var amount
-			if %ToDoList.is_active == true:
-				amount = 3
-			else:
-				amount = randi_range(1, 3)
-			$"../../Inventory/Fruit collect 1_wav".play()
-			await run_dialogue("0" + str(int(amount)) + " fruta(s) adicionada(s) ao inventário!")
-			%Inventory.add_to_inventory("fruit", amount)
-			%Calendar.add_to_calendar("forage_again", %DayManager.today+2)
+			await %FruitTree.forage()
 			%DayManager.date_change()
 	else:
-		$"../DialogueOptions/Fantasy_UI cant do".play()
-		await run_dialogue(%FruitTree.dialogue)
+		%FruitTree.ftree_already()
 
 func _on_stone_item_click():
 	var dialogue_prompt = "0Deseja minerar?"
@@ -121,14 +109,7 @@ func _on_stone_item_click():
 	var dialogue_fail = "0Circe se distraiu e não minerou..."
 	var dialogue_no = "0Talvez depois."
 	if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
-		var amount
-		if %ToDoList.is_active == true:
-			amount = 2
-		else:
-			amount = randi_range(1, 2)
-			$"../../Inventory/Fruit collect 1_wav".play()
-			await run_dialogue("0" + str(int(amount)) + " pedra(s) adicionada(s) ao inventário!")
-		%Inventory.add_to_inventory("stone", amount)
+		await $Stone.mine_stone()
 		%DayManager.date_change()
 
 func _on_spiderweb_item_click():
@@ -142,7 +123,6 @@ func _on_crops_item_click():
 	if %Crops.crop_current_status == "can plant":
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.plant_seed()
-			%Inventory.add_to_inventory("seed", -1)
 			var option_number = await maybe_use_strategy()
 			if option_number == 1:
 				option_number = await choose_strategy()
@@ -165,7 +145,6 @@ func _on_crops_item_click():
 		dialogue_success = "0Circe usou um feitiço e regou a planta!"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.water_plant()
-			%Inventory.add_to_inventory("water", -1)
 			var option_number = await maybe_use_strategy()
 			if option_number == 1:
 				option_number = await choose_strategy()
@@ -186,22 +165,14 @@ func _on_crops_item_click():
 		dialogue_success = "0Circe colheu os vegetais mágicos"
 		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
 			%Crops.harvest()
-			$Crops/Pumpkin.hide()
-			$"Crops/Before Planting".show()
-			$"Crops/After Planting".hide()
-			%Inventory.add_to_inventory("vegetable", 2)
 			var option_number = await maybe_use_strategy()
 			if option_number == 1:
 				print("blaaaaaaaa")
-				%DialogueOptions.set_option_box_text(1, "LISTA DE TAREFAS")
-				%DialogueOptions.set_option_box_text(2, "ENCERRAR DIA")
-				%DialogueOptions.show_options(2)
-				option_number = await %DialogueOptions.option_chosen
 				#option_number = await choose_strategy()
 				#if option_number == 1:
 				#	await dialogue_on_click(%Crops.dialogues["planted_calendar"])
 				#	await remaining_choose_todolist(default_todolist_dialogue)
-				if option_number == 1: #elif
+				if await %ToDoList.tdl_or_end() == 1: #elif
 					await dialogue_on_click(default_todolist_dialogue)
 					$"../../Tasks".show()
 					exp_gained.emit(20)
@@ -216,28 +187,24 @@ func _on_workbench_item_click():
 	var dialogue_success = $Workbench.workbench_d["success"]
 	var dialogue_fail = $Workbench.workbench_d["fail"]
 	var dialogue_no = $Workbench.workbench_d["no"]
-	if %Inventory.inventory["stone"] < 2:
+	if %Inventory.inventory["staff"] > 0:
+		$Workbench.workbench_already()
+	elif %Inventory.inventory["stone"] < 2:
 		$Workbench.workbench_lacking()
-		#$"../DialogueOptions/Fantasy_UI cant do".play()
-		#run_dialogue($Workbench.workbench_d["lacking"])
 	else:
-		if %Inventory.inventory["staff"] != 0:
-			$"../DialogueOptions/Fantasy_UI cant do".play()
-			run_dialogue("1...? Eu já consertei o cetro.")
-		else:
-			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
-				%Inventory.add_to_inventory("stone", -2)
-				%Inventory.add_to_inventory("staff", 1)
-				var option_number = await maybe_use_strategy()
+		if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
+			%Inventory.add_to_inventory("stone", -2)
+			%Inventory.add_to_inventory("staff", 1)
+			var option_number = await maybe_use_strategy()
+			if option_number == 1:
+				await remaining_choose_todolist(default_todolist_dialogue)
 				if option_number == 1:
-					await remaining_choose_todolist(default_todolist_dialogue)
-					if option_number == 1:
-						await dialogue_on_click(default_todolist_dialogue)
-						$"../../Tasks".show()
-						exp_gained.emit(20)
-						await _on_close_button_todolist_closed()
-			%DialogueOptions.default_option_box()
-			%DayManager.date_change()
+					await dialogue_on_click(default_todolist_dialogue)
+					$"../../Tasks".show()
+					exp_gained.emit(20)
+					await _on_close_button_todolist_closed()
+		%DialogueOptions.default_option_box()
+		%DayManager.date_change()
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	pass # Replace with function body.
@@ -252,8 +219,7 @@ func _on_cauldron_item_click():
 	var dialogue_fail = "0Circe se distraiu..."
 	var dialogue_no = "0Talvez depois."
 	if %Inventory.inventory["vegetable"] < 2:
-		$"../DialogueOptions/Fantasy_UI cant do".play()
-		run_dialogue("0Circe não tem vegetais mágicos o suficiente...")
+		$Cauldron.cauldron_lacking()
 	else:
 		if %Alarm.is_active == true:
 			if await generic_click_dialogue(dialogue_prompt, dialogue_success, dialogue_fail, dialogue_no) == true:
