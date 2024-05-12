@@ -62,6 +62,14 @@ func default_option_box():
 	set_option_box_text(2, "NÃO")
 	set_option_box_text(3, "ESPERA")
 
+func generic_branch(dialogue, box_amount, box1, box2, box3=""):
+	set_option_box_text(1, box1)
+	set_option_box_text(2, box2)
+	set_option_box_text(3, box3)
+	await %DialogueManager.dialogue_on_click(dialogue)
+	show_options(box_amount)
+	var option_number = await self.option_chosen
+	return option_number
 
 func _on_option_1_mouse_entered():
 	before_shake = $Option1/OptionBox/OptionText.text

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=94 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -61,6 +61,7 @@
 [ext_resource type="AudioStream" uid="uid://bfoc1qjnpc3bc" path="res://assets/sounds/Darkworld PaperDocument2.wav" id="46_5gq4h"]
 [ext_resource type="AudioStream" uid="uid://4c1i3yjyxdsr" path="res://assets/sounds/Retro Crow 01.wav" id="51_rtxga"]
 [ext_resource type="Texture2D" uid="uid://cm4wl44j6fot3" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/10 Calander/1.png" id="53_c58i4"]
+[ext_resource type="FontFile" uid="uid://b6ascukwh7gfv" path="res://assets/fonts/monogram/monogram-extended-italic.ttf" id="54_kyhje"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt2cv"]
 radius = 173.53
@@ -238,6 +239,21 @@ animations = [{
 radius = 73.4216
 height = 227.837
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_04lg3"]
+atlas = ExtResource("24_gqa0p")
+region = Rect2(1440, 1440, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jualu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04lg3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_kcd0b"]
 
 [node name="Game" type="Node2D"]
@@ -333,6 +349,14 @@ position = Vector2(337, 532)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("13_mpvnh")
 
+[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="1"]
+position = Vector2(-37.3334, -296.667)
+
+[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
+position = Vector2(43.9283, 56.2062)
+rotation = 0.576544
+shape = SubResource("RectangleShape2D_tk1o3")
+
 [node name="Before Planting" type="Sprite2D" parent="Forest/EnvironmentItems/Crops"]
 position = Vector2(-34, -282)
 scale = Vector2(0.5, 0.5)
@@ -347,14 +371,6 @@ texture = ExtResource("14_mu3n4")
 position = Vector2(-50, -346)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("14_ttyog")
-
-[node name="Area2D" parent="Forest/EnvironmentItems/Crops" index="4"]
-position = Vector2(-37.3334, -296.667)
-
-[node name="CollisionShape2D" parent="Forest/EnvironmentItems/Crops/Area2D" index="0"]
-position = Vector2(43.9283, 56.2062)
-rotation = 0.576544
-shape = SubResource("RectangleShape2D_tk1o3")
 
 [node name="Workbench" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 position = Vector2(891, 438)
@@ -403,16 +419,24 @@ position = Vector2(35, -34)
 scale = Vector2(0.248, 0.248)
 texture = ExtResource("21_6wvai")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+[node name="Preparation" type="Node2D" parent="Forest/EnvironmentItems/Cauldron"]
+z_index = 1
+position = Vector2(-37.1429, -354.286)
+scale = Vector2(0.5, 0.5)
+
+[node name="Done" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
 visible = false
-position = Vector2(35, -34)
-scale = Vector2(0.248, 0.248)
+scale = Vector2(1, 1)
+texture = ExtResource("21_6wvai")
+
+[node name="Cooking" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
+visible = false
+scale = Vector2(1, 1)
 texture = ExtResource("15_dg8xb")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron"]
+[node name="Wrong" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
 visible = false
-position = Vector2(35, -34)
-scale = Vector2(0.248, 0.248)
+scale = Vector2(1, 1)
 texture = ExtResource("23_puli8")
 
 [node name="EnvironmentStrategies" type="CanvasGroup" parent="Forest"]
@@ -459,41 +483,18 @@ rotation = -2.19629
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_nnhts")
 
-[node name="Grass and dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
-visible = false
-position = Vector2(1092.77, -966.686)
-scale = Vector2(1.97015, 1.97015)
-
-[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
-position = Vector2(-4, 280.309)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("7_lnihh")
-
-[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt"]
-position = Vector2(-4, 232)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_d7whn")
-
-[node name="Grass and dirt2" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
-visible = false
-position = Vector2(767.999, -790.925)
-scale = Vector2(1.97015, 1.97015)
-
-[node name="Dirt" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
-position = Vector2(-4, 280.309)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("7_lnihh")
-
-[node name="Grass" type="Sprite2D" parent="Forest/EnvironmentStrategies/Alarm/Grass and dirt2"]
-position = Vector2(-4, 232)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_d7whn")
-
 [node name="Crow" type="AnimatedSprite2D" parent="Forest/EnvironmentStrategies/Alarm"]
+unique_name_in_owner = true
 position = Vector2(2399.52, -825.313)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_qjgxf")
 speed_scale = 0.8
+
+[node name="Crow Sound" type="AudioStreamPlayer" parent="Forest/EnvironmentStrategies/Alarm"]
+stream = ExtResource("51_rtxga")
+
+[node name="Timer" type="Timer" parent="Forest/EnvironmentStrategies/Alarm"]
+one_shot = true
 
 [node name="Mess" parent="Forest/EnvironmentStrategies" instance=ExtResource("5_2to6g")]
 unique_name_in_owner = true
@@ -539,6 +540,13 @@ offset_bottom = 656.0
 mouse_force_pass_scroll_events = false
 color = Color(0.286275, 0, 0.541176, 0.454902)
 script = ExtResource("22_58kja")
+
+[node name="Blackout" type="ColorRect" parent="Forest"]
+unique_name_in_owner = true
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_yp60i")
 
 [node name="DialogueManager" parent="Forest" instance=ExtResource("23_53yyp")]
 unique_name_in_owner = true
@@ -1182,13 +1190,6 @@ theme_override_colors/default_color = Color(0.301961, 0.0941176, 0, 0.843137)
 theme_override_font_sizes/normal_font_size = 45
 text = "X"
 
-[node name="Blackout" type="ColorRect" parent="."]
-visible = false
-offset_right = 1155.0
-offset_bottom = 652.0
-color = Color(0, 0, 0, 1)
-script = ExtResource("9_yp60i")
-
 [node name="GameDayPaper3" type="Sprite2D" parent="."]
 position = Vector2(152, 59)
 texture = ExtResource("35_k2t4y")
@@ -1196,6 +1197,12 @@ texture = ExtResource("35_k2t4y")
 [node name="GameDayPaper2" type="Sprite2D" parent="GameDayPaper3"]
 position = Vector2(904, -19)
 texture = ExtResource("35_k2t4y")
+
+[node name="Caw" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(696, 207)
+scale = Vector2(0.261719, 0.261719)
+sprite_frames = SubResource("SpriteFrames_jualu")
 
 [node name="GameDay" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
@@ -1233,6 +1240,15 @@ text = "[center]XXXXXX pts[/center]"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kcd0b")
 
+[node name="BlackoutText" type="RichTextLabel" parent="."]
+offset_top = 254.0
+offset_right = 1158.0
+offset_bottom = 400.0
+theme_override_fonts/normal_font = ExtResource("54_kyhje")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave][center]Era uma vez...[/center][/wave]"
+
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("26_28jrm")
@@ -1258,11 +1274,7 @@ stream = ExtResource("37_6h5bq")
 [node name="Sword Parry" type="AudioStreamPlayer" parent="Inventory"]
 stream = ExtResource("38_wjv5g")
 
-[node name="Crow Sound" type="AudioStreamPlayer" parent="Inventory"]
-stream = ExtResource("51_rtxga")
-
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
-[connection signal="exp_gained" from="Forest/EnvironmentItems" to="Forest/EnvironmentStrategies/ToDoList" method="_on_environment_items_exp_gained"]
 [connection signal="show_todolist" from="Forest/EnvironmentItems" to="Tasks" method="_on_environment_items_show_todolist"]
 [connection signal="item_click" from="Forest/EnvironmentItems/FruitTree" to="Forest/EnvironmentItems" method="_on_fruit_tree_item_click"]
 [connection signal="item_click" from="Forest/EnvironmentItems/Stone" to="Forest/EnvironmentItems" method="_on_stone_item_click"]
@@ -1277,7 +1289,9 @@ stream = ExtResource("51_rtxga")
 [connection signal="input_event" from="Forest/EnvironmentStrategies/ToDoList/Area2D" to="Tasks" method="_on_area_2d_input_event"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/Calendar" to="Forest/EnvironmentStrategies" method="_on_calendar_strategy_click"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/Alarm" to="Forest/EnvironmentStrategies" method="_on_alarm_strategy_click"]
+[connection signal="timeout" from="Forest/EnvironmentStrategies/Alarm/Timer" to="Forest" method="_on_timer_timeout"]
 [connection signal="strategy_click" from="Forest/EnvironmentStrategies/Mess" to="Forest/EnvironmentStrategies" method="_on_mess_strategy_click"]
+[connection signal="gui_input" from="Forest/Blackout" to="Forest/Blackout" method="_on_gui_input"]
 [connection signal="dialogue_finished" from="Forest/DialogueManager" to="Forest/EnvironmentStrategies" method="_on_dialogue_manager_dialogue_finished"]
 [connection signal="dialogue_finished" from="Forest/DialogueManager" to="Forest/Overlay" method="_on_dialogue_manager_dialogue_finished"]
 [connection signal="dialogue_started" from="Forest/DialogueManager" to="Forest/Overlay" method="_on_dialogue_manager_dialogue_started"]
@@ -1296,7 +1310,6 @@ stream = ExtResource("51_rtxga")
 [connection signal="todolist_closed" from="Tasks" to="Forest/Overlay" method="_on_tasks_todolist_closed"]
 [connection signal="gui_input" from="Tasks/ColorRect" to="Tasks" method="_on_color_rect_gui_input"]
 [connection signal="gui_input" from="Tasks/ColorRect/CloseButton" to="Tasks" method="_on_close_button_gui_input"]
-[connection signal="gui_input" from="Blackout" to="Blackout" method="_on_gui_input"]
 [connection signal="score_gained" from="Inventory" to="." method="_on_inventory_score_gained"]
 [connection signal="task_finished" from="Inventory" to="Tasks" method="_on_inventory_task_finished"]
 

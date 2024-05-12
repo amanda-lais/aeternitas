@@ -60,6 +60,38 @@ func mine_stone():
 	await %EnvironmentStrategies.choose_strategy_3(
 		false, true, false)
 
+func brew_success():
+	%Inventory.add_to_inventory("vegetable", -2)
+	%Overlay.show()
+	$"../Cauldron/Preparation/Cooking".show()
+	await %DialogueManager.run_dialogue("0...")
+	await %DialogueManager.run_dialogue("0[wave]....[/wave]")
+	await %DialogueManager.run_dialogue("0[wave].....[/wave]")
+	await %DialogueManager.run_dialogue("0[wave].......[/wave]")
+	%Alarm.crow_audio()
+	await %DialogueManager.run_dialogue("1[shake]!![/shake]")
+	$"../Cauldron/Preparation/Cooking".hide()
+	$"../Cauldron/Preparation/Done".show()
+	await %DialogueManager.run_dialogue("1Okay, a poção está pronta!")
+	$"../Cauldron/Preparation/Done".hide()
+	await %EnvironmentStrategies.choose_strategy_3(
+		false, true, false)
+
+func brew_fail():
+	%Inventory.add_to_inventory("vegetable", -2)
+	%Overlay.show()
+	$"../Cauldron/Preparation/Cooking".show()
+	await %DialogueManager.run_dialogue("0...")
+	await %DialogueManager.run_dialogue("0[wave]....[/wave]")
+	await %DialogueManager.run_dialogue("0[wave].....[/wave]")
+	await %DialogueManager.run_dialogue("0[wave].......[/wave]")
+	await %DialogueManager.run_dialogue("1[shake]!![/shake]")
+	$"../Cauldron/Preparation/Cooking".hide()
+	$"../Cauldron/Preparation/Wrong".show()
+	await %DialogueManager.run_dialogue("1Oops...")
+	await %DialogueManager.run_dialogue("0A poção queimou e deu errado...")
+	$"../Cauldron/Preparation/Wrong".hide()
+
 func repair():
 	%Inventory.add_to_inventory("stone", -2)
 	%Inventory.add_to_inventory("staff", 1)
@@ -73,6 +105,31 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			item_click.emit()
+
+var prompt
+
+func click_dialogue(prompt):
+	await %DialogueManager.run_dialogue(prompt)
+	%DialogueOptions.default_option_box()
+	%DialogueOptions.show_options(2)
+	var choice = await %DialogueOptions.option_chosen
+	if choice == 1:
+		return true
+	elif choice == 2:
+		%DialogueOptions.cancel_audio()
+		return false
+	#if choice == 1:
+		#daymanager+1
+		#pass
+#		outcome = %Execution.action()
+#		if outcome == true:
+#			await run_dialogue(dialogue_success)
+#		else:
+#			await run_dialogue(dialogue_fail)
+#		return outcome
+#	elif option_number == 2:
+#		%DialogueOptions.cancel_audio()
+#		await run_dialogue(dialogue_no)
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()

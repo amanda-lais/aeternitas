@@ -90,7 +90,6 @@ func _on_to_do_list_strategy_click():
 	%ToDoList.activate_strategy()
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
 		%ToDoList.unlock_strategy()
-		
 
 func _on_calendar_strategy_click():
 	var strategy_name = "calendário"
@@ -119,7 +118,7 @@ func _on_calendar_strategy_click():
 	%DialogueOptions.default_option_box()
 
 func _on_alarm_strategy_click():
-	$"../../Inventory/Crow Sound".play()
+	%Alarm.crow_audio()
 	var strategy_name = "alarme"
 	var node_name = "Alarm"
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
@@ -144,8 +143,7 @@ func _on_alarm_strategy_click():
 	elif %EnvironmentStrategies.location_strategies[node_name].is_active == false:
 		choice = await activate_strategy(strategy_name)
 		if choice == 1:
-			%Alarm.activate_strategy()
-			$"../../Inventory/Crow Sound".play()
+			%Alarm.set_alarm()
 			score_gained.emit(10)
 	else:
 		run_dialogue("0Mais nada para fazer aqui...")
@@ -157,15 +155,16 @@ func _on_mess_strategy_click():
 	%DialogueOptions.show_options(2)
 	var option_number = await %DialogueOptions.option_chosen
 	if option_number == 1:
-		dialogue = "0Tudo limpo agora!"
 		score_gained.emit(40)
-		%Mess.hide()
+		await %Mess.clean_up()
 	elif option_number == 2:
-		dialogue = "1Depois..."
-		$"../DialogueOptions/Fantasy_UI cancel".play()
+		await later()
 	elif option_number == 3:
 		dialogue = "0?"
-	run_dialogue(dialogue)
+
+func later():
+	%DialogueManager.run_dialogue("1Uh... eu faço isso depois.")
+	%DialogueOptions.cancel_audio()
 
 func _on_dialogue_manager_dialogue_finished(option_box_amount):
 	pass

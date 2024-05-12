@@ -30,8 +30,19 @@ func day_reset():
 
 func date_change():
 	if today != 8:
+		%Blackout.show()
 		if today == 5:
 			full_moon.emit()
+			if %Alarm.is_active == true:
+				%Alarm.crow_audio()
+				%DialogueManager.dialogue_on_click(["1[shake]!![/shake]",
+				"1A [shake]lua cheia[/shake]!!",
+				"1Vou recarregar meu cetro!",
+				"0...",
+				"0[wave]...[/wave]",
+				"0[wave].....[/wave]",
+				"1Prontinho, cetro recarregado!"])
+		await %Blackout.blackout_clicked
 		today += 1
 		day_reset()
 		new_day.emit()

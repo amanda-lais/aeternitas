@@ -62,3 +62,6 @@ func _process(delta):
 
 func _on_environment_strategies_score_gained(score):
 	pass # Replace with function body.
+
+func _on_timer_timeout():
+	%Caw.hide()

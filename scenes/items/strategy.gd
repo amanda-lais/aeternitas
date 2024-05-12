@@ -29,6 +29,22 @@ func activate_strategy():
 	is_active = true
 	update_info()
 
+func set_alarm():
+	print(%Alarm.is_active)
+	crow_audio()
+	%Alarm.is_active = true
+	print(%Alarm.is_active)
+
+func crow_audio():
+	$"Crow Sound".play()
+	%Caw.show()
+	$Timer.start(0.5)
+
+func clean_up():
+	%DialogueManager.run_dialogue("1Tudo limpo agora!")
+	%Mess.hide()
+	%Mess.is_active = false
+
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
