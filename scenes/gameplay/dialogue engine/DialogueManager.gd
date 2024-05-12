@@ -14,6 +14,7 @@ func _ready():
 func _on_dialog_box_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$"Click_15 Halftone".play()
 			display_next_dialogue_line(dialogue_list)
 
 func start_dialogue():

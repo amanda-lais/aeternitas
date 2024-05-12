@@ -24,6 +24,7 @@ func _on_fruit_tree_item_click():
 				await %DialogueManager.run_dialogue("0Circe coletou as frutas!")
 				await %FruitTree.forage()
 			else:
+				%FruitTree.audio_fail()
 				await %DialogueManager.run_dialogue("0Circe se distraiu e não coletou as frutas...")
 			%DayManager.date_change()
 		else:
@@ -50,6 +51,7 @@ func _on_stone_item_click():
 			await %DialogueManager.run_dialogue("0Circe minerou com sucesso!")
 			await $Stone.mine_stone()
 		else:
+			$Stone.audio_fail()
 			await %DialogueManager.run_dialogue("0Circe se distraiu e não minerou...")
 		%DayManager.date_change()
 	else:
@@ -97,6 +99,7 @@ func _on_crops_item_click():
 				$"Crops/Before Planting".hide()
 				$"Crops/After Planting".show()
 			else:
+				%Crops.audio_fail()
 				await %DialogueManager.run_dialogue("0Circe se distraiu...")
 			%DayManager.date_change()
 		else:
@@ -108,6 +111,7 @@ func _on_crops_item_click():
 				await %DialogueManager.run_dialogue("0Circe usou um feitiço e regou a planta!")
 				await %Crops.water_plant()
 			else:
+				%Crops.audio_fail()
 				await %DialogueManager.run_dialogue("0Circe se distraiu...")
 			%DayManager.date_change()
 		else:
@@ -120,6 +124,7 @@ func _on_crops_item_click():
 				await %Crops.harvest()
 				$"Crops/Before Planting".show()
 			else:
+				%Crops.audio_fail()
 				await %DialogueManager.run_dialogue("0Circe se distraiu...")
 			%DayManager.date_change()
 		else:
@@ -146,11 +151,13 @@ func _on_workbench_item_click():
 	else:
 		%DialogueOptions.default_option_box()
 		if await $Workbench.click_dialogue($Workbench.workbench_d["prompt"]) == true:
+			$Workbench.audio_repair()
 			outcome = %Execution.action()
 			if outcome == true:
 				await %DialogueManager.run_dialogue($Workbench.workbench_d["success"])
 				await $Workbench.repair()
 			else:
+				$Workbench.audio_fail()
 				await %DialogueManager.run_dialogue($Workbench.workbench_d["fail"])
 			%DayManager.date_change()
 		else:
@@ -179,25 +186,24 @@ func _on_cauldron_item_click():
 		$Cauldron.cauldron_lacking()
 	else:
 		if await $Cauldron.click_dialogue("0Deseja preparar poções?") == true:
+			$Cauldron.audio_boiling()
 			if %Alarm.is_active == true:
-				$Cauldron.brew_success()
+				await $Cauldron.brew_success()
 			else:
-				$Cauldron.brew_fail()
+				await $Cauldron.brew_fail()
 			%DayManager.date_change()
 		else:
 			await %DialogueManager.run_dialogue("1Talvez depois.")
 
 
 func _on_tower_item_click():
-	if $Tower.is_unlocked == false:
-		await %DialogueManager.dialogue_on_click(["1E é aqui onde eu moro!",
-		"2...francamente, eu tenho medo de entrar nesse lugar.",
-		"1Por que?",
-		"2Eu não vou elaborar...",
-		"2(Considerando a bagunça aqui no quintal... Imagino que lá a desorganização irá me matar...)",
-		"1Covarde.",
-		"2[shake]...!![/shake]",
-		"2U-um dia eu entro lá, ok?!",
-		"1Heh."
-		])
-		$Tower.is_unlocked = false
+	await %DialogueManager.dialogue_on_click(["1E é aqui onde eu moro!",
+	"2...francamente, eu tenho medo de entrar nesse lugar.",
+	"1Por que?",
+	"2Eu não vou elaborar...",
+	"2(Considerando a bagunça aqui no quintal... Imagino que lá a desorganização irá me matar...)",
+	"1Covarde.",
+	"2[shake]...!![/shake]",
+	"2U-um dia eu entro lá, ok?!",
+	"1Heh."
+	])

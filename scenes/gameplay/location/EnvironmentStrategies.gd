@@ -68,6 +68,7 @@ func _ready():
 	%DialogueOptions.set_option_box_text(3, "ESPERA")
 
 func activate_strategy(strategy_name, option_box_amount = 2):
+	%DialogueOptions.default_option_box()
 	var dialogue = "0Deseja utilizar " + strategy_name.capitalize() + "?"
 	run_dialogue(dialogue)
 	await %DialogueManager.dialogue_finished
@@ -76,7 +77,7 @@ func activate_strategy(strategy_name, option_box_amount = 2):
 	if option_number == 1:
 		dialogue = "0" + strategy_name.capitalize() + " ativado!"
 	elif option_number == 2:
-		$"../DialogueOptions/Fantasy_UI cancel".play()
+		%DialogueOptions.cancel_audio()
 		dialogue = "0Okay."
 	elif option_number == 3:
 		dialogue = "0Oopsie?"
@@ -85,6 +86,7 @@ func activate_strategy(strategy_name, option_box_amount = 2):
 	return option_number
 
 func _on_to_do_list_strategy_click():
+	%DialogueOptions.default_option_box()
 	var strategy_name = "lista de tarefas"
 	var node_name = "ToDoList"
 	%ToDoList.activate_strategy()
@@ -92,6 +94,7 @@ func _on_to_do_list_strategy_click():
 		%ToDoList.unlock_strategy()
 
 func _on_calendar_strategy_click():
+	%DialogueOptions.default_option_box()
 	var strategy_name = "calendário"
 	var node_name = "Calendar"
 	%Calendar.activate_strategy()
@@ -118,6 +121,7 @@ func _on_calendar_strategy_click():
 	%DialogueOptions.default_option_box()
 
 func _on_alarm_strategy_click():
+	%DialogueOptions.default_option_box()
 	%Alarm.crow_audio()
 	var strategy_name = "alarme"
 	var node_name = "Alarm"
@@ -149,6 +153,7 @@ func _on_alarm_strategy_click():
 		run_dialogue("0Mais nada para fazer aqui...")
 
 func _on_mess_strategy_click():
+	%DialogueOptions.default_option_box()
 	if %Mess.is_unlocked == false:
 		await %DialogueManager.dialogue_on_click(["2Perdoe-me se for um engano, mas...",
 		"2Considerando como sua torre está próxima... Esse lugar em geral seria seu quintal?",
@@ -161,6 +166,7 @@ func _on_mess_strategy_click():
 		%Mess.is_unlocked = true
 	await %DialogueManager.run_dialogue("2(Inclusive, limpar a bagunça não gastará a ação diária!)")
 	if await %Mess.click_dialogue("2(Limpar a bagunça? Hmmm...)") == true:
+		$"Mess/Rock Meteor Swarm 2".play()
 		score_gained.emit(40)
 		await %Mess.clean_up()
 	else:

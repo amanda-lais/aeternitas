@@ -8,6 +8,7 @@ var game_score = 0
 
 func game_start():
 	start_sequence = true
+	$"Gameplay/Time Flies".play()
 	%GameDay.hide()
 	%ScoreCounter.hide()
 	%Blackout.show()
@@ -19,7 +20,7 @@ func _ready():
 	%GameDay.text = "[center]Dia " + str(today) + "[/center]"
 	%ScoreCounter.text = "[center]0"  + " pts[/center]"
 	%Tasks.hide()
-	$Caw.hide()
+	%Caw.hide()
 	%Mess.is_active = true
 	$Forest/EnvironmentItems/Crops/Pumpkin.hide()
 	$"Forest/EnvironmentItems/Crops/Before Planting".show()
@@ -73,6 +74,7 @@ var start_dialogue_right = [
 
 func _on_blackout_blackout_clicked():
 	if start_sequence == true and start_dialogue_center.is_empty() == true and start_dialogue_right.is_empty() == true:
+		$"Gameplay/Arcane Wind Chime Gust".play()
 		initial_dialogue()
 	if start_sequence == true and start_dialogue_center.is_empty() == false:
 		$Gameplay/Blackout/BlackoutTitle.hide()
@@ -124,6 +126,7 @@ func initial_dialogue():
 	"2Bem, para começar... Como só temos 10 dias, só devo conseguir te fazer usar duas estratégias: uma lista de tarefas e um calendário."
 	])
 	$CalTdl/Timer.start(2)
+	$"CalTdl/Magic_wav".play()
 	$CalTdl.show()
 	$Gameplay/DialogueManager/Sprite2D.hide()
 	$Gameplay/DialogueManager/Sprite2D2.hide()
@@ -139,10 +142,12 @@ func _on_timer_timeout():
 	"2Bem, no calendário coloquei o mais importante, na lista de tarefas idem.",
 	"2Se conseguir tudo ou quase tudo da lista de tarefas... Deve conseguir salvar o mundo tranquilamente.",
 	"2Ah, e eu irei pontuando sua performance. Alguns pontos não terão a ver com A Calamidade e são só sobre seu uso das estratégias, mesmo.",
-	"Creio que a partir de 800 pontos as preparações são suficientes.",
+	"2Creio que a partir de 800 pontos as preparações são suficientes.",
 	"1Okay...",
 	"2De qualquer maneira, use as estratégias sempre que conseguir!",
 	"2Elas devem aumentar as chances de cada ação sua dar certo, dependendo devem aumentar MUITO.",
 	"1Hm... entendido."
 	])
 	start_sequence = false
+	$"Gameplay/Time Flies".stop()
+	$"Gameplay/Main Game".play()

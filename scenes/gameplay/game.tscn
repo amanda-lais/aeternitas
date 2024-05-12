@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://2p2mmxdegkog"]
+[gd_scene load_steps=145 format=3 uid="uid://2p2mmxdegkog"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/game.gd" id="1_inb7v"]
 [ext_resource type="Script" path="res://scenes/gameplay/location/forest.gd" id="2_ogbyc"]
@@ -57,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://e0j5utu80bd8" path="res://assets/water rock_hover.png" id="28_mbe5b"]
 [ext_resource type="Script" path="res://Tasks.gd" id="28_nlgrb"]
 [ext_resource type="Texture2D" uid="uid://dhk14r12eau7y" path="res://assets/Checklist_hover.png" id="29_wtlym"]
+[ext_resource type="AudioStream" uid="uid://buvy7632r47yw" path="res://assets/sounds/HammerNail1.wav" id="30_82o1g"]
 [ext_resource type="AudioStream" uid="uid://cyyodhkedfhjy" path="res://assets/sounds/Big Egg collect 1.wav" id="30_h286i"]
 [ext_resource type="AudioStream" uid="uid://d3ljvklin0lt1" path="res://assets/sounds/Fruit collect 1.wav" id="30_q2h7c"]
 [ext_resource type="FontFile" uid="uid://bt0m3fsw4eqeq" path="res://assets/fonts/DungeonFont.ttf" id="31_glwgf"]
@@ -67,17 +68,30 @@
 [ext_resource type="AudioStream" uid="uid://bm0q637vc107g" path="res://assets/sounds/mine 3.wav" id="34_gcrsd"]
 [ext_resource type="Texture2D" uid="uid://bnq78lg0lk7ko" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/6 Player HUD/1.png" id="35_k2t4y"]
 [ext_resource type="AudioStream" uid="uid://ct7kfdm0kt4gg" path="res://assets/sounds/Dirt Walk 2.wav" id="35_w0ds5"]
+[ext_resource type="AudioStream" uid="uid://5yxfgt7p4edi" path="res://assets/sounds/Retro Explosion Swoshes 04.wav" id="35_w04vs"]
 [ext_resource type="AudioStream" uid="uid://bn6f2264mrees" path="res://assets/sounds/Wave Attack 1.wav" id="36_maxi3"]
 [ext_resource type="FontFile" uid="uid://pkfpxk7hclx3" path="res://assets/fonts/monogram/monogram-extended.ttf" id="37_2vt7i"]
 [ext_resource type="AudioStream" uid="uid://cedt5muiiqmjx" path="res://assets/sounds/Rock Wall 2.wav" id="37_6h5bq"]
+[ext_resource type="AudioStream" uid="uid://dnvmpc42lk5hh" path="res://assets/sounds/Boiling.wav" id="37_lfmjh"]
 [ext_resource type="Texture2D" uid="uid://d0c0aqfqbc5qh" path="res://assets/mess_hover.png" id="38_d5lr0"]
 [ext_resource type="AudioStream" uid="uid://cxnyajsgtwo10" path="res://assets/sounds/Sword Parry 1.wav" id="38_wjv5g"]
 [ext_resource type="AudioStream" uid="uid://bfoc1qjnpc3bc" path="res://assets/sounds/Darkworld PaperDocument2.wav" id="46_5gq4h"]
+[ext_resource type="AudioStream" uid="uid://cyf0c3bw4u6w8" path="res://assets/sounds/JDSherbert - Ultimate UI SFX Pack - Cursor - 4.wav" id="49_fx25a"]
 [ext_resource type="AudioStream" uid="uid://4c1i3yjyxdsr" path="res://assets/sounds/Retro Crow 01.wav" id="51_rtxga"]
+[ext_resource type="AudioStream" uid="uid://b2vn3wwsx45g7" path="res://assets/sounds/Rock Meteor Swarm 2.wav" id="52_olmo6"]
+[ext_resource type="AudioStream" uid="uid://dhrbgvy2j4tdc" path="res://assets/sounds/Game Over.wav" id="53_b6ahl"]
 [ext_resource type="Texture2D" uid="uid://cm4wl44j6fot3" path="res://assets/Free Paper UI System v1.0/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Plain/10 Calander/1.png" id="53_c58i4"]
 [ext_resource type="FontFile" uid="uid://b6ascukwh7gfv" path="res://assets/fonts/monogram/monogram-extended-italic.ttf" id="54_kyhje"]
 [ext_resource type="Texture2D" uid="uid://bfghsunw8gyog" path="res://assets/menu_circe.png" id="55_q56iy"]
 [ext_resource type="Texture2D" uid="uid://ic1uy2ehj37k" path="res://assets/circe_end.png" id="56_0yp7s"]
+[ext_resource type="AudioStream" uid="uid://dt6bngm78f3l" path="res://assets/sounds/Click_15.wav" id="78_b53j0"]
+[ext_resource type="AudioStream" uid="uid://lgirjxko4sft" path="res://assets/sounds/Goblins_Den_(Regular).wav" id="79_uj6af"]
+[ext_resource type="AudioStream" uid="uid://bkuyggburhmaj" path="res://assets/sounds/Time Flies _Clement Panchout _2016.wav" id="79_x4nw6"]
+[ext_resource type="AudioStream" uid="uid://bojwpwm3b3grc" path="res://assets/sounds/Patreon Challenge - 14.ogg" id="81_rem2u"]
+[ext_resource type="AudioStream" uid="uid://6m763myaa4av" path="res://assets/sounds/JDSherbert - Minigame Music Pack - Refreshing Dawn.wav" id="82_ycgif"]
+[ext_resource type="AudioStream" uid="uid://drkuro1up4f0p" path="res://assets/sounds/Arcane Wind Chime Gust.wav" id="85_pnuek"]
+[ext_resource type="AudioStream" uid="uid://bosk2ducokj0e" path="res://assets/sounds/11_Crickets_3_loop.wav" id="86_fmcbi"]
+[ext_resource type="AudioStream" uid="uid://crn0gan1wvrdj" path="res://assets/sounds/Magic.wav" id="89_xx26v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1op2c"]
 radius = 233.093
@@ -392,6 +406,8 @@ animations = [{
 radius = 73.4216
 height = 227.837
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcd0b"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_04lg3"]
 atlas = ExtResource("24_gqa0p")
 region = Rect2(1440, 1440, 480, 480)
@@ -406,8 +422,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kcd0b"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_inb7v")
@@ -579,6 +593,9 @@ position = Vector2(9, -56)
 scale = Vector2(0.401037, 0.401037)
 texture = ExtResource("21_3c7y7")
 
+[node name="HammerNail1" type="AudioStreamPlayer" parent="Forest/EnvironmentItems/Workbench"]
+stream = ExtResource("30_82o1g")
+
 [node name="Cauldron" parent="Forest/EnvironmentItems" instance=ExtResource("5_2to6g")]
 position = Vector2(604, 526)
 scale = Vector2(0.7, 0.7)
@@ -610,18 +627,21 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Done" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
 visible = false
-scale = Vector2(1, 1)
 texture = ExtResource("21_6wvai")
 
 [node name="Cooking" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
 visible = false
-scale = Vector2(1, 1)
 texture = ExtResource("15_dg8xb")
 
 [node name="Wrong" type="Sprite2D" parent="Forest/EnvironmentItems/Cauldron/Preparation"]
 visible = false
-scale = Vector2(1, 1)
 texture = ExtResource("23_puli8")
+
+[node name="Retro Explosion Swoshes" type="AudioStreamPlayer" parent="Forest/EnvironmentItems/Cauldron"]
+stream = ExtResource("35_w04vs")
+
+[node name="Boiling" type="AudioStreamPlayer" parent="Forest/EnvironmentItems/Cauldron"]
+stream = ExtResource("37_lfmjh")
 
 [node name="EnvironmentStrategies" type="CanvasGroup" parent="Forest"]
 unique_name_in_owner = true
@@ -636,7 +656,6 @@ script = ExtResource("27_4heev")
 
 [node name="CollisionShape2D" parent="Forest/EnvironmentStrategies/ToDoList/Area2D" index="0"]
 position = Vector2(7.31934, 8.52673)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wbflp")
 
 [node name="Darkworld PaperDocument2" type="AudioStreamPlayer" parent="Forest/EnvironmentStrategies/ToDoList"]
@@ -724,6 +743,15 @@ position = Vector2(168.333, -93.3333)
 scale = Vector2(0.599132, 0.599132)
 texture = ExtResource("38_d5lr0")
 
+[node name="Rock Meteor Swarm 2" type="AudioStreamPlayer" parent="Forest/EnvironmentStrategies/Mess"]
+stream = ExtResource("52_olmo6")
+
+[node name="Mouse Hover" type="AudioStreamPlayer" parent="Forest"]
+stream = ExtResource("49_fx25a")
+
+[node name="Fail" type="AudioStreamPlayer" parent="Forest"]
+stream = ExtResource("53_b6ahl")
+
 [node name="GameDayPaper3" type="Sprite2D" parent="."]
 position = Vector2(152, 59)
 texture = ExtResource("35_k2t4y")
@@ -732,49 +760,10 @@ texture = ExtResource("35_k2t4y")
 position = Vector2(904, -19)
 texture = ExtResource("35_k2t4y")
 
-[node name="Caw" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(696, 207)
-scale = Vector2(0.261719, 0.261719)
-sprite_frames = SubResource("SpriteFrames_jualu")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kcd0b")
 
 [node name="Gameplay" type="Node" parent="."]
-
-[node name="GameDay" type="RichTextLabel" parent="Gameplay"]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -529.0
-offset_top = -297.0
-offset_right = -318.0
-offset_bottom = -221.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("31_glwgf")
-theme_override_font_sizes/normal_font_size = 65
-bbcode_enabled = true
-text = "[center]Dia 1[/center]"
-
-[node name="ScoreCounter" type="RichTextLabel" parent="Gameplay"]
-unique_name_in_owner = true
-offset_left = 951.0
-offset_top = 18.0
-offset_right = 1153.0
-offset_bottom = 72.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("37_2vt7i")
-theme_override_font_sizes/normal_font_size = 45
-bbcode_enabled = true
-text = "[center]XXXXXX pts[/center]"
 
 [node name="Overlay" type="ColorRect" parent="Gameplay"]
 unique_name_in_owner = true
@@ -937,6 +926,45 @@ theme_override_fonts/normal_font = ExtResource("54_kyhje")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[wave]E assim, Circe conseguiu impedir o fim do mundo![/wave]"
+
+[node name="GameDay" type="RichTextLabel" parent="Gameplay"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -529.0
+offset_top = -297.0
+offset_right = -318.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("31_glwgf")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]Dia 1[/center]"
+
+[node name="ScoreCounter" type="RichTextLabel" parent="Gameplay"]
+unique_name_in_owner = true
+offset_left = 951.0
+offset_top = 18.0
+offset_right = 1153.0
+offset_bottom = 72.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("37_2vt7i")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]XXXXXX pts[/center]"
+
+[node name="Caw" type="AnimatedSprite2D" parent="Gameplay"]
+unique_name_in_owner = true
+position = Vector2(696, 207)
+scale = Vector2(0.261719, 0.261719)
+sprite_frames = SubResource("SpriteFrames_jualu")
 
 [node name="Tasks" type="Control" parent="Gameplay"]
 unique_name_in_owner = true
@@ -1135,6 +1163,7 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
 text = "Recarregar cetro mágico"
 
 [node name="Checkbox" type="ColorRect" parent="Gameplay/Tasks/ColorRect/Task4"]
@@ -1306,6 +1335,7 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("37_2vt7i")
 theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
 text = "Preparar poções o suficiente"
 
 [node name="Checkbox" type="ColorRect" parent="Gameplay/Tasks/ColorRect/Task2"]
@@ -1524,6 +1554,7 @@ stream = ExtResource("30_q2h7c")
 
 [node name="02_tree_rustling_3_wav" type="AudioStreamPlayer" parent="Gameplay/Inventory"]
 stream = ExtResource("31_s4x2u")
+volume_db = 2.0
 
 [node name="16_Hit_on_brick_2_wav" type="AudioStreamPlayer" parent="Gameplay/Inventory"]
 stream = ExtResource("34_gcrsd")
@@ -1583,6 +1614,9 @@ theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
 text = "[center][/center]"
 
+[node name="Click_15 Halftone" type="AudioStreamPlayer" parent="Gameplay/DialogueManager"]
+stream = ExtResource("78_b53j0")
+
 [node name="DialogueOptions" parent="Gameplay" instance=ExtResource("24_e021a")]
 unique_name_in_owner = true
 
@@ -1605,6 +1639,24 @@ script = ExtResource("25_ru805")
 [node name="DayManager" parent="Gameplay" instance=ExtResource("27_34723")]
 unique_name_in_owner = true
 
+[node name="Game Over Music" type="AudioStreamPlayer" parent="Gameplay/DayManager"]
+stream = ExtResource("79_uj6af")
+
+[node name="Night" type="AudioStreamPlayer" parent="Gameplay/DayManager"]
+stream = ExtResource("86_fmcbi")
+
+[node name="Time Flies" type="AudioStreamPlayer" parent="Gameplay"]
+stream = ExtResource("79_x4nw6")
+
+[node name="Main Game" type="AudioStreamPlayer" parent="Gameplay"]
+stream = ExtResource("81_rem2u")
+
+[node name="Win" type="AudioStreamPlayer" parent="Gameplay"]
+stream = ExtResource("82_ycgif")
+
+[node name="Arcane Wind Chime Gust" type="AudioStreamPlayer" parent="Gameplay"]
+stream = ExtResource("85_pnuek")
+
 [node name="CalTdl" type="Node2D" parent="."]
 visible = false
 z_index = 3
@@ -1620,6 +1672,9 @@ texture = ExtResource("31_v6x1n")
 
 [node name="Timer" type="Timer" parent="CalTdl"]
 one_shot = true
+
+[node name="Magic_wav" type="AudioStreamPlayer" parent="CalTdl"]
+stream = ExtResource("89_xx26v")
 
 [connection signal="score_gained" from="Forest" to="." method="_on_forest_score_gained"]
 [connection signal="show_todolist" from="Forest/EnvironmentItems" to="Gameplay/Tasks" method="_on_environment_items_show_todolist"]

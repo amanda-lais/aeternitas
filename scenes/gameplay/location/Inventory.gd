@@ -34,6 +34,7 @@ func add_to_inventory(item, amount):
 		score_gained.emit(50)
 	elif item == "vegetable" and amount < 0:
 		if %Alarm.is_active == true:
+			task_finished.emit("BrewPotion")
 			%Inventory.add_to_inventory("potion", 1)
 			score_gained.emit(250)
 	elif item == "staff" and inventory[item] == 1:

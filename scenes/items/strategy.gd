@@ -49,6 +49,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()
+	$"../../Mouse Hover".play()
 	if get_name() == "Alarm":
 		$Hover3.show()
 		$Hover.play()

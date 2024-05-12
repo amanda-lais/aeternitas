@@ -47,8 +47,8 @@ func _on_inventory_task_finished(task_id):
 	if task_id == "GetFood":
 		subtask_node[task_id] = get_node("ColorRect/Task1")
 	#Task 2 - Potion Brewing
-	elif task_id == "StockPotions":
-		subtask_node[task_id] = get_node("ColorRect/Task2")
+	#elif task_id == "StockPotions":
+	#	subtask_node[task_id] = get_node("ColorRect/Task2")
 	#Task 3 - Repair Staff
 	elif task_id == "RepairStaff":
 		subtask_node[task_id] = get_node("ColorRect/Task3")
@@ -82,23 +82,6 @@ func _on_inventory_task_finished(task_id):
 		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask3")
 	elif task_id == "BrewPotion":
 		subtask_node[task_id] = get_node("ColorRect/Task2/Subtask4")
-
-#func _on_to_do_list_level_up():
-	#$ColorRect/Task3/Subtask1.show()
-	#$ColorRect/Task3/Subtask2.show()
-	#$ColorRect/Task4/Subtask2.show()
-	#$ColorRect/Task4/Subtask3.show()
-	#$ColorRect/Task2/Subtask1.show()
-	#$ColorRect/Task2/Subtask2.show()
-	#$ColorRect/Task2/Subtask3.show()
-	#$ColorRect/Task2/Subtask4.show()
-#
-#func _ready():
-	#$ColorRect/Task3/Subtask1.hide()
-	#$ColorRect/Task3/Subtask2.hide()
-	#$ColorRect/Task4/Subtask2.hide()
-	#$ColorRect/Task4/Subtask3.hide()
-	#$ColorRect/Task2/Subtask1.hide()
-	#$ColorRect/Task2/Subtask2.hide()
-	#$ColorRect/Task2/Subtask3.hide()
-	#$ColorRect/Task2/Subtask4.hide()
+		subtask_node["StockPotions"] = get_node("ColorRect/Task2")
+		new.append("StockPotions")
+		task_list["StockPotions"] = true

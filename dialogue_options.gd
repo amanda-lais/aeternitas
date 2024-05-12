@@ -35,18 +35,21 @@ func _on_option_1_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			option_chosen.emit(1)
+			$"../DialogueManager/Click_15 Halftone".play()
 			hide_options()
 
 func _on_option_2_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			option_chosen.emit(2)
+			$"../DialogueManager/Click_15 Halftone".play()
 			hide_options()
 
 func _on_option_3_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			option_chosen.emit(3)
+			$"../DialogueManager/Click_15 Halftone".play()
 			hide_options()
 			
 func set_option_box_text(box, box_text):
@@ -73,14 +76,17 @@ func generic_branch(dialogue, box_amount, box1, box2, box3=""):
 
 func _on_option_1_mouse_entered():
 	before_shake = $Option1/OptionBox/OptionText.text
+	$"../../Forest/Mouse Hover".play()
 	$Option1/OptionBox/OptionText.text = "[shake]" + $Option1/OptionBox/OptionText.text + "[/shake]"
 
 func _on_option_2_mouse_entered():
 	before_shake = $Option2/OptionBox/OptionText.text
+	$"../../Forest/Mouse Hover".play()
 	$Option2/OptionBox/OptionText.text = "[shake]" + $Option2/OptionBox/OptionText.text + "[/shake]"
 
 func _on_option_3_mouse_entered():
 	before_shake = $Option3/OptionBox/OptionText.text
+	$"../../Forest/Mouse Hover".play()
 	$Option3/OptionBox/OptionText.text = "[shake]" + $Option3/OptionBox/OptionText.text + "[/shake]"
 
 func _on_option_1_mouse_exited():

@@ -24,6 +24,12 @@ var cauldron_d = {
 	"lacking": "0Circe não tem vegetais mágicos o suficiente..."
 	}
 
+func audio_boiling():
+	$"../Cauldron/Boiling".play()
+
+func audio_explosion():
+	$"../Cauldron/Retro Explosion Swoshes".play()
+
 func audio_collect():
 	$"../../../Gameplay/Inventory/Fruit collect 1_wav".play()
 
@@ -34,7 +40,10 @@ func audio_mine():
 	$"../../../Gameplay/Inventory/Rock Wall 2".play()
 
 func audio_repair():
-	$"../../../Gameplay/Inventory/Sword Parry".play()
+	$"../Workbench/HammerNail1".play()
+
+func audio_fail():
+	$"../../Fail".play()
 
 func workbench_lacking():
 	audio_cant_do()
@@ -55,8 +64,8 @@ func mine_stone():
 		amount = 2
 	else:
 		amount = randi_range(1, 2)
-		audio_collect()
-		await %DialogueManager.run_dialogue("0" + str(int(amount)) + " pedra(s) adicionada(s) ao inventário!")
+	audio_collect()
+	await %DialogueManager.run_dialogue("0" + str(int(amount)) + " pedra(s) adicionada(s) ao inventário!")
 	%Inventory.add_to_inventory("stone", amount)
 	await %EnvironmentStrategies.choose_strategy_3(
 		false, true, false)
@@ -71,6 +80,7 @@ func brew_success():
 	await %DialogueManager.run_dialogue("0[wave].......[/wave]")
 	%Alarm.crow_audio()
 	await %DialogueManager.run_dialogue("1[shake]!![/shake]")
+	$"../Cauldron/Boiling".stop()
 	$"../Cauldron/Preparation/Cooking".hide()
 	$"../Cauldron/Preparation/Done".show()
 	await %DialogueManager.run_dialogue("1Okay, a poção está pronta!")
@@ -87,9 +97,12 @@ func brew_fail():
 	await %DialogueManager.run_dialogue("0[wave].....[/wave]")
 	await %DialogueManager.run_dialogue("0[wave].......[/wave]")
 	await %DialogueManager.run_dialogue("1[shake]!![/shake]")
+	$"../Cauldron/Boiling".stop()
+	$"../Cauldron/Retro Explosion Swoshes".play()
 	$"../Cauldron/Preparation/Cooking".hide()
 	$"../Cauldron/Preparation/Wrong".show()
 	await %DialogueManager.run_dialogue("1Oops...")
+	audio_fail()
 	await %DialogueManager.run_dialogue("0A poção queimou e deu errado...")
 	$"../Cauldron/Preparation/Wrong".hide()
 
@@ -104,7 +117,6 @@ func _ready():
 	$"../FruitTree/Hover2".hide()
 	$"../Stone/Hover2".hide()
 	
-
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -137,6 +149,7 @@ func click_dialogue(prompt):
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()
+	$"../../Mouse Hover".play()
 	if get_name() == "FruitTree":
 		$Hover2.show()
 		$Hover.play()

@@ -31,6 +31,7 @@ func day_reset():
 func date_change():
 	if today != 10:
 		%Blackout.show()
+		$Night.play()
 		if today == 5:
 			full_moon.emit()
 			if %Alarm.is_active == true:
@@ -46,20 +47,28 @@ func date_change():
 		today += 1
 		day_reset()
 		new_day.emit()
+		$Night.stop()
 	elif today == 10:
 		%Blackout.show()
+		$"../Main Game".stop()
 		%BlackoutText.text = "[center][wave]Pontuação: " + str($"../..".game_score) + " pontos.[/wave][/center]"
 		%BlackoutText.show()
 		await %Blackout.blackout_clicked
 		if $"../..".game_score > 800:
 			%BlackoutText.hide()
+			$"../Win".play()
 			$"../Blackout/CirceEnding".show()
 			$"../Blackout/BlackoutTextLeft".show()
-			$"../Blackout/BlackoutTextLeft".text = "[wave]E assim, Circe fez sua jornada e conseguiu impedir o fim do mundo![/wave]"
+			$"../Blackout/BlackoutTextLeft".text = "[wave]E assim...[/wave]"
+			await %Blackout.blackout_clicked
+			$"../Blackout/BlackoutTextLeft".text = "[wave]Circe fez sua jornada...[/wave]"
+			await %Blackout.blackout_clicked
+			$"../Blackout/BlackoutTextLeft".text = "[wave]E conseguiu impedir o fim do mundo![/wave]"
 			await %Blackout.blackout_clicked
 			$"../Blackout/BlackoutTextLeft".hide()
 			$"../Blackout/Thanks".show()
 		else:
+			$"Game Over Music".play()
 			%BlackoutText.text = "[center][shake]E o mundo acabou-se![/shake][/center]"
 			await %Blackout.blackout_clicked
 			%BlackoutText.text = "[center]...é o que eu diria, porém algo que não contei pra Circe é que...[/center]"
@@ -67,3 +76,4 @@ func date_change():
 			%BlackoutText.text = "[center]Felizmente, como uma entidade de tempo, eu sou capaz de voltar ao passado...[/center]"
 			await %Blackout.blackout_clicked
 			%BlackoutText.text = "[center][wave]Bem, hora de tentar de novo![/wave][/center]"
+			$"../Arcane Wind Chime Gust".play()

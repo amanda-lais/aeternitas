@@ -43,11 +43,13 @@ func _on_exit_gui_input(event):
 
 func _on_play_button_mouse_entered():
 	before_shake = $MarginContainer/Control/VBoxContainer/PlayButton/RichTextLabel.text
+	$"Mouse Hover".play()
 	$MarginContainer/Control/VBoxContainer/PlayButton/RichTextLabel.text = "[shake]" + before_shake + "[/shake]"
 
 
 func _on_exit_button_mouse_entered():
 	before_shake = $MarginContainer/Control/VBoxContainer/ExitButton/RichTextLabel.text
+	$"Mouse Hover".play()
 	$MarginContainer/Control/VBoxContainer/ExitButton/RichTextLabel.text = "[shake]" + before_shake + "[/shake]"
 
 
