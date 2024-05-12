@@ -26,7 +26,7 @@ func forage():
 		true, true, false, "fruit", "forage_again", %DayManager.today+2)
 
 func tree_sound():
-	$"../../../Inventory/02_tree_rustling_3_wav".play()
+	$"../../../Gameplay/Inventory/02_tree_rustling_3_wav".play()
 
 func ftree_already():
 	audio_cant_do()

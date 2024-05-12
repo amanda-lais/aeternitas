@@ -26,16 +26,16 @@ func day_reset():
 	elif %FruitTree.can_forage == 2:
 		%FruitTree.can_forage = 0
 	if %Crops.crop_current_status == "watered":
-		$"../EnvironmentItems/Crops/Pumpkin".show()
+		$"../../Forest/EnvironmentItems/Crops/Pumpkin".show()
 
 func date_change():
-	if today != 8:
+	if today != 10:
 		%Blackout.show()
 		if today == 5:
 			full_moon.emit()
 			if %Alarm.is_active == true:
 				%Alarm.crow_audio()
-				%DialogueManager.dialogue_on_click(["1[shake]!![/shake]",
+				await %DialogueManager.dialogue_on_click(["1[shake]!![/shake]",
 				"1A [shake]lua cheia[/shake]!!",
 				"1Vou recarregar meu cetro!",
 				"0...",
@@ -46,3 +46,24 @@ func date_change():
 		today += 1
 		day_reset()
 		new_day.emit()
+	elif today == 10:
+		%Blackout.show()
+		%BlackoutText.text = "[center][wave]Pontuação: " + str($"../..".game_score) + " pontos.[/wave][/center]"
+		%BlackoutText.show()
+		await %Blackout.blackout_clicked
+		if $"../..".game_score > 800:
+			%BlackoutText.hide()
+			$"../Blackout/CirceEnding".show()
+			$"../Blackout/BlackoutTextLeft".show()
+			$"../Blackout/BlackoutTextLeft".text = "[wave]E assim, Circe fez sua jornada e conseguiu impedir o fim do mundo![/wave]"
+			await %Blackout.blackout_clicked
+			$"../Blackout/BlackoutTextLeft".hide()
+			$"../Blackout/Thanks".show()
+		else:
+			%BlackoutText.text = "[center][shake]E o mundo acabou-se![/shake][/center]"
+			await %Blackout.blackout_clicked
+			%BlackoutText.text = "[center]...é o que eu diria, porém algo que não contei pra Circe é que...[/center]"
+			await %Blackout.blackout_clicked
+			%BlackoutText.text = "[center]Felizmente, como uma entidade de tempo, eu sou capaz de voltar ao passado...[/center]"
+			await %Blackout.blackout_clicked
+			%BlackoutText.text = "[center][wave]Bem, hora de tentar de novo![/wave][/center]"

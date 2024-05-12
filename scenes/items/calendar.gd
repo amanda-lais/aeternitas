@@ -61,7 +61,9 @@ var calendar_events = {
 	5: "full_moon",
 	6: "",
 	7: "",
-	8: "last_day"
+	8: "",
+	9: "",
+	10: "last_day"
 }
 
 func check_today():

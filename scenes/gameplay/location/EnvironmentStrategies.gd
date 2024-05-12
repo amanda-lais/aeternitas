@@ -124,7 +124,7 @@ func _on_alarm_strategy_click():
 	if %EnvironmentStrategies.location_strategies[node_name].is_unlocked == false:
 		var dialogue = [
 			"1Hmm.. Você citou usar alarmes, certo Chronos?",
-			"1Bem, isso é um alarme!",
+			"1Bem, aqui está o alarme!",
 			"2[wave]...[/wave]",
 			"2[shake]???[/shake]",
 			"2Isso é um corvo...",
@@ -149,18 +149,30 @@ func _on_alarm_strategy_click():
 		run_dialogue("0Mais nada para fazer aqui...")
 
 func _on_mess_strategy_click():
-	var dialogue = "0Você gostaria de limpar a bagunça?"
-	run_dialogue(dialogue)
-	await %DialogueManager.dialogue_finished
-	%DialogueOptions.show_options(2)
-	var option_number = await %DialogueOptions.option_chosen
-	if option_number == 1:
+	if %Mess.is_unlocked == false:
+		await %DialogueManager.dialogue_on_click(["2Perdoe-me se for um engano, mas...",
+		"2Considerando como sua torre está próxima... Esse lugar em geral seria seu quintal?",
+		"1Opa! Seria sim.",
+		"2[shake]...mulher, você vive desse jeito?![/shake]",
+		"2O que sequer é essa bagunça...",
+		"1Oopsie...",
+		"2Argh... eu tenho certeza que essa bagunça deve te distrair muito... Por favor, limpe isso..."
+		])
+		%Mess.is_unlocked = true
+	await %DialogueManager.run_dialogue("2(Inclusive, limpar a bagunça não gastará a ação diária!)")
+	if await %Mess.click_dialogue("2(Limpar a bagunça? Hmmm...)") == true:
 		score_gained.emit(40)
 		await %Mess.clean_up()
-	elif option_number == 2:
+	else:
 		await later()
-	elif option_number == 3:
-		dialogue = "0?"
+	#await %DialogueManager.run_dialogue()
+	#await %DialogueManager.dialogue_finished
+	#%DialogueOptions.show_options(2)
+	#var option_number = await %DialogueOptions.option_chosen
+	#if option_number == 1:
+
+	#elif option_number == 2:
+		
 
 func later():
 	%DialogueManager.run_dialogue("1Uh... eu faço isso depois.")

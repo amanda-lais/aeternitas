@@ -14,16 +14,11 @@ var inventory
 func action(cal_crucial=false, tdl_crucial=false, alarm_crucial=false):
 	var pos_modifier = 0
 	var neg_modifier = 0
-	print(pos_modifier)
-	print(neg_modifier)
 	pos_modifier += tdl_modifier_calc()
 	pos_modifier += cal_modifier_calc()
 	pos_modifier += alarm_modifier_calc()
 	neg_modifier += mess_modifier_calc()
-	print(pos_modifier)
-	print(neg_modifier)
 	var outcome = randi_range(neg_modifier, 100-pos_modifier)
-	print(outcome)
 	if outcome > 60:
 		return false #fail
 	else:

@@ -3,6 +3,7 @@ extends Sprite2D
 var item_name
 var item_info = {}
 var has_alarm_active
+var is_unlocked = false
 
 signal item_click
 
@@ -24,16 +25,16 @@ var cauldron_d = {
 	}
 
 func audio_collect():
-	$"../../../Inventory/Fruit collect 1_wav".play()
+	$"../../../Gameplay/Inventory/Fruit collect 1_wav".play()
 
 func audio_cant_do():
-	$"../../DialogueOptions/Fantasy_UI cant do".play()
+	$"../../../Gameplay/DialogueOptions/Fantasy_UI cant do".play()
 
 func audio_mine():
-	$"../../../Inventory/Rock Wall 2".play()
+	$"../../../Gameplay/Inventory/Rock Wall 2".play()
 
 func audio_repair():
-	$"../../../Inventory/Sword Parry".play()
+	$"../../../Gameplay/Inventory/Sword Parry".play()
 
 func workbench_lacking():
 	audio_cant_do()
@@ -100,6 +101,9 @@ func repair():
 
 func _ready():
 	$Hover.hide()
+	$"../FruitTree/Hover2".hide()
+	$"../Stone/Hover2".hide()
+	
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -133,6 +137,46 @@ func click_dialogue(prompt):
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()
+	if get_name() == "FruitTree":
+		$Hover2.show()
+		$Hover.play()
+		$"../FruitTree/Tree".hide()
+	elif get_name() == "Stone":
+		$"../Stone/Hover2".show()
+	elif get_name() == "Crops":
+		if %Crops.crop_current_status == "can plant":
+			$"../Crops/Hover".show()
+		elif %Crops.crop_current_status == "planted":
+			$"../Crops/Hover2".show()
+		elif %Crops.crop_current_status == "watered":
+			$"../Crops/Hover2".show()
+			$"../Crops/Hover3".show()
+	elif get_name() == "Workbench":
+		$"../Workbench/Hover2".show()
+	elif get_name() == "Cauldron":
+		$"../Cauldron/Hover2".show()
+	#elif get_name() == "Tower":
+		#$Hover.show()
 
 func _on_area_2d_mouse_exited():
 	$Hover.hide()
+	if get_name() == "FruitTree":
+		$Hover2.hide()
+		$"../FruitTree/Tree".show()
+		$"../FruitTree/Tree".play()
+	elif get_name() == "Stone":
+		$"../Stone/Hover2".hide()
+	elif get_name() == "Crops":
+		if %Crops.crop_current_status == "can plant":
+			$"../Crops/Hover".hide()
+		elif %Crops.crop_current_status == "planted":
+			$"../Crops/Hover2".hide()
+		elif %Crops.crop_current_status == "watered":
+			$"../Crops/Hover2".hide()
+			$"../Crops/Hover3".hide()
+	elif get_name() == "Workbench":
+		$"../Workbench/Hover2".hide()
+	elif get_name() == "Cauldron":
+		$"../Cauldron/Hover2".hide()
+	#elif get_name() == "Tower":
+		#$Tower/Hover.hide()

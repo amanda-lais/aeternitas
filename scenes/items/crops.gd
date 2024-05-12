@@ -78,7 +78,7 @@ func harvest():
 		false, true, false)
 
 func audio_water():
-	$"../../../Inventory/Wave Attack 1".play()
+	$"../../../Gameplay/Inventory/Wave Attack 1".play()
 
 func audio_plant():
-	$"../../../Inventory/Dirt Walk 2".play()
+	$"../../../Gameplay/Inventory/Dirt Walk 2".play()

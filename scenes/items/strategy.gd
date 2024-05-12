@@ -30,10 +30,7 @@ func activate_strategy():
 	update_info()
 
 func set_alarm():
-	print(%Alarm.is_active)
-	crow_audio()
 	%Alarm.is_active = true
-	print(%Alarm.is_active)
 
 func crow_audio():
 	$"Crow Sound".play()
@@ -52,6 +49,29 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func _on_area_2d_mouse_entered():
 	$Hover.show()
+	if get_name() == "Alarm":
+		$Hover3.show()
+		$Hover.play()
+		%Crow.hide()
+	elif get_name() == "Mess":
+		$"../Mess/Hover2".show()
 
 func _on_area_2d_mouse_exited():
 	$Hover.hide()
+	if get_name() == "Alarm":
+		$Hover3.hide()
+		%Crow.show()
+		%Crow.play()
+	elif get_name() == "Mess":
+		$"../Mess/Hover2".hide()
+
+func click_dialogue(prompt):
+	await %DialogueManager.run_dialogue(prompt)
+	%DialogueOptions.default_option_box()
+	%DialogueOptions.show_options(2)
+	var choice = await %DialogueOptions.option_chosen
+	if choice == 1:
+		return true
+	elif choice == 2:
+		%DialogueOptions.cancel_audio()
+		return false
