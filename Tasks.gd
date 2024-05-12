@@ -52,9 +52,7 @@ func _on_inventory_task_finished(task_id):
 	#Task 3 - Repair Staff
 	elif task_id == "RepairStaff":
 		subtask_node[task_id] = get_node("ColorRect/Task3")
-		subtask_node["StaffRepaired"] = get_node("ColorRect/Task3/Subtask2")
 		subtask_node["RepairedStaff"] = get_node("ColorRect/Task4/Subtask2")
-		new.append("StaffRepaired")
 		new.append("RepairedStaff")
 		task_list["StaffRepaired"] = true
 		task_list["RepairedStaff"] = true

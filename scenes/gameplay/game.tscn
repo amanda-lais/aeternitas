@@ -1100,48 +1100,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 text = "X"
 
-[node name="Subtask2" type="Control" parent="Gameplay/Tasks/ColorRect/Task3"]
-layout_mode = 1
-anchor_right = 0.475
-anchor_bottom = 0.576
-offset_top = 100.0
-offset_right = -19.0
-offset_bottom = 40.7965
-script = ExtResource("4_ownjl")
-
-[node name="Description" type="RichTextLabel" parent="Gameplay/Tasks/ColorRect/Task3/Subtask2"]
-layout_mode = 0
-offset_left = 82.0
-offset_top = 167.0
-offset_right = 501.0
-offset_bottom = 228.0
-mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("37_2vt7i")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Fazer o reparo"
-
-[node name="Checkbox" type="ColorRect" parent="Gameplay/Tasks/ColorRect/Task3/Subtask2"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 170.0
-offset_right = 64.0
-offset_bottom = 198.0
-mouse_filter = 2
-color = Color(1, 0.384314, 0, 0.396078)
-
-[node name="Check" type="RichTextLabel" parent="Gameplay/Tasks/ColorRect/Task3/Subtask2/Checkbox"]
-visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = -15.0
-offset_right = 40.0
-offset_bottom = 55.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-text = "X"
-
 [node name="Task4" type="Control" parent="Gameplay/Tasks/ColorRect"]
 layout_mode = 1
 anchor_right = 0.475
